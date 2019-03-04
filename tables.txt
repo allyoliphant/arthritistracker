@@ -15,5 +15,5 @@ CREATE TABLE Entry (
     Day int NOT NULL,
     Month int NOT NULL,
     Year int NOT NULL,
-    Time var(8) NOT NULL
+    Time int NOT NULL
 );
