@@ -1,21 +1,29 @@
 <html>
 	<header>
-		<title>My Account</title>
+		<title>arthritis tracker</title>
 		<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-		<link rel="stylesheet" href="account.css">
+        <link rel="stylesheet" href="account.css">
 	</header>		
 	<body>
 		<div class="sidenav">
-            <a href="../view-all-journals/view-all-journals.html"><img src="../logo.png" width="71px" height="100px"/></a>
-            <a class="button" href="../view-all-journals/view-all-journals.html">My Journals</a>
-            <a class="button current-page">My Account</a>
-            <a class="button" href="../log-out/log-out.html">Log Out</a>
+            <a href="../home/home.html"><img src="../logo.png" width="70px" height="70px"/></a>
+            <a class="button" href="../new-entry/new-entry.html">New Entry</a>
+            <p id="history-section-title">entry history</p>
+            <a class="button" href="../view-all-journals/view-all-journals.html">by year</a>
+            <a class="button" href="../view-all-journals/view-all-journals.html">by month</a>
+            <a class="button" href="../view-all-journals/view-all-journals.html">by day</a>
+            <a class="button" id="account-nav-button" href="../account/account.html">my account</a>
+            <a class="button" href="../account/account.html">logout</a>
 		</div>	
 
 		<div class="main">
             <h1>My Account</h1>
 
 			<form method="POST" action="account-handler.php">
+				<div>
+				    <label>Name</label>
+				    <input type="text" name="name" value="user's name will go here"/>
+				</div>
 				<div>
 				    <label>Username</label>
 				    <input type="text" name="username" value="user's username will go here"/>
@@ -40,7 +48,7 @@
 			
 			<div class="footer">
 				<hr/>
-				Online Bullet Journal | Ally Oliphant | CS 401
+				arthritis tracker | Ally Oliphant | CS401
 			</div>
 		</div>
 	</body>

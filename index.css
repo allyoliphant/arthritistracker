@@ -118,5 +118,8 @@ input {
   color: var(--second-color);
   margin-top: 20px;
   margin-bottom: 15px;
+}
 
+#account-nav-button {
+  margin-top: 25px !important;
 }
