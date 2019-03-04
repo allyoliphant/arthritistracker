@@ -2,7 +2,7 @@
 	<header>
 		<title>arthritis tracker</title>
 		<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-        <link rel="stylesheet" href="account.css">
+        <link rel="stylesheet" href="logout.css">
 	</header>		
 	<body>
 		<div class="sidenav">
@@ -17,33 +17,13 @@
 		</div>	
 
 		<div class="main">
-            <h1>My Account</h1>
-
-			<form method="POST" action="account-handler.php">
-				<div>
-				    <label>Name</label>
-				    <input type="text" name="name" value="user's name will go here"/>
-				</div>
-				<div>
-				    <label>Username</label>
-				    <input type="text" name="username" value="user's username will go here"/>
-				</div>
-				<div>
-				    <label>Password</label>
-				    <input type="password" name="password" value="user's password will go here"/>
-				</div>
-				<div>
-				    <label>Confirm Password</label>
-				    <input type="password" name="confirm-password" value="user's password will go here"/>
-				</div>
-				<div>
-				    <label>Email</label>
-				    <input type="text" name="email" value="user's email will go here"/>
-				</div>
-				<div>
-				    <input class="button" type="submit" value="save"/>
-				</div>
-			</form>
+            <h1>logout</h1>
+            
+            <form method="GET" action="logout-handler.php">
+                <p>Are you sure you want to log out?</p>
+                <input class="button" type="submit" value="yes" name="answer"/>
+                <input class="button" type="submit" value="no" name="answer"/>
+            </form>
 			
 			<div class="footer">
 				<hr/>
