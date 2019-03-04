@@ -1,0 +1,34 @@
+h1, form, div {
+    text-align: left;
+}
+
+td {
+    text-align: center;
+    padding: 5px;
+}
+
+span {
+    margin-right: 10px;
+}
+
+#top-y-value {   
+    padding-bottom: 0px; 
+}
+
+.y-axis {
+    border-right: 1px solid black;
+    padding-bottom: 0px;
+    padding-top: 10px;
+}
+
+.x-axis {
+    border-top: 1px solid black;
+}
+
+.summary {
+    margin-top: 20px;
+}
+
+.summary-section {
+    margin-bottom: 15px;
+}
