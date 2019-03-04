@@ -118,7 +118,7 @@ input {
   font-family: var(--header-font);
   color: var(--second-color);
   margin-top: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 #account-nav-button {
