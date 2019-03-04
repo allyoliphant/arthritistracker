@@ -1,0 +1,18 @@
+@import "../index.css";
+
+h1, form {
+    text-align: left;
+}
+
+input {
+    margin-left: 5px;
+}
+
+.label {
+    margin-top: 15px;
+    width: 100%;   
+}
+
+.button {
+    margin-top: 20px;
+}

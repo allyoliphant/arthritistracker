@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300|Josefin+Slab');
+
+:root {
+  --first-color: #313131;
+  --second-color: #6dcff6;
+  --third-color: #E3E3E3;
+  --background-color: #FAFAFA;
+  --header-font: 'Josefin Sans', sans-serif;
+  --body-font: 'Josefin Slab', serif;
+}
+
+h1 {
+  text-transform: lowercase;
+  font-family: var(--header-font);
+  font-size: 55px;
+}
+
+h2 {
+  font-family: var(--header-font);
+  font-size: 45px;
+}
+
+body {
+  background-color: var(--background-color);
+  text-transform: lowercase;
+  font-size: 20px;
+}
+
+img {
+  margin: 15px auto 35px auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  text-transform: lowercase;
+}
+
+input {
+  margin: 3px;
+  padding: 3px;
+}
+
+.sidenav {
+  height: 100%; 
+  width: 160px; 
+  position: fixed; 
+  top: 0; 
+  left: 0;
+  background-color: var(--first-color); 
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav .button {
+  text-decoration: none;
+  text-align: center;
+  font-size: 20px;
+  font-family: var(--header-font);
+  display: block;
+  background-color: var(--second-color); 
+  color: var(--first-color);
+  padding: 8px;
+  margin: 5px 8px;
+  border-radius: 5px;
+}
+
+.main {
+  padding: 10px 20px 10px 180px;
+  width: auto;
+  height: auto;
+  text-align: center;
+  font-family: var(--body-font);
+}
+
+.button {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+  color: var(--first-color);
+  background-color: var(--second-color);
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  margin: 5px;
+  font-family: var(--body-font);
+}
+
+.button:hover {   
+  text-decoration: none; 
+  color: var(--second-color);
+  background-color: var(--first-color);
+  cursor: pointer; 
+}
+
+.current-page {
+  color: var(--first-color) !important;
+  background-color: var(--third-color) !important;
+}
+
+.footer {  
+  display: flow-root;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  margin-top: 100px;
+  bottom: 0;
+  padding: 5px;
+  padding-bottom: 0;
+  font-family: var(--header-font);
+  font-size: 11px;
+}
+
+#history-section-title {
+  text-align: center;
+  font-size: 25px;
+  font-family: var(--header-font);
+  color: var(--second-color);
+  margin-top: 20px;
+  margin-bottom: 15px;
+
+}
