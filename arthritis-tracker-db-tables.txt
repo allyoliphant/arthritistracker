@@ -15,5 +15,5 @@ CREATE TABLE Entry (
     Day int NOT NULL,
     Month int NOT NULL,
     Year int NOT NULL,
-    Time int NOT NULL
+    TimeRange int NOT NULL
 );
