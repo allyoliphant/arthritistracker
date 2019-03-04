@@ -1,0 +1,47 @@
+<html>
+	<header>
+		<title>My Account</title>
+		<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+		<link rel="stylesheet" href="account.css">
+	</header>		
+	<body>
+		<div class="sidenav">
+            <a href="../view-all-journals/view-all-journals.html"><img src="../logo.png" width="71px" height="100px"/></a>
+            <a class="button" href="../view-all-journals/view-all-journals.html">My Journals</a>
+            <a class="button current-page">My Account</a>
+            <a class="button" href="../log-out/log-out.html">Log Out</a>
+		</div>	
+
+		<div class="main">
+            <h1>My Account</h1>
+
+			<form method="POST" action="account-handler.php">
+				<div>
+				    <label>Username</label>
+				    <input type="text" name="username" value="user's username will go here"/>
+				</div>
+				<div>
+				    <label>Password</label>
+				    <input type="password" name="password" value="user's password will go here"/>
+				</div>
+				<div>
+				    <label>Confirm Password</label>
+				    <input type="password" name="confirm-password" value="user's password will go here"/>
+				</div>
+				<div>
+				    <label>Email</label>
+				    <input type="text" name="email" value="user's email will go here"/>
+				</div>
+				<div>
+				    <input class="button" type="submit" value="Save"/>
+				</div>
+			  </form>
+			</form>
+			
+			<div class="footer">
+				<hr/>
+				Online Bullet Journal | Ally Oliphant | CS 401
+			</div>
+		</div>
+	</body>
+</html>
