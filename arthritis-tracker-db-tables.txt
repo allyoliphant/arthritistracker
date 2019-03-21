@@ -1,19 +1,19 @@
 CREATE TABLE User (
-    Id int auto_increment PRIMARY KEY,
-    Name varchar(20) NOT NULL,
-    Username varchar(20) NOT NULL,
-    Password varchar(20) NOT NULL,
-    Email varchar(30) NOT NULL 
+    ID int auto_increment PRIMARY KEY,
+    Name varchar(30) NOT NULL,
+    Username varchar(30) NOT NULL UNIQUE,
+    Password varchar(30) NOT NULL,
+    Email varchar(40) NOT NULL 
 );
 
 CREATE TABLE Entry (
-    Id int auto_increment PRIMARY KEY,
-    UserId int NOT NULL,
+    ID int auto_increment PRIMARY KEY,
+    UserID int NOT NULL,
     Side varchar(5) NOT NULL,
     Joint varchar(8) NOT NULL,
     PainLevel int DEFAULT 0,
+    Time TIME NOT NULL,
     Day int NOT NULL,
     Month int NOT NULL,
-    Year int NOT NULL,
-    TimeRange int NOT NULL
+    Year int NOT NULL
 );
