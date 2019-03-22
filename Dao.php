@@ -14,16 +14,16 @@
             return $conn->query("SELECT * FROM User WHERE Username = '$username'", PDO::FETCH_ASSOC);
         }
 
-        // return true is username is available, false otherwise
+        // return true if username is available, false otherwise
         public function checkIfAvailable($username) {
             $conn = $this->getConnection();
             $result = $conn->query("SELECT Username FROM User WHERE Username = '$username'", PDO::FETCH_ASSOC);
-            return $user->rowCount() <= 0;
+            return $result == null || $result->rowCount() <= 0;
         }
 
         public function createUser($name, $username, $password, $email) {
             $conn = $this->getConnection();
-            $saveQuery = "insert into User (Name, Username, Password, Email) values (':name', ':username', ':password', ':email');";
+            $saveQuery = "insert into User (Name, Username, Password, Email) values (:name, :username, :password, :email);";
             $q = $conn->prepare($saveQuery);
             $q->bindParam(":name", $name);
             $q->bindParam(":username", $username);

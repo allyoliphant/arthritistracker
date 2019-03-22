@@ -1,11 +1,19 @@
 <?php
 
-    // check that the username, password, and email are valid
-    
-    // if invalid
-    // display error message
+    require_once '../Dao.php';
+    $dao = new Dao();
 
-    // else
-    // add to database and login
-    header("Location: ../home/home.html"); 
+    // check that the username hasn't been taken
+    if($dao->checkIfAvailable($_POST['username'])) {
+
+        // create user
+        $dao->createUser($_POST['name'], $_POST['username'], $_POST['password'], $_POST['email']);
+        
+        header("Location: ../home/home.html"); 
+        exit();
+    }
+        
+    header("Location: ./register.html"); 
     exit();
+
+?>
