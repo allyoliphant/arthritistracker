@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <html>
 	<header>
 		<title>arthritis tracker</title>
@@ -16,12 +20,26 @@
 			<form method="POST" action="login-handler.php">
                 <div>
                     <label>Username</label>
-                    <input type="text" name="username" required pattern="[A-za-z0-9]{5,}"/>
+                    <?php
+                        if (isset($_SESSION['username'])) {
+                            echo "<input type='text' name='username' value='" . $_SESSION['username'] . "' required pattern='[A-za-z0-9]{5,}'/>";
+                        }
+                        else {
+                            echo "<input type='text' name='username' required pattern='[A-za-z0-9]{5,}'/>";
+                        }
+                        unset($_SESSION['username']);
+                    ?>
                 </div>
                 <div>
                     <label>Password</label>
                     <input type="password" name="password" required pattern="[A-za-z0-9]{5,}"/>
                 </div>
+                <?php
+                    if (isset($_SESSION['message'])) {
+                        echo "<div id='error'>" . $_SESSION['message'] . "</div>";
+                    }
+                    unset($_SESSION['message']);
+                ?>
                 <div>
                     <input class="button" type="submit" value="login"/>
                 </div>

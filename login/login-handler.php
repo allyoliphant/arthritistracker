@@ -1,5 +1,7 @@
 <?php
 
+    session_start();
+
     require_once '../Dao.php';
     $dao = new Dao();
 
@@ -13,12 +15,22 @@
 
         // check that the password entered and password returned match
         if($userinfo['Password'] == $_POST['password']) {
+            $_SESSION['logged_in'] = true;
             header("Location: ../home/home.php");  
             exit();
         }
+        else {
+            $_SESSION['username'] = $_POST['username'];
+            $_SESSION['message'] = "Password and username do not match";
+        }
+    }
+    else {
+        $_SESSION['username'] = $_POST['username'];
+        $_SESSION['message'] = "Username does not match an account";
     }
 
     header("Location: ./login.php");  
     exit();
-    ?>
+
+?>
 

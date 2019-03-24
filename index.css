@@ -112,6 +112,13 @@ input {
   font-size: 11px;
 }
 
+#error {
+  margin: 10px !important;
+  color: red !important;
+  font-weight: bold !important;
+  font-size: 80% !important;
+}
+
 #history-section-title {
   text-align: center;
   font-size: 25px;

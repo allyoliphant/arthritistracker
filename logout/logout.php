@@ -1,3 +1,13 @@
+<?php
+	session_start();
+
+	if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
+		$_SESSION['message'] = "Please login to view";
+		header("Location: ../login/login.php");
+		exit();
+	}
+?>
+
 <html>
 	<header>
 		<title>arthritis tracker</title>
