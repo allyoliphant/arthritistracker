@@ -7,5 +7,5 @@
 
     // else
     // update database and display success message
-    header("Location: account.html");  
+    header("Location: account.php");  
     exit();

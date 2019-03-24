@@ -13,12 +13,12 @@
 
         // check that the password entered and password returned match
         if($userinfo['Password'] == $_POST['password']) {
-            header("Location: ../home/home.html");  
+            header("Location: ../home/home.php");  
             exit();
         }
     }
 
-    header("Location: ./login.html");  
+    header("Location: ./login.php");  
     exit();
     ?>
 

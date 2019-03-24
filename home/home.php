@@ -7,20 +7,20 @@
 	<body>
 		<div class="sidenav">
             <img src="../logo.png" width="70px" height="70px"/>
-            <a class="button" href="../new-entry/new-entry.html">New Entry</a>
+            <a class="button" href="../new-entry/new-entry.php">New Entry</a>
             <p id="history-section-title">entry history</p>
-            <a class="button" href="../entry-history/year/year.html">by year</a>
-            <a class="button" href="../entry-history/month/month.html">by month</a>
-            <a class="button" href="../entry-history/day/day.html">by day</a>
-            <a class="button" id="account-nav-button" href="../account/account.html">account</a>
-            <a class="button" href="../logout/logout.html">logout</a>
+            <a class="button" href="../entry-history/year/year.php">by year</a>
+            <a class="button" href="../entry-history/month/month.php">by month</a>
+            <a class="button" href="../entry-history/day/day.php">by day</a>
+            <a class="button" id="account-nav-button" href="../account/account.php">account</a>
+            <a class="button" href="../logout/logout.php">logout</a>
 		</div>	
 
 		<div class="main">
 			<h1>welcome</h1>
             <h2>user's name here</h2>
             
-            <a class="button" href="../new-entry/new-entry.html">new entry</a>
+            <a class="button" href="../new-entry/new-entry.php">new entry</a>
 
 			<div class="footer">
 				<hr/>

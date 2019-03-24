@@ -9,11 +9,11 @@
         // create user
         $dao->createUser($_POST['name'], $_POST['username'], $_POST['password'], $_POST['email']);
         
-        header("Location: ../home/home.html"); 
+        header("Location: ../home/home.php"); 
         exit();
     }
         
-    header("Location: ./register.html"); 
+    header("Location: ./register.php"); 
     exit();
 
 ?>
