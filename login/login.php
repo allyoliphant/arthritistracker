@@ -22,17 +22,17 @@
                     <label>Username</label>
                     <?php
                         if (isset($_SESSION['username'])) {
-                            echo "<input type='text' name='username' value='" . $_SESSION['username'] . "' required pattern='[A-za-z0-9]{5,}'/>";
+                            echo "<input type='text' name='username' value='" . $_SESSION['username'] . "'/>";
                         }
                         else {
-                            echo "<input type='text' name='username' required pattern='[A-za-z0-9]{5,}'/>";
+                            echo "<input type='text' name='username'/>";
                         }
                         unset($_SESSION['username']);
                     ?>
                 </div>
                 <div>
                     <label>Password</label>
-                    <input type="password" name="password" required pattern="[A-za-z0-9]{5,}"/>
+                    <input type="password" name="password"/>
                 </div>
                 <?php
                     if (isset($_SESSION['message'])) {

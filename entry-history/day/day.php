@@ -23,7 +23,7 @@
             <a class="button" href="../month/month.php">by month</a>
             <a class="button current-page" href="../day/day.php">by day</a>
             <a class="button" id="account-nav-button" href="../../account/account.php">my account</a>
-            <a class="button" href="../logout/logout.php">logout</a>
+            <a class="button" href="../../logout/logout.php">logout</a>
 		</div>	
 
 		<div class="main">

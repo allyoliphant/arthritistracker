@@ -15,9 +15,16 @@
         }
 
         // return true if username is available, false otherwise
-        public function checkIfAvailable($username) {
+        public function usernameAvailable($username) {
             $conn = $this->getConnection();
             $result = $conn->query("SELECT Username FROM User WHERE Username = '$username'", PDO::FETCH_ASSOC);
+            return $result == null || $result->rowCount() <= 0;
+        }
+
+        // return true if email is available, false otherwise
+        public function emailAvailable($email) {
+            $conn = $this->getConnection();
+            $result = $conn->query("SELECT Email FROM User WHERE Email = '$email'", PDO::FETCH_ASSOC);
             return $result == null || $result->rowCount() <= 0;
         }
 

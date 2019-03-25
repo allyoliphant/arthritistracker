@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <html>
     <html>
         <header>
@@ -17,11 +21,27 @@
 			<form method="POST" action="register-handler.php">
                 <div>
                     <label>Name</label> 
-                    <input type="text" name="name"/>
+                    <?php
+                        if (isset($_SESSION['name'])) {
+                            echo "<input type='text' name='name' value='" . $_SESSION['name'] . "'/>";
+                        }
+                        else {
+                            echo "<input type='text' name='name'/>";
+                        }
+                        unset($_SESSION['name']);
+                    ?>
                 </div>
                 <div>
                     <label>Username</label>
-                    <input type="text" name="username"/>
+                    <?php
+                        if (isset($_SESSION['username'])) {
+                            echo "<input type='text' name='username' value='" . $_SESSION['username'] . "'/>";
+                        }
+                        else {
+                            echo "<input type='text' name='username'/>";
+                        }
+                        unset($_SESSION['username']);
+                    ?>
                 </div>
                 <div>
                     <label>Password</label>
@@ -33,8 +53,22 @@
                 </div>
                 <div>
                     <label>Email</label>
-                    <input type="text" name="email"/>
+                    <?php
+                        if (isset($_SESSION['email'])) {
+                            echo "<input type='text' name='email' value='" . $_SESSION['email'] . "'/>";
+                        }
+                        else {
+                            echo "<input type='text' name='email'/>";
+                        }
+                        unset($_SESSION['email']);
+                    ?>
                 </div>
+                <?php
+                    if (isset($_SESSION['message'])) {
+                        echo "<div id='error'>" . $_SESSION['message'] . "</div>";
+                    }
+                    unset($_SESSION['message']);
+                ?>
                 <div>
                     <input class="button" type="submit" value="register"/>
                 </div>
