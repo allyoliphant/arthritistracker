@@ -8,8 +8,8 @@
     if ($_POST['username'] != "" && $_POST['password'] != "") {        
         $user = $dao->getUser($_POST['username']); 
 
-        // check that a user was returned
-        if ($user->rowCount() > 0) {
+        // check that one user was returned
+        if ($user->rowCount() == 1) {
 
             // get an array of the user indexed by column name
             $userinfo = $user->fetch(PDO::FETCH_ASSOC);
@@ -31,8 +31,9 @@
         else {
             $_SESSION['message'] = "Username does not match an account";
         }
-    }{
-        $_SESSION['message'] = "Please enter a username and password";
+    }
+    else {
+        $_SESSION['message'] = "Please enter an username and password";
     }    
 
     $_SESSION['error'] = true;
