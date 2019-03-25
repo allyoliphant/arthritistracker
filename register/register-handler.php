@@ -43,6 +43,7 @@
         $_SESSION['message'] = "Please fill out all fields";
     }
         
+    $_SESSION['error'] = true;
     $_SESSION['name'] = $_POST['name']; 
     $_SESSION['username'] = $_POST['username'];  
     $_SESSION['email'] = $_POST['email'];       

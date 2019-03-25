@@ -99,6 +99,10 @@ input {
   background-color: var(--third-color) !important;
 }
 
+.name {
+  text-transform: none;
+}
+
 .footer {  
   display: flow-root;
   text-align: center;

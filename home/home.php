@@ -28,7 +28,7 @@
 
 		<div class="main">
 			<h1>welcome</h1>
-            <h2>user's name here</h2>
+			<?php echo "<h2 class='name'>" . $_SESSION['name'] . "</h2>"; ?>
             
             <a class="button" href="../new-entry/new-entry.php">new entry</a>
 

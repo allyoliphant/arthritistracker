@@ -22,24 +22,26 @@
                 <div>
                     <label>Name</label> 
                     <?php
-                        if (isset($_SESSION['name'])) {
+                        if (isset($_SESSION['error'])) {
                             echo "<input type='text' name='name' value='" . $_SESSION['name'] . "'/>";
                         }
                         else {
                             echo "<input type='text' name='name'/>";
                         }
+                        unset($_SESSION['error']);
                         unset($_SESSION['name']);
                     ?>
                 </div>
                 <div>
                     <label>Username</label>
                     <?php
-                        if (isset($_SESSION['username'])) {
+                        if (isset($_SESSION['error'])) {
                             echo "<input type='text' name='username' value='" . $_SESSION['username'] . "'/>";
                         }
                         else {
                             echo "<input type='text' name='username'/>";
                         }
+                        unset($_SESSION['error']);
                         unset($_SESSION['username']);
                     ?>
                 </div>
@@ -54,19 +56,21 @@
                 <div>
                     <label>Email</label>
                     <?php
-                        if (isset($_SESSION['email'])) {
+                        if (isset($_SESSION['error'])) {
                             echo "<input type='text' name='email' value='" . $_SESSION['email'] . "'/>";
                         }
                         else {
                             echo "<input type='text' name='email'/>";
                         }
+                        unset($_SESSION['error']);
                         unset($_SESSION['email']);
                     ?>
                 </div>
                 <?php
-                    if (isset($_SESSION['message'])) {
+                    if (isset($_SESSION['error'])) {
                         echo "<div id='error'>" . $_SESSION['message'] . "</div>";
                     }
+                    unset($_SESSION['error']);
                     unset($_SESSION['message']);
                 ?>
                 <div>

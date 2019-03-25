@@ -21,12 +21,13 @@
                 <div>
                     <label>Username</label>
                     <?php
-                        if (isset($_SESSION['username'])) {
+                        if (isset($_SESSION['error'])) {
                             echo "<input type='text' name='username' value='" . $_SESSION['username'] . "'/>";
                         }
                         else {
                             echo "<input type='text' name='username'/>";
                         }
+                        unset($_SESSION['error']);
                         unset($_SESSION['username']);
                     ?>
                 </div>
@@ -35,9 +36,10 @@
                     <input type="password" name="password"/>
                 </div>
                 <?php
-                    if (isset($_SESSION['message'])) {
+                    if (isset($_SESSION['error'])) {
                         echo "<div id='error'>" . $_SESSION['message'] . "</div>";
                     }
+                    unset($_SESSION['error']);
                     unset($_SESSION['message']);
                 ?>
                 <div>

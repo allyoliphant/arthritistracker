@@ -25,7 +25,7 @@
                 exit();
             }
             else {
-                $_SESSION['message'] = "Password and username do not match";
+                $_SESSION['message'] = "Username and password do not match";
             }
         }
         else {
@@ -35,6 +35,7 @@
         $_SESSION['message'] = "Please enter a username and password";
     }    
 
+    $_SESSION['error'] = true;
     $_SESSION['username'] = $_POST['username'];
     header("Location: ./login.php");  
     exit();
