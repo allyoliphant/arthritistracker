@@ -20,26 +20,16 @@
             <h2>register</h2>
 			<form method="POST" action="register-handler.php">
                 <div>
-                    <label>Name</label> 
-                    <?php
-                        if (isset($_SESSION['input']['name'])) {
-                            echo "<input type='text' name='name' value='" . $_SESSION['input']['name'] . "'/>";
-                        }
-                        else {
-                            echo "<input type='text' name='name'/>";
-                        }
-                    ?>
+                    <label>Name</label>                   
+                    <input type="text" name="name"
+                        value="<?php echo isset($_SESSION['input']['name']) ? $_SESSION['input']['name'] : ''; 
+                            unset($_SESSION['input']['name']); ?>"/>
                 </div>
                 <div>
-                    <label>Username</label>
-                    <?php
-                        if (isset($_SESSION['input']['username'])) {
-                            echo "<input type='text' name='username' value='" . $_SESSION['input']['username'] . "'/>";
-                        }
-                        else {
-                            echo "<input type='text' name='username'/>";
-                        }
-                    ?>
+                    <label>Username</label>                   
+                    <input type="text" name="username"
+                        value="<?php echo isset($_SESSION['input']['username']) ? $_SESSION['input']['username'] : ''; 
+                            unset($_SESSION['input']['username']); ?>"/>
                 </div>
                 <div>
                     <label>Password</label>
@@ -50,16 +40,10 @@
                     <input type="password" name="confirm-password"/>
                 </div>
                 <div>
-                    <label>Email</label>
-                    <?php
-                        if (isset($_SESSION['input']['email'])) {
-                            echo "<input type='text' name='email' value='" . $_SESSION['input']['email'] . "'/>";
-                        }
-                        else {
-                            echo "<input type='text' name='email'/>";
-                        }
-                        unset($_SESSION['input']);
-                    ?>
+                    <label>Email</label>                  
+                    <input type="text" name="email"
+                        value="<?php echo isset($_SESSION['input']['email']) ? $_SESSION['input']['email'] : ''; 
+                            unset($_SESSION['input']['email']); ?>"/>
                 </div>
                 <?php
                     if (isset($_SESSION['messages'])) {

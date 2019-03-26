@@ -17,7 +17,7 @@
             // check that the password entered and password returned match
             if($userinfo['Password'] == $_POST['password']) {
                 $_SESSION['logged_in'] = true;    
-                $_SESSION['userInfo'] = $userinfo;
+                $_SESSION['userinfo'] = $userinfo;
                 header("Location: ../home/home.php");  
                 exit();
             }

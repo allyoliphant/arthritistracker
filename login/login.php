@@ -19,16 +19,10 @@
             <h2>login</h2>
 			<form method="POST" action="login-handler.php">
                 <div>
-                    <label>Username</label>
-                    <?php
-                        if (isset($_SESSION['username'])) {
-                            echo "<input type='text' name='username' value='" . $_SESSION['username'] . "'/>";
-                        }
-                        else {
-                            echo "<input type='text' name='username'/>";
-                        }
-                        unset($_SESSION['username']);
-                    ?>
+                    <label>Username</label>                    
+                    <input type="text" name="username"
+                        value="<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : ''; unset($_SESSION['username']); ?>"/>
+                </div>
                 </div>
                 <div>
                     <label>Password</label>

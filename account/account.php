@@ -32,24 +32,37 @@
 			<form method="POST" action="account-handler.php">
 				<div>
 				    <label>Name</label>
-				    <input type="text" name="name" value="user's name will go here"/>
+					<input type="text" name="name" 
+						value="<?php echo isset($_SESSION['userinfo']['Name']) ? $_SESSION['userinfo']['Name'] : ''; ?>"/>
 				</div>
 				<div>
 				    <label>Username</label>
-				    <input type="text" name="username" value="user's username will go here"/>
+				    <input type="text" name="username"
+						value="<?php echo isset($_SESSION['userinfo']['Username']) ? $_SESSION['userinfo']['Username'] : ''; ?>"/>
 				</div>
 				<div>
 				    <label>Password</label>
-				    <input type="password" name="password" value="user's password will go here"/>
+				    <input type="password" name="password"
+						value="<?php echo isset($_SESSION['userinfo']['Password']) ? $_SESSION['userinfo']['Password'] : ''; ?>"/>
 				</div>
 				<div>
 				    <label>Confirm Password</label>
-				    <input type="password" name="confirm-password" value="user's password will go here"/>
+				    <input type="password" name="confirm-password"
+						value="<?php echo isset($_SESSION['userinfo']['Password']) ? $_SESSION['userinfo']['Password'] : ''; ?>"/>
 				</div>
 				<div>
 				    <label>Email</label>
-				    <input type="text" name="email" value="user's email will go here"/>
+				    <input type="text" name="email"
+						value="<?php echo isset($_SESSION['userinfo']['Email']) ? $_SESSION['userinfo']['Email'] : ''; ?>"/>
 				</div>
+                <?php
+                    if (isset($_SESSION['messages'])) {
+                        foreach($_SESSION['messages'] as $message) {
+                        echo "<div class='error-message'>{$message}</div>";
+                        }
+                    }
+                    unset($_SESSION['messages']);
+                ?>
 				<div>
 				    <input class="button" type="submit" value="save"/>
 				</div>
