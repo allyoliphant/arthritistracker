@@ -22,25 +22,23 @@
                 <div>
                     <label>Name</label> 
                     <?php
-                        if (isset($_SESSION['error']) && isset($_SESSION['name'])) {
-                            echo "<input type='text' name='name' value='" . $_SESSION['name'] . "'/>";
+                        if (isset($_SESSION['input']['name'])) {
+                            echo "<input type='text' name='name' value='" . $_SESSION['input']['name'] . "'/>";
                         }
                         else {
                             echo "<input type='text' name='name'/>";
                         }
-                        unset($_SESSION['name']);
                     ?>
                 </div>
                 <div>
                     <label>Username</label>
                     <?php
-                        if (isset($_SESSION['error']) && isset($_SESSION['username'])) {
-                            echo "<input type='text' name='username' value='" . $_SESSION['username'] . "'/>";
+                        if (isset($_SESSION['input']['username'])) {
+                            echo "<input type='text' name='username' value='" . $_SESSION['input']['username'] . "'/>";
                         }
                         else {
                             echo "<input type='text' name='username'/>";
                         }
-                        unset($_SESSION['username']);
                     ?>
                 </div>
                 <div>
@@ -54,21 +52,22 @@
                 <div>
                     <label>Email</label>
                     <?php
-                        if (isset($_SESSION['error']) && isset($_SESSION['email'])) {
-                            echo "<input type='text' name='email' value='" . $_SESSION['email'] . "'/>";
+                        if (isset($_SESSION['input']['email'])) {
+                            echo "<input type='text' name='email' value='" . $_SESSION['input']['email'] . "'/>";
                         }
                         else {
                             echo "<input type='text' name='email'/>";
                         }
-                        unset($_SESSION['error']);
-                        unset($_SESSION['email']);
+                        unset($_SESSION['input']);
                     ?>
                 </div>
                 <?php
-                    if (isset($_SESSION['message'])) {
-                        echo "<div id='error'>" . $_SESSION['message'] . "</div>";
+                    if (isset($_SESSION['messages'])) {
+                        foreach($_SESSION['messages'] as $message) {
+                        echo "<div class='error-message'>{$message}</div>";
+                        }
                     }
-                    unset($_SESSION['message']);
+                    unset($_SESSION['messages']);
                 ?>
                 <div>
                     <input class="button" type="submit" value="register"/>

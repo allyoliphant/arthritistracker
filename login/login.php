@@ -21,13 +21,12 @@
                 <div>
                     <label>Username</label>
                     <?php
-                        if (isset($_SESSION['error']) && isset($_SESSION['username'])) {
+                        if (isset($_SESSION['username'])) {
                             echo "<input type='text' name='username' value='" . $_SESSION['username'] . "'/>";
                         }
                         else {
                             echo "<input type='text' name='username'/>";
                         }
-                        unset($_SESSION['error']);
                         unset($_SESSION['username']);
                     ?>
                 </div>

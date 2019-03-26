@@ -3,50 +3,73 @@
     session_start();
 
     require_once '../Dao.php';
+    require_once '../regx.php';
     $dao = new Dao();
+    $regx = new RegX();
 
-    if ($_POST['name'] != "" && $_POST['username'] != "" && $_POST['password'] != "" 
-        && $_POST['confirm-password'] != "" && $_POST['email'] != "") {    
-        // check that the email isn't already used
-        if($dao->emailAvailable($_POST['email'])) {        
-            // check that the username hasn't been taken
-            if($dao->usernameAvailable($_POST['username'])) {
-                // check that the passwords match
-                if ($_POST['password'] === $_POST['confirm-password']) {
-                    // create user
-                    $dao->createUser($_POST['name'], $_POST['username'], $_POST['password'], $_POST['email']);
+    $messages = array();
+    $inputsValid = true;
+    
+    // check that all inputs are filled
+    if ($_POST['name']=="" || $_POST['username']=="" || $_POST['password']=="" || $_POST['confirm-password']=="" || $_POST['email']=="") { 
+        $messages[] = "Please fill out all fields"; 
+        $inputsValid = false;        
+    }
+    // check that email is not already in use
+    if($_POST['email'] != "" && !$dao->emailAvailable($_POST['email'])) {  
+        $messages[] = "Email is already in use";
+        $inputsValid = false; 
+    }
+    // check that username is not already taken
+    if($_POST['username'] != "" && !$dao->usernameAvailable($_POST['username'])) {
+        $messages[] = "Username is taken";
+        $inputsValid = false; 
+    }
+    // check that the passwords match
+    if ($_POST['password'] !== $_POST['confirm-password']) {
+        $messages[] = "Passwords do not match";
+        $inputsValid = false; 
+    }
+    // check if name fits the required pattern
+    if ($_POST['name'] != "" && !$regx->nameValid($_POST['name'])) {
+        $messages[] = "name: at least one letter, max 30 characters, and contain only letters and spaces";
+        $inputsValid = false; 
+    }
+    // check if username fits the required pattern
+    if ($_POST['username'] != "" && !$regx->usernameValid($_POST['username'])) {
+        $messages[] = "username: 6 to 30 characters and contain only letters and numbers";
+        $inputsValid = false; 
+    }
+    // check if the passwords fits the required pattern
+    if ($_POST['password'] != "" && !$regx->passwordValid($_POST['password']) ||
+        $_POST['confirm-password'] != "" && !$regx->passwordValid($_POST['confirm-password'])) {
+        $messages[] = "password: 6 to 30 characters, and at least 1 letter, 1 number, and 1 special character (!, @, #, $, %, &, ?, -, _)";
+        $inputsValid = false; 
+    }
+    // check if email fits the required pattern
+    if ($_POST['email'] != "" && !$regx->emailValid($_POST['email'])) {
+        $messages[] = "email: must be a valid email";
+        $inputsValid = false; 
+    }
+
+
+    // input is valid
+    if ($inputsValid) {
+        // create user
+        $dao->createUser($_POST['name'], $_POST['username'], $_POST['password'], $_POST['email']);
                     
-                    $user = $dao->getUser($_POST['username']);
-                    $userinfo = $user->fetch(PDO::FETCH_ASSOC);
+        $user = $dao->getUser($_POST['username']);
+        $userinfo = $user->fetch(PDO::FETCH_ASSOC);
 
-                    $_SESSION['logged_in'] = true;  
-                    $_SESSION['id'] = $userinfo['ID'];       
-                    $_SESSION['name'] = $_POST['name']; 
-                    $_SESSION['username'] = $_POST['username'];  
-                    $_SESSION['email'] = $_POST['email']; 
-                    header("Location: ../home/home.php"); 
-                    exit();
-                }
-                else { 
-                    $_SESSION['message'] = "Passwords do not match";
-                }        
-            }
-            else {        
-                $_SESSION['message'] = "Username is taken";
-            }
-        }
-        else {        
-            $_SESSION['message'] = "Email is already in use";
-        }           
-    }
-    else {        
-        $_SESSION['message'] = "Please fill out all fields";
-    }
+        $_SESSION['logged_in'] = true;  
+        $_SESSION['userinfo'] = $userinfo;  
+        header("Location: ../home/home.php"); 
+        exit(); 
+    }      
+
         
-    $_SESSION['error'] = true;  
-    $_SESSION['name'] = $_POST['name']; 
-    $_SESSION['username'] = $_POST['username'];  
-    $_SESSION['email'] = $_POST['email'];      
+    $_SESSION['input'] = $_POST; 
+    $_SESSION['messages'] = $messages;     
     header("Location: ./register.php"); 
     exit();
 

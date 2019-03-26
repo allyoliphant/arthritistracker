@@ -116,11 +116,11 @@ input {
   font-size: 11px;
 }
 
-#error {
+.error-message {
   margin: 10px !important;
   color: red !important;
   font-weight: bold !important;
-  font-size: 80% !important;
+  font-size: 70% !important;
 }
 
 #history-section-title {
