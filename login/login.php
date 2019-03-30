@@ -29,8 +29,10 @@
                 </div>
                 <?php
                     if (isset($_SESSION['message'])) {
-                        echo "<div id='error'>" . $_SESSION['message'] . "</div>";
+						$type = isset($_SESSION['good']) ? 'good' : 'error';
+                        echo "<div class='message {$type}'>" . $_SESSION['message'] . "</div>";
                     }
+                    unset($_SESSION['good']);
                     unset($_SESSION['message']);
                 ?>
                 <div>

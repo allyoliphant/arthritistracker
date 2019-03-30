@@ -62,7 +62,8 @@
         $userinfo = $user->fetch(PDO::FETCH_ASSOC);
 
         $_SESSION['logged_in'] = true;  
-        $_SESSION['userInfo'] = $userinfo;  
+        $_SESSION['good'] = true; 
+        $_SESSION['userinfo'] = $userinfo;  
         header("Location: ../home/home.php"); 
         exit(); 
     }      

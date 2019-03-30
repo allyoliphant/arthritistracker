@@ -6,7 +6,9 @@
         private $pass = "bcb11a77";
         
         private function getConnection () {
-            return new PDO("mysql:host={$this->host};dbname={$this->db}", $this->user, $this->pass);
+            $conn = new PDO("mysql:host={$this->host};dbname={$this->db}", $this->user, $this->pass);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $conn;
         }
 
         public function getUser($username) {
@@ -30,7 +32,18 @@
 
         public function createUser($name, $username, $password, $email) {
             $conn = $this->getConnection();
-            $saveQuery = "insert into User (Name, Username, Password, Email) values (:name, :username, :password, :email);";
+            $saveQuery = "INSERT INTO User (Name, Username, Password, Email) VALUES (:name, :username, :password, :email)";
+            $q = $conn->prepare($saveQuery);
+            $q->bindParam(":name", $name);
+            $q->bindParam(":username", $username);
+            $q->bindParam(":password", $password);
+            $q->bindParam(":email", $email);
+            $q->execute();
+        }
+
+        public function updateUser($name, $username, $password, $email, $id) {
+            $conn = $this->getConnection();
+            $saveQuery = "UPDATE User SET Name = :name, Username = :username, Password = :password, Email = :email WHERE ID = $id";
             $q = $conn->prepare($saveQuery);
             $q->bindParam(":name", $name);
             $q->bindParam(":username", $username);

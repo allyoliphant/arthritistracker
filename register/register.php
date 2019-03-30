@@ -36,7 +36,7 @@
                     <input type="password" name="password"/>
                 </div>
                 <div>
-                    <label>Confirm Password</label>
+                    <label>Re-enter Password</label>
                     <input type="password" name="confirm-password"/>
                 </div>
                 <div>
@@ -48,9 +48,11 @@
                 <?php
                     if (isset($_SESSION['messages'])) {
                         foreach($_SESSION['messages'] as $message) {
-                        echo "<div class='error-message'>{$message}</div>";
+						$type = isset($_SESSION['good']) ? 'good' : 'error';
+                        echo "<div class='message {$type}'>{$message}</div>";
                         }
-                    }
+					}
+                    unset($_SESSION['good']);
                     unset($_SESSION['messages']);
                 ?>
                 <div>
