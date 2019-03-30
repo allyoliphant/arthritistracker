@@ -23,7 +23,6 @@
                     <input type="text" name="username"
                         value="<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : ''; unset($_SESSION['username']); ?>"/>
                 </div>
-                </div>
                 <div>
                     <label>Password</label>
                     <input type="password" name="password"/>
