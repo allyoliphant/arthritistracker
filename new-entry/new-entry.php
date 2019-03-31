@@ -82,6 +82,12 @@
                     unset($_SESSION['good']);
                     unset($_SESSION['messages']);
                 ?>
+                <?php
+                    if (isset($_SESSION['input'])) {
+                        echo "<div>" . print_r($_SESSION['input'], 1)  . "</div>";
+					}
+                    unset($_SESSION['input']);
+                ?>
                 <div>
                     <input class="button" type="submit" value="add"/>  
                 </div>

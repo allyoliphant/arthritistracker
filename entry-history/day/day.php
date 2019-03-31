@@ -29,18 +29,21 @@
 		<div class="main">
             <h1>entry history</h1>
 
-            <form>
-                <label>month:</label>
-                <input type="number" min="1" max="12" step="1" name="month"/>
-                <label>year:</label>
-                <input type="number" min="1900" max="2019" step="1" name="year"/>
+            <form method="GET" action="day-handler.php">                
                 <label>day:</label>
-                <input type="number" min="1" max="31" step="1" name="day"/>
+                <input type="date" name="date" min="1990-01-01"
+                <?php
+                    date_default_timezone_set('America/Boise');
+                    $date = date("Y-m-d");
+                    echo "max='{$date}'";
+                    echo "value='{$date}'";                        
+                ?>/> 
                 <input class="button" type="submit" value="view entries"/>
             </form>
 
-            <div class="result">
-                <div>Day: ##-##-####</div>
+            <div class="result <?php echo isset($_SESSION['show']) ? $_SESSION['show'] : ''; 
+                            unset($_SESSION['show']); ?>">
+                <div class="date">History for: <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date'; ?></div>
                 <table>
                     <tr>
                         <td>total</td>
@@ -93,12 +96,19 @@
                 <div class="summary">    
                     <div class="summary-section">
                         <div>pain level</div>
-                        <span>average: #</span>
-                        <span>min: #</span>
-                        <span>max: #</span>
+                        <span>average: <?php echo $_SESSION['painStats']['Avg']; ?></span>
+                        <span>min: <?php echo $_SESSION['painStats']['Min']; ?></span>
+                        <span>max: <?php echo $_SESSION['painStats']['Max']; ?></span>
                     </div>   
                 </div>
-            </div>        
+<?php echo  "<pre>" .  print_r($_SESSION['entries'],1) .  "</pre>";  ?>
+            </div>  
+            
+            <div class="result <?php echo isset($_SESSION['error']) ? $_SESSION['error'] : ''; 
+                            unset($_SESSION['error']);  ?>">
+                No entries found for the day: <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date'; 
+                            unset($_SESSION['date']);  ?>
+            </div>
 			
 			<div class="footer">
 				<hr/>

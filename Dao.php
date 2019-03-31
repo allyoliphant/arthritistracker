@@ -11,6 +11,9 @@
             return $conn;
         }
 
+
+        /**  Methods for user  **/
+
         public function getUser($username) {
             $conn = $this->getConnection();
             return $conn->query("SELECT * FROM User WHERE Username = '$username'", PDO::FETCH_ASSOC);
@@ -52,10 +55,13 @@
             $q->execute();
         }
 
+
+        /** Methods for entries **/
+
         public function createEntry($side, $joint, $pain, $date, $time, $id) {
             $conn = $this->getConnection();
             $saveQuery = "INSERT INTO Entry (UserID, Side, Joint, PainLevel, Time, Date) 
-                VALUES ($id, :side, :joint, $pain, TIME(STR_TO_DATE(:time, '%h:%i %p')), :date)";
+                VALUES ($id, :side, :joint, $pain, TIME(STR_TO_DATE(:time, '%H:%i %p')), :date)";
             $q = $conn->prepare($saveQuery);
             $q->bindParam(":side", $side);
             $q->bindParam(":joint", $joint);
@@ -64,6 +70,32 @@
             $q->execute();
         }
 
+        public function getEntryByDay($date, $userID) {
+            $conn = $this->getConnection();
+            return $conn->query("SELECT * FROM Entry WHERE UserID = $userID AND Date = '$date'", PDO::FETCH_ASSOC);
+        }
+
+        public function getEntryByDay_TimeRange($date, $userID, $start, $end) {
+            $conn = $this->getConnection();
+            return $conn->query("SELECT * FROM Entry WHERE UserID = $userID AND Date = '$date' 
+                AND Time >= '$start' AND Time <= '$end'", PDO::FETCH_ASSOC);
+        }
+
+        public function getPainStatsByDay($date, $userID) {
+            $conn = $this->getConnection();
+            return $conn->query("SELECT avg(PainLevel) as Avg, min(PainLevel) as Min, max(PainLevel) as Max 
+                FROM Entry WHERE UserID = $userID AND Date = '$date'", PDO::FETCH_ASSOC);
+        }
+        
+
+
+        public function getEntryByMonth() {
+            $conn = $this->getConnection();
+        }
+
+        public function getEntryByYear() {
+            $conn = $this->getConnection();
+        }
 
     }
 ?>

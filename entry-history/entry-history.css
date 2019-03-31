@@ -1,3 +1,11 @@
+:root {
+    --one-color: #fffc75;  /* 0 to 1.49 */
+    --two-color: #ffe375;  /* 1.5 to 2.49 */
+    --three-color: #ffd175;  /* 2.5 to 3.49 */
+    --four-color: #ffb375;  /* 3.5 to 4.49 */
+    --five-color: #ff9c75;  /* 4.5 to 5 */
+  }
+
 h1, form, div {
     text-align: left;
 }
@@ -23,6 +31,23 @@ span {
 
 .x-axis {
     border-top: 1px solid black;
+}
+
+.date {
+    margin-bottom: 10px;
+}
+
+.result {
+    display: none;
+}
+
+.no-result {
+    text-align: left !important;
+    display: block !important;
+}
+
+.show {
+    display: inline !important;
 }
 
 .summary {

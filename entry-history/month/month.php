@@ -31,9 +31,13 @@
 
             <form>
                 <label>month:</label>
-                <input type="number" min="1" max="12" step="1" name="month"/>
-                <label>year:</label>
-                <input type="number" min="1900" max="2019" step="1" name="year"/>
+                <input type="month" name="month" min="1990-01"
+                <?php
+                    date_default_timezone_set('America/Boise');
+                    $date = date("Y-m");
+                    echo "max='{$date}'";
+                    echo "value='{$date}'";                        
+                ?>/>
                 <input class="button" type="submit" value="view entries"/>
             </form>
 

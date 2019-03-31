@@ -31,7 +31,13 @@
 
             <form>
                 <label>year:</label>
-                <input type="number" min="1900" max="2019" name="year"/>
+                <input type="number" min="1990" name="year"
+                <?php
+                    date_default_timezone_set('America/Boise');
+                    $date = date("Y");
+                    echo "max='{$date}'";
+                    echo "value='{$date}'";                        
+                ?>/>
                 <input class="button" type="submit" value="view entries"/>
             </form>
 
