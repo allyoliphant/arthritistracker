@@ -101,6 +101,14 @@
                         ?>
                     </tr>   
                 </table>
+                
+                <div>
+                    color: average pain level 
+                        <span class="painOne key">1</span><span class="painTwo key">2</span><span class="painThree key">3</span><span class="painFour key">4</span><span class="painFive key">5</span>
+                </div>      
+                <div>
+                    number: number of entries
+                </div>
     
                 <div class="summary">    
                     <div class="summary-section">
@@ -146,12 +154,13 @@
 
 <?php
 unset($_SESSION['show']); 
+unset($_SESSION['date']);
 unset($_SESSION['time1']);
 unset($_SESSION['time2']);
 unset($_SESSION['time3']);
 unset($_SESSION['time4']);
+unset($_SESSION['painStats']);
 unset($_SESSION['error']);
-unset($_SESSION['date']);
 unset($_SESSION['left']);
 unset($_SESSION['right']);
 ?>

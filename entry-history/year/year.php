@@ -118,3 +118,16 @@
 		</div>
 	</body>
 </html>
+
+<?php
+unset($_SESSION['show']); 
+unset($_SESSION['date']);
+unset($_SESSION['time1']);
+unset($_SESSION['time2']);
+unset($_SESSION['time3']);
+unset($_SESSION['time4']);
+unset($_SESSION['painStats']);
+unset($_SESSION['error']);
+unset($_SESSION['left']);
+unset($_SESSION['right']);
+?>
