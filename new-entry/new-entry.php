@@ -27,8 +27,7 @@
 		</div>	
 
 		<div class="main">
-            <h1>new entry</h1>
-            
+            <h1>new entry</h1>            
 
             <form method="POST">
                 <div>
@@ -57,7 +56,15 @@
                 </div>
                 <div>
                     <div class="label">date:</div>
-                    <input type="date" name="date" min="1900-01-01"/>  
+                    <input type="date" name="date" min="1990-01-01"
+                    <?php
+                        date_default_timezone_set('America/Boise');
+                        $date = date("Y-m-d");
+                        echo "max='{$date}'";
+                        echo "value='{$date}'";
+                        
+                    ?>                    
+                    />  
                 </div>
                 <div>
                     <div class="label">time range:</div>

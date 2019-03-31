@@ -51,5 +51,18 @@
             $q->bindParam(":email", $email);
             $q->execute();
         }
+
+        public function createEntry($name, $username, $password, $email) {
+            $conn = $this->getConnection();
+            $saveQuery = "INSERT INTO User (Name, Username, Password, Email) VALUES (:name, :username, :password, :email)";
+            $q = $conn->prepare($saveQuery);
+            $q->bindParam(":name", $name);
+            $q->bindParam(":username", $username);
+            $q->bindParam(":password", $password);
+            $q->bindParam(":email", $email);
+            $q->execute();
+        }
+
+
     }
 ?>
