@@ -12,6 +12,7 @@
         }
 
 
+
         /**  Methods for user  **/
 
         public function getUser($username) {
@@ -56,6 +57,7 @@
         }
 
 
+
         /** Methods for entries **/
 
         public function createEntry($side, $joint, $pain, $date, $time, $id) {
@@ -69,6 +71,9 @@
             $q->bindParam(":date", $date);
             $q->execute();
         }
+
+
+        /** By day **/
 
         public function getEntryByDay($date, $userID) {
             $conn = $this->getConnection();
@@ -88,10 +93,42 @@
         }
         
 
+        /** By month **/
 
-        public function getEntryByMonth() {
+        public function getEntryByMonth($date, $userID) {
             $conn = $this->getConnection();
+
+            return $conn->query("SELECT * FROM Entry WHERE UserID = $userID AND Date LIKE '$date-%'", PDO::FETCH_ASSOC);
         }
+
+        public function getEntryByMonth_TimeRange($date, $userID, $start, $end) {
+            $conn = $this->getConnection();
+            return $conn->query("SELECT * FROM Entry WHERE UserID = $userID AND Date LIKE '$date-%' 
+                AND Time >= '$start' AND Time <= '$end'", PDO::FETCH_ASSOC);
+        }
+
+        public function getPainStatsByMonth($date, $userID) {
+            $conn = $this->getConnection();
+            return $conn->query("SELECT avg(PainLevel) as Avg, min(PainLevel) as Min, max(PainLevel) as Max 
+                FROM Entry WHERE UserID = $userID AND Date LIKE '$date-%'", PDO::FETCH_ASSOC);
+        }
+
+        public function getJointCountByMonth($date, $userID) {
+            $conn = $this->getConnection();
+            return $conn->query("SELECT Side, 
+                SUM(case when Joint = 'ankle' then 1 else 0 end) as Ankle, 
+                SUM(case when Joint = 'knee' then 1 else 0 end) as Knee, 
+                SUM(case when Joint = 'hip' then 1 else 0 end) as Hip, 
+                SUM(case when Joint = 'hand' then 1 else 0 end) as Hand, 
+                SUM(case when Joint = 'wrist' then 1 else 0 end) as Wrist, 
+                SUM(case when Joint = 'elbow' then 1 else 0 end) as Elbow, 
+                SUM(case when Joint = 'shoulder' then 1 else 0 end) as Shoulder
+                FROM Entry WHERE UserID = $userID AND Date LIKE '$date-%'
+                GROUP BY Side;", PDO::FETCH_ASSOC);
+        }
+        
+
+        /** By year **/
 
         public function getEntryByYear() {
             $conn = $this->getConnection();

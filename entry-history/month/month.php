@@ -6,6 +6,9 @@
 		header("Location: ../../login/login.php");
 		exit();
 	}
+
+    require_once '../Entry.php';
+    $e = new Entry();
 ?>
 
 <html>
@@ -29,9 +32,9 @@
 		<div class="main">
             <h1>entry history</h1>
 
-            <form>
+            <form method="GET" action="month-handler.php">
                 <label>month:</label>
-                <input type="month" name="month" min="1990-01"
+                <input type="month" name="date" min="1990-01"
                 <?php
                     date_default_timezone_set('America/Boise');
                     $date = date("Y-m");
@@ -41,92 +44,97 @@
                 <input class="button" type="submit" value="view entries"/>
             </form>
 
-            <div class="result">
-                <div>Month: ##-####</div>
+            <div class="result <?php echo isset($_SESSION['show']) ? $_SESSION['show'] : ''; ?>">
+                <div class="date"><b>History for: <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date'; ?></b></div>
                 <table>
-                    <tr>
-                        <td>total</td>
-                    </tr> 
                     <tr>
                         <td id="top-y-value">12am</td>
                     </tr>
                     <tr>
                         <td class="y-axis">6pm</td>
+                        <?php
+                            $date = explode( '-', $_SESSION['date'] );
+                            $days = cal_days_in_month(CAL_GREGORIAN,$date[1],$date[0]);
+                            for ($i = 1; $i <= $days; $i++) {
+                                $e->getClassAndCount_Month('time4', $i);
+                            }
+                        ?>
                     </tr>
                     <tr>
                         <td class="y-axis">12pm</td>
+                        <?php
+                            $date = explode( '-', $_SESSION['date'] );
+                            $days = cal_days_in_month(CAL_GREGORIAN,$date[1],$date[0]);
+                            for ($i = 1; $i <= $days; $i++) {
+                                $e->getClassAndCount_Month('time3', $i);
+                            }
+                        ?>
                     </tr>
                     <tr>
                         <td class="y-axis">6am</td>
+                        <?php
+                            $date = explode( '-', $_SESSION['date'] );
+                            $days = cal_days_in_month(CAL_GREGORIAN,$date[1],$date[0]);
+                            for ($i = 1; $i <= $days; $i++) {
+                                $e->getClassAndCount_Month('time2', $i);
+                            }
+                        ?>
                     </tr>
                     <tr>
                         <td class="y-axis">12am</td>
+                        <?php
+                            $date = explode( '-', $_SESSION['date'] );
+                            $days = cal_days_in_month(CAL_GREGORIAN,$date[1],$date[0]);
+                            for ($i = 1; $i <= $days; $i++) {
+                                $e->getClassAndCount_Month('time1', $i);
+                            }
+                        ?>
                     </tr>
                     <tr>
                         <td></td>
-                        <td class="x-axis">1</td>
-                        <td class="x-axis">2</td>
-                        <td class="x-axis">3</td>
-                        <td class="x-axis">4</td>
-                        <td class="x-axis">5</td>
-                        <td class="x-axis">6</td>
-                        <td class="x-axis">7</td>
-                        <td class="x-axis">9</td>
-                        <td class="x-axis">10</td>
-                        <td class="x-axis">11</td>
-                        <td class="x-axis">12</td>
-                        <td class="x-axis">13</td>
-                        <td class="x-axis">14</td>
-                        <td class="x-axis">15</td>
-                        <td class="x-axis">16</td>
-                        <td class="x-axis">17</td>
-                        <td class="x-axis">18</td>
-                        <td class="x-axis">19</td>
-                        <td class="x-axis">20</td>
-                        <td class="x-axis">21</td>
-                        <td class="x-axis">22</td>
-                        <td class="x-axis">23</td>
-                        <td class="x-axis">24</td>
-                        <td class="x-axis">25</td>
-                        <td class="x-axis">26</td>
-                        <td class="x-axis">27</td>
-                        <td class="x-axis">28</td>
-                        <td class="x-axis">29</td>
-                        <td class="x-axis">30</td>
-                        <td class="x-axis">31</td>
-                        <td>total</td>
+                        <?php
+                            $date = explode( '-', $_SESSION['date'] );
+                            $days = cal_days_in_month(CAL_GREGORIAN,$date[1],$date[0]);
+                            for ($i = 1; $i <= $days; $i++) {
+                                echo "<td class='x-axis'>" . $i . "</td>";
+                            }
+                        ?>
                     </tr>   
                 </table>
     
                 <div class="summary">    
                     <div class="summary-section">
-                        <div>pain level</div>
-                        <span>average: #</span>
-                        <span>min: #</span>
-                        <span>max: #</span>
+                        <div><b>pain level</b></div>
+                        <span>average: <?php echo $_SESSION['painStats']['Avg']; ?></span>
+                        <span>min: <?php echo $_SESSION['painStats']['Min']; ?></span>
+                        <span>max: <?php echo $_SESSION['painStats']['Max']; ?></span>
                     </div>   
                     <div class="summary-section">
-                        <div>left</div>
-                        <span>ankle: #</span>
-                        <span>knee: #</span>
-                        <span>hip: #</span>
-                        <span>hand: #</span>
-                        <span>wrist: #</span>
-                        <span>elbow: #</span>
-                        <span>shoulder: #</span>
+                        <div><b>left</b></div>
+                        <span>ankle: <?php echo isset($_SESSION['left']) ? $_SESSION['left']['Ankle'] : 0; ?></span>
+                        <span>knee: <?php echo isset($_SESSION['left']) ? $_SESSION['left']['Knee'] : 0; ?></span>
+                        <span>hip: <?php echo isset($_SESSION['left']) ? $_SESSION['left']['Hip'] : 0; ?></span>
+                        <span>hand: <?php echo isset($_SESSION['left']) ? $_SESSION['left']['Hand'] : 0; ?></span>
+                        <span>wrist: <?php echo isset($_SESSION['left']) ? $_SESSION['left']['Wrist'] : 0; ?></span>
+                        <span>elbow: <?php echo isset($_SESSION['left']) ? $_SESSION['left']['Elbow'] : 0; ?></span>
+                        <span>shoulder: <?php echo isset($_SESSION['left']) ? $_SESSION['left']['Shoulder'] : 0; ?></span>
                     </div>
                     <div class="summary-section">
-                        <div>right</div>
-                        <span>ankle: #</span>
-                        <span>knee: #</span>
-                        <span>hip: #</span>
-                        <span>hand: #</span>
-                        <span>wrist: #</span>
-                        <span>elbow: #</span>
-                        <span>shoulder: #</span>
+                        <div><b>right</b></div>
+                        <span>ankle: <?php echo isset($_SESSION['right']) ? $_SESSION['right']['Ankle'] : 0; ?></span>
+                        <span>knee: <?php echo isset($_SESSION['right']) ? $_SESSION['right']['Knee'] : 0; ?></span>
+                        <span>hip: <?php echo isset($_SESSION['right']) ? $_SESSION['right']['Hip'] : 0; ?></span>
+                        <span>hand: <?php echo isset($_SESSION['right']) ? $_SESSION['right']['Hand'] : 0; ?></span>
+                        <span>wrist: <?php echo isset($_SESSION['right']) ? $_SESSION['right']['Wrist'] : 0; ?></span>
+                        <span>elbow: <?php echo isset($_SESSION['right']) ? $_SESSION['right']['Elbow'] : 0; ?></span>
+                        <span>shoulder: <?php echo isset($_SESSION['right']) ? $_SESSION['right']['Shoulder'] : 0; ?></span>
                     </div>
                 </div>
-            </div>        
+            </div>   
+            
+            <div class="result <?php echo isset($_SESSION['error']) ? $_SESSION['error'] : ''; ?>">
+                No entries found for the month: <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date'; ?>
+            </div>     
 			
 			<div class="footer">
 				<hr/>
@@ -135,3 +143,15 @@
 		</div>
 	</body>
 </html>
+
+<?php
+unset($_SESSION['show']); 
+unset($_SESSION['time1']);
+unset($_SESSION['time2']);
+unset($_SESSION['time3']);
+unset($_SESSION['time4']);
+unset($_SESSION['error']);
+unset($_SESSION['date']);
+unset($_SESSION['left']);
+unset($_SESSION['right']);
+?>
