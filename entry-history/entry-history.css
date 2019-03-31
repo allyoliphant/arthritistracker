@@ -57,3 +57,23 @@ span {
 .summary-section {
     margin-bottom: 15px;
 }
+
+.painOne {
+    background-color: var(--one-color);
+}
+
+.painTwo {
+    background-color: var(--two-color);
+}
+
+.painThree {
+    background-color: var(--three-color);
+}
+
+.painFour {
+    background-color: var(--four-color);
+}
+
+.painFive {
+    background-color: var(--five-color);
+}

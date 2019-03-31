@@ -5,7 +5,10 @@
 		$_SESSION['message'] = "Please login to view";
 		header("Location: ../../login/login.php");
 		exit();
-	}
+    } 
+
+    require_once '../Entry.php';
+    $e = new entry();
 ?>
 
 <html>
@@ -43,25 +46,78 @@
 
             <div class="result <?php echo isset($_SESSION['show']) ? $_SESSION['show'] : ''; 
                             unset($_SESSION['show']); ?>">
-                <div class="date">History for: <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date'; ?></div>
+                <div class="date"><b>History for: <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date'; ?></b></div>
                 <table>
-                    <tr>
-                        <td>total</td>
-                    </tr> 
                     <tr>
                         <td id="top-y-value">12am</td>
                     </tr>
                     <tr>
                         <td class="y-axis">6pm</td>
+                        <td <?php $e->getClassAndCount('time4', 'left', 'ankle') ?></td>
+                        <td <?php $e->getClassAndCount('time4', 'right', 'ankle') ?></td>
+                        <td <?php $e->getClassAndCount('time4', 'left', 'knee') ?></td>
+                        <td <?php $e->getClassAndCount('time4', 'right', 'knee') ?></td>
+                        <td <?php $e->getClassAndCount('time4', 'left', 'hip') ?></td>
+                        <td <?php $e->getClassAndCount('time4', 'right', 'hip') ?></td>
+                        <td <?php $e->getClassAndCount('time4', 'left', 'hand') ?></td>
+                        <td <?php $e->getClassAndCount('time4', 'right', 'hand') ?></td>
+                        <td <?php $e->getClassAndCount('time4', 'left', 'wrist') ?></td>
+                        <td <?php $e->getClassAndCount('time4', 'right', 'wrist') ?></td>
+                        <td <?php $e->getClassAndCount('time4', 'left', 'elbow') ?></td>
+                        <td <?php $e->getClassAndCount('time4', 'right', 'elbow') ?></td>
+                        <td <?php $e->getClassAndCount('time4', 'left', 'shoulder') ?></td>
+                        <td <?php $e->getClassAndCount('time4', 'right', 'shoulder') ?></td>
                     </tr>
                     <tr>
                         <td class="y-axis">12pm</td>
+                        <td <?php $e->getClassAndCount('time3', 'left', 'ankle') ?></td>
+                        <td <?php $e->getClassAndCount('time3', 'right', 'ankle') ?></td>
+                        <td <?php $e->getClassAndCount('time3', 'left', 'knee') ?></td>
+                        <td <?php $e->getClassAndCount('time3', 'right', 'knee') ?></td>
+                        <td <?php $e->getClassAndCount('time3', 'left', 'hip') ?></td>
+                        <td <?php $e->getClassAndCount('time3', 'right', 'hip') ?></td>
+                        <td <?php $e->getClassAndCount('time3', 'left', 'hand') ?></td>
+                        <td <?php $e->getClassAndCount('time3', 'right', 'hand') ?></td>
+                        <td <?php $e->getClassAndCount('time3', 'left', 'wrist') ?></td>
+                        <td <?php $e->getClassAndCount('time3', 'right', 'wrist') ?></td>
+                        <td <?php $e->getClassAndCount('time3', 'left', 'elbow') ?></td>
+                        <td <?php $e->getClassAndCount('time3', 'right', 'elbow') ?></td>
+                        <td <?php $e->getClassAndCount('time3', 'left', 'shoulder') ?></td>
+                        <td <?php $e->getClassAndCount('time3', 'right', 'shoulder') ?></td>
                     </tr>
                     <tr>
                         <td class="y-axis">6am</td>
+                        <td <?php $e->getClassAndCount('time2', 'left', 'ankle') ?></td>
+                        <td <?php $e->getClassAndCount('time2', 'right', 'ankle') ?></td>
+                        <td <?php $e->getClassAndCount('time2', 'left', 'knee') ?></td>
+                        <td <?php $e->getClassAndCount('time2', 'right', 'knee') ?></td>
+                        <td <?php $e->getClassAndCount('time2', 'left', 'hip') ?></td>
+                        <td <?php $e->getClassAndCount('time2', 'right', 'hip') ?></td>
+                        <td <?php $e->getClassAndCount('time2', 'left', 'hand') ?></td>
+                        <td <?php $e->getClassAndCount('time2', 'right', 'hand') ?></td>
+                        <td <?php $e->getClassAndCount('time2', 'left', 'wrist') ?></td>
+                        <td <?php $e->getClassAndCount('time2', 'right', 'wrist') ?></td>
+                        <td <?php $e->getClassAndCount('time2', 'left', 'elbow') ?></td>
+                        <td <?php $e->getClassAndCount('time2', 'right', 'elbow') ?></td>
+                        <td <?php $e->getClassAndCount('time2', 'left', 'shoulder') ?></td>
+                        <td <?php $e->getClassAndCount('time2', 'right', 'shoulder') ?></td>
                     </tr>
                     <tr>
                         <td class="y-axis">12am</td>
+                        <td <?php $e->getClassAndCount('time1', 'left', 'ankle') ?></td>
+                        <td <?php $e->getClassAndCount('time1', 'right', 'ankle') ?></td>
+                        <td <?php $e->getClassAndCount('time1', 'left', 'knee') ?></td>
+                        <td <?php $e->getClassAndCount('time1', 'right', 'knee') ?></td>
+                        <td <?php $e->getClassAndCount('time1', 'left', 'hip') ?></td>
+                        <td <?php $e->getClassAndCount('time1', 'right', 'hip') ?></td>
+                        <td <?php $e->getClassAndCount('time1', 'left', 'hand') ?></td>
+                        <td <?php $e->getClassAndCount('time1', 'right', 'hand') ?></td>
+                        <td <?php $e->getClassAndCount('time1', 'left', 'wrist') ?></td>
+                        <td <?php $e->getClassAndCount('time1', 'right', 'wrist') ?></td>
+                        <td <?php $e->getClassAndCount('time1', 'left', 'elbow') ?></td>
+                        <td <?php $e->getClassAndCount('time1', 'right', 'elbow') ?></td>
+                        <td <?php $e->getClassAndCount('time1', 'left', 'shoulder') ?></td>
+                        <td <?php $e->getClassAndCount('time1', 'right', 'shoulder') ?></td>                        
                     </tr>
                     <tr>
                         <td></td>
@@ -79,7 +135,6 @@
                         <td class="x-axis">right</td>
                         <td class="x-axis">left</td>
                         <td class="x-axis">right</td>
-                        <td>total</td>
                     </tr>   
                     <tr>
                         <td></td>
@@ -95,25 +150,31 @@
     
                 <div class="summary">    
                     <div class="summary-section">
-                        <div>pain level</div>
+                        <div><b>pain level</b></div>
                         <span>average: <?php echo $_SESSION['painStats']['Avg']; ?></span>
                         <span>min: <?php echo $_SESSION['painStats']['Min']; ?></span>
                         <span>max: <?php echo $_SESSION['painStats']['Max']; ?></span>
                     </div>   
                 </div>
-<?php echo  "<pre>" .  print_r($_SESSION['entries'],1) .  "</pre>";  ?>
             </div>  
             
-            <div class="result <?php echo isset($_SESSION['error']) ? $_SESSION['error'] : ''; 
-                            unset($_SESSION['error']);  ?>">
-                No entries found for the day: <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date'; 
-                            unset($_SESSION['date']);  ?>
+            <div class="result <?php echo isset($_SESSION['error']) ? $_SESSION['error'] : ''; ?>">
+                No entries found for the day: <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date'; ?>
             </div>
 			
 			<div class="footer">
 				<hr/>
 				arthritis tracker | Ally Oliphant | CS401
-			</div>
+            </div>
 		</div>
 	</body>
 </html>
+
+<?php
+unset($_SESSION['time1']);
+unset($_SESSION['time2']);
+unset($_SESSION['time3']);
+unset($_SESSION['time4']);
+unset($_SESSION['error']);
+unset($_SESSION['date']);
+?>
