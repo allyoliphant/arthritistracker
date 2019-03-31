@@ -52,14 +52,15 @@
             $q->execute();
         }
 
-        public function createEntry($name, $username, $password, $email) {
+        public function createEntry($side, $joint, $pain, $date, $time, $id) {
             $conn = $this->getConnection();
-            $saveQuery = "INSERT INTO User (Name, Username, Password, Email) VALUES (:name, :username, :password, :email)";
+            $saveQuery = "INSERT INTO Entry (UserID, Side, Joint, PainLevel, Time, Date) 
+                VALUES ($id, :side, :joint, $pain, TIME(STR_TO_DATE(:time, '%h:%i %p')), :date)";
             $q = $conn->prepare($saveQuery);
-            $q->bindParam(":name", $name);
-            $q->bindParam(":username", $username);
-            $q->bindParam(":password", $password);
-            $q->bindParam(":email", $email);
+            $q->bindParam(":side", $side);
+            $q->bindParam(":joint", $joint);
+            $q->bindParam(":time", $time);
+            $q->bindParam(":date", $date);
             $q->execute();
         }
 

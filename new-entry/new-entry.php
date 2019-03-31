@@ -29,30 +29,29 @@
 		<div class="main">
             <h1>new entry</h1>            
 
-            <form method="POST">
+            <form method="POST" action="new-entry-handler.php">
                 <div>
                     <div class="label">side:</div>
-                    <input type="radio" name="side" value="left"/>left
-                    <input type="radio" name="side" value="right"/>right 
+                    <label><input type="radio" name="side" value="left">left</label>
+                    <label><input type="radio" name="side" value="right">right</label>
                 </div>
                 <div>
                     <div class="label">joint:</div>
-                    <input type="radio" name="joint" value="ankle"/>ankle 
-                    <input type="radio" name="joint" value="knee"/>knee 
-                    <input type="radio" name="joint" value="hip"/>hip 
-                    <input type="radio" name="joint" value="hand"/>hand 
-                    <input type="radio" name="joint" value="wrist"/>wrist 
-                    <input type="radio" name="joint" value="elbow"/>elbow
-                    <input type="radio" name="joint" value="shoulder"/>shoulder  
+                    <label><input type="radio" name="joint" value="ankle">ankle</label> 
+                    <label><input type="radio" name="joint" value="knee">knee</label> 
+                    <label><input type="radio" name="joint" value="hip">hip</label> 
+                    <label><input type="radio" name="joint" value="hand">hand</label> 
+                    <label><input type="radio" name="joint" value="wrist">wrist</label> 
+                    <label><input type="radio" name="joint" value="elbow">elbow</label>
+                    <label><input type="radio" name="joint" value="shoulder">shoulder</label> 
                 </div>
                 <div>
                     <div class="label">pain level:</div>
-                    <input type="radio" name="pain" value="1"/>1 
-                    <input type="radio" name="pain" value="2"/>2 
-                    <input type="radio" name="pain" value="3"/>3 
-                    <input type="radio" name="pain" value="4"/>4 
-                    <input type="radio" name="pain" value="5"/>5  
-                    <input type="radio" name="pain" value="0"/>unknown  
+                    <label><input type="radio" name="pain" value="1">1</label>
+                    <label><input type="radio" name="pain" value="2">2</label>
+                    <label><input type="radio" name="pain" value="3">3</label> 
+                    <label><input type="radio" name="pain" value="4">4</label> 
+                    <label><input type="radio" name="pain" value="5">5</label>  
                 </div>
                 <div>
                     <div class="label">date:</div>
@@ -61,25 +60,34 @@
                         date_default_timezone_set('America/Boise');
                         $date = date("Y-m-d");
                         echo "max='{$date}'";
-                        echo "value='{$date}'";
-                        
-                    ?>                    
-                    />  
+                        echo "value='{$date}'";                        
+                    ?>/>  
                 </div>
                 <div>
-                    <div class="label">time range:</div>
-                    <input type="radio" name="time" value="1"/>12am-6am 
-                    <input type="radio" name="time" value="2"/>6am-12pm 
-                    <input type="radio" name="time" value="3"/>12pm-6pm 
-                    <input type="radio" name="time" value="4"/>6pm-12am  
+                    <div class="label">time:</div>
+                    <input type="time" name="time" 
+                    <?php
+                        date_default_timezone_set('America/Boise');
+                        $time = date("H:i");
+                        echo "value='{$time}'";                        
+                    ?>/>  
                 </div>
+                <?php
+                    if (isset($_SESSION['messages'])) {
+                        foreach($_SESSION['messages'] as $message) {
+						$type = isset($_SESSION['good']) ? 'good' : 'error';
+                        echo "<div class='message {$type}'>{$message}</div>";
+                        }
+					}
+                    unset($_SESSION['good']);
+                    unset($_SESSION['messages']);
+                ?>
                 <div>
                     <input class="button" type="submit" value="add"/>  
                 </div>
             </form>
-            
 
-			<div class="footer">
+            <div class="footer">
 				<hr/>
 				arthritis tracker | ally oliphant | cs401 | Spring 2019
 			</div>
