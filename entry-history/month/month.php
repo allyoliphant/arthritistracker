@@ -56,7 +56,9 @@
                             $date = explode( '-', $_SESSION['date'] );
                             $days = cal_days_in_month(CAL_GREGORIAN,$date[1],$date[0]);
                             for ($i = 1; $i <= $days; $i++) {
-                                $e->getClassAndCount_Month('time4', $i);
+                                $stuff = $e->getClassAndCount_Month('time4', $i);
+                                $blank = ' ';
+                                echo "<td class='" . $stuff[0] . "'>" . $stuff[1] . "</td>";
                             }
                         ?>
                     </tr>
@@ -66,7 +68,9 @@
                             $date = explode( '-', $_SESSION['date'] );
                             $days = cal_days_in_month(CAL_GREGORIAN,$date[1],$date[0]);
                             for ($i = 1; $i <= $days; $i++) {
-                                $e->getClassAndCount_Month('time3', $i);
+                                $stuff = $e->getClassAndCount_Month('time3', $i);
+                                $blank = ' ';
+                                echo "<td class='" . $stuff[0] . "'>" . $stuff[1] . "</td>";
                             }
                         ?>
                     </tr>
@@ -76,7 +80,9 @@
                             $date = explode( '-', $_SESSION['date'] );
                             $days = cal_days_in_month(CAL_GREGORIAN,$date[1],$date[0]);
                             for ($i = 1; $i <= $days; $i++) {
-                                $e->getClassAndCount_Month('time2', $i);
+                                $stuff = $e->getClassAndCount_Month('time2', $i);
+                                $blank = ' ';
+                                echo "<td class='" . $stuff[0] . "'>" . $stuff[1] . "</td>";
                             }
                         ?>
                     </tr>
@@ -86,7 +92,8 @@
                             $date = explode( '-', $_SESSION['date'] );
                             $days = cal_days_in_month(CAL_GREGORIAN,$date[1],$date[0]);
                             for ($i = 1; $i <= $days; $i++) {
-                                $e->getClassAndCount_Month('time1', $i);
+                                $stuff = $e->getClassAndCount_Month('time1', $i);
+                                echo "<td class='" . $stuff[0] . "'>" . $stuff[1] . "</td>";
                             }
                         ?>
                     </tr>
