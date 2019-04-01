@@ -45,6 +45,13 @@
                 <input class="button" type="submit" value="view entries"/>
             </form>
 
+            <?php
+                if (isset($_SESSION['message'])) {
+                    echo "<div class='error message'>" . $_SESSION['message'] . "</div>";
+                }
+                unset($_SESSION['message']);
+            ?>
+
             <div class="result <?php echo isset($_SESSION['show']) ? $_SESSION['show'] : ''; ?>">
                 <div class="date"><b>History for the day: <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date'; ?></b></div>
                 <table>
