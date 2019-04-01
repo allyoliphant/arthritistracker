@@ -56,8 +56,11 @@
         public function xAxis($d) {
             $date = preg_split( "/-/", $d);
             $days = cal_days_in_month(CAL_GREGORIAN,$date[1],$date[0]);
-            for ($i = 29; $i <= $days; $i++) {
+            $arrayOfDays = array_fill(0, $days, 1);
+            $i = 1;
+            foreach($arrayOfDays as $day) {
                 echo "<td class='x-axis'>" . $i . "</td>";
+                $i = $i + 1;
             }
         }
 

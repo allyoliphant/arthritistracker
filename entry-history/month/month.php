@@ -64,34 +64,6 @@
                     </tr>
                     <tr>
                         <td></td>
-                        <td class="x-axis">1</td>
-                        <td class="x-axis">2</td>
-                        <td class="x-axis">3</td>
-                        <td class="x-axis">4</td>
-                        <td class="x-axis">5</td>
-                        <td class="x-axis">6</td>
-                        <td class="x-axis">7</td>
-                        <td class="x-axis">8</td>
-                        <td class="x-axis">9</td>
-                        <td class="x-axis">10</td>
-                        <td class="x-axis">11</td>
-                        <td class="x-axis">12</td>
-                        <td class="x-axis">13</td>
-                        <td class="x-axis">14</td>
-                        <td class="x-axis">15</td>
-                        <td class="x-axis">16</td>
-                        <td class="x-axis">17</td>
-                        <td class="x-axis">18</td>
-                        <td class="x-axis">19</td>
-                        <td class="x-axis">20</td>
-                        <td class="x-axis">21</td>
-                        <td class="x-axis">22</td>
-                        <td class="x-axis">23</td>
-                        <td class="x-axis">24</td>
-                        <td class="x-axis">25</td>
-                        <td class="x-axis">26</td>
-                        <td class="x-axis">27</td>
-                        <td class="x-axis">28</td>
                         <?php $e->xAxis($_SESSION['date']); ?>
                     </tr>   
                 </table>
