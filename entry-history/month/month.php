@@ -52,51 +52,15 @@
                     </tr>
                     <tr>
                         <td class="y-axis">6pm</td>
-                        <?php
-                            $date = explode( '-', $_SESSION['date'] );
-                            $days = cal_days_in_month(CAL_GREGORIAN,$date[1],$date[0]);
-                            for ($i = 1; $i <= $days; $i++) {
-                                ?>                                
-                                <td <?php echo $e->getClassAndCount_Month('time4', $i); ?></td>
-                                <?php
-                            }
-                        ?>
                     </tr>
                     <tr>
                         <td class="y-axis">12pm</td>
-                        <?php
-                            $date = explode( '-', $_SESSION['date'] );
-                            $days = cal_days_in_month(CAL_GREGORIAN,$date[1],$date[0]);
-                            for ($i = 1; $i <= $days; $i++) {
-                                ?>                                
-                                <td <?php echo $e->getClassAndCount_Month('time3', $i); ?></td>
-                                <?php
-                            }
-                        ?>
                     </tr>
                     <tr>
                         <td class="y-axis">6am</td>
-                        <?php
-                            $date = explode( '-', $_SESSION['date'] );
-                            $days = cal_days_in_month(CAL_GREGORIAN,$date[1],$date[0]);
-                            for ($i = 1; $i <= $days; $i++) {
-                                ?>                                
-                                <td <?php echo $e->getClassAndCount_Month('time2', $i); ?></td>
-                                <?php
-                            }
-                        ?>
                     </tr>
                     <tr>
                         <td class="y-axis">12am</td>
-                        <?php
-                            $date = explode( '-', $_SESSION['date'] );
-                            $days = cal_days_in_month(CAL_GREGORIAN,$date[1],$date[0]);
-                            for ($i = 1; $i <= $days; $i++) {
-                                ?>                                
-                                <td <?php echo $e->getClassAndCount_Month('time1', $i); ?></td>
-                                <?php
-                            }
-                        ?>
                     </tr>
                     <tr>
                         <td></td>
