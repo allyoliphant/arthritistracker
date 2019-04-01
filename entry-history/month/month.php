@@ -52,15 +52,19 @@
                     </tr>
                     <tr>
                         <td class="y-axis">6pm</td>
+                        <?php $e->getClassAndCount_Month('time4', $_SESSION['date']); ?>
                     </tr>
                     <tr>
                         <td class="y-axis">12pm</td>
+                        <?php $e->getClassAndCount_Month('time3', $_SESSION['date']); ?>
                     </tr>
                     <tr>
                         <td class="y-axis">6am</td>
+                        <?php $e->getClassAndCount_Month('time2', $_SESSION['date']); ?>
                     </tr>
                     <tr>
                         <td class="y-axis">12am</td>
+                        <?php $e->getClassAndCount_Month('time1', $_SESSION['date']); ?>
                     </tr>
                     <tr>
                         <td></td>
