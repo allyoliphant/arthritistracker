@@ -93,27 +93,26 @@
         }
         
 
-        /** By month **/
+        /** By month or year **/
 
-        public function getEntryByMonth($date, $userID) {
+        public function getEntryByMonthOrYear($date, $userID) {
             $conn = $this->getConnection();
-
             return $conn->query("SELECT * FROM Entry WHERE UserID = $userID AND Date LIKE '$date-%'", PDO::FETCH_ASSOC);
         }
 
-        public function getEntryByMonth_TimeRange($date, $userID, $start, $end) {
+        public function getEntryByMonthOrYear_TimeRange($date, $userID, $start, $end) {
             $conn = $this->getConnection();
             return $conn->query("SELECT * FROM Entry WHERE UserID = $userID AND Date LIKE '$date-%' 
                 AND Time >= '$start' AND Time <= '$end'", PDO::FETCH_ASSOC);
         }
 
-        public function getPainStatsByMonth($date, $userID) {
+        public function getPainStatsByMonthOrYear($date, $userID) {
             $conn = $this->getConnection();
             return $conn->query("SELECT avg(PainLevel) as Avg, min(PainLevel) as Min, max(PainLevel) as Max 
                 FROM Entry WHERE UserID = $userID AND Date LIKE '$date-%'", PDO::FETCH_ASSOC);
         }
 
-        public function getJointCountByMonth($date, $userID) {
+        public function getJointCountByMonthOrYear($date, $userID) {
             $conn = $this->getConnection();
             return $conn->query("SELECT Side, 
                 SUM(case when Joint = 'ankle' then 1 else 0 end) as Ankle, 
@@ -127,12 +126,6 @@
                 GROUP BY Side;", PDO::FETCH_ASSOC);
         }
         
-
-        /** By year **/
-
-        public function getEntryByYear() {
-            $conn = $this->getConnection();
-        }
 
     }
 ?>

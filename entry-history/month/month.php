@@ -39,13 +39,14 @@
                     date_default_timezone_set('America/Boise');
                     $date = date("Y-m");
                     echo "max='{$date}'";
-                    echo "value='{$date}'";                        
+                    $month = isset($_SESSION['date']) ? $_SESSION['date'] : $date;
+                    echo "value='{$month}'";                         
                 ?>/>
                 <input class="button" type="submit" value="view entries"/>
             </form>
 
             <div class="result <?php echo isset($_SESSION['show']) ? $_SESSION['show'] : ''; ?>">
-                <div class="date"><b>History for: <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date'; ?></b></div>
+                <div class="date"><b>History for the month: <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date'; ?></b></div>
                 <table>
                     <tr>
                         <td id="top-y-value">12am</td>
@@ -123,14 +124,14 @@
 </html>
 
 <?php
-unset($_SESSION['show']); 
-unset($_SESSION['date']);
-unset($_SESSION['time1']);
-unset($_SESSION['time2']);
-unset($_SESSION['time3']);
-unset($_SESSION['time4']);
-unset($_SESSION['painStats']);
-unset($_SESSION['error']);
-unset($_SESSION['left']);
-unset($_SESSION['right']);
+    unset($_SESSION['show']); 
+    unset($_SESSION['date']);
+    unset($_SESSION['time1']);
+    unset($_SESSION['time2']);
+    unset($_SESSION['time3']);
+    unset($_SESSION['time4']);
+    unset($_SESSION['painStats']);
+    unset($_SESSION['error']);
+    unset($_SESSION['left']);
+    unset($_SESSION['right']);
 ?>
