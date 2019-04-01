@@ -53,5 +53,13 @@
             echo $count>0 ? $count : '';
         }
 
+        public function xAxis($d) {
+            $date = preg_split( "/-/", $d);
+            $days = cal_days_in_month(CAL_GREGORIAN,$date[1],$date[0]);
+            for ($i = 1; $i <= $days; $i++) {
+                echo "<td class='x-axis'>" . $i . "</td>";
+            }
+        }
+
     }
 ?>

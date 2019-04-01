@@ -64,15 +64,7 @@
                     </tr>
                     <tr>
                         <td></td>
-                        <?php
-                            $date = preg_split( "/-/", $_SESSION['date'] );
-                            $days = cal_days_in_month(CAL_GREGORIAN,$date[1],$date[0]);
-                            for ($i = 1; $i <= $days; $i++) { ?>
-                                <td class="x-axis">
-                                    <?php echo $i; ?>
-                                </td><?php
-                            }
-                        ?>
+                        <?php $e->xAxis($_SESSION['date']); ?>
                     </tr>   
                 </table>
                 
