@@ -1,4 +1,5 @@
 <?php
+
     class Entry {
 
         public function getClassAndCount_Day($time, $side, $joint) {
@@ -25,7 +26,6 @@
         }
 
         public function getClassAndCount_Month($time, $day) {
-            $stuff = array(); 
             if (isset($_SESSION[$time])) {
                 $count = 0;
                 $painSum = 0;
@@ -42,18 +42,15 @@
                 }
                 if ($count > 0) {
                     $painAvg = $painSum / $count;
-                    if ($painAvg < 1.5) { $stuff[] = 'painOne'; }
-                    else if ($painAvg < 2.5) { $stuff[] = 'painTwo'; }
-                    else if ($painAvg < 3.5) { $stuff[] = 'painThree'; }
-                    else if ($painAvg < 4.5) { $stuff[] = 'painFour'; }
-                    else { $stuff[] = 'painFive'; }
-                }
-                else {
-                    $stuff[] = '';
+                    if ($painAvg < 1.5) { echo "class='painOne'"; }
+                    else if ($painAvg < 2.5) { echo "class='painTwo'"; }
+                    else if ($painAvg < 3.5) { echo "class='painThree'"; }
+                    else if ($painAvg < 4.5) { echo "class='painFour'"; }
+                    else { echo "class='painFive'"; }
                 }
             } 
-            $stuff[] = $count !== 0 ? $count : " ";
-            return $stuff;
+            echo ">";
+            echo $count>0 ? $count : '';
         }
 
     }
