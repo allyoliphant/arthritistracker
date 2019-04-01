@@ -54,8 +54,11 @@
         }
 
         public function xAxis($d) {
+            echo "d:".$d;
             $date = preg_split( "/-/", $d);
+            echo print_r($date, 1);
             $days = cal_days_in_month(CAL_GREGORIAN,$date[1],$date[0]);
+            echo "days:".$days;
             $arrayOfDays = array_fill(0, $days, 1);
             echo print_r($arrayOfDays, 1);
             $i = 1;
