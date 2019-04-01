@@ -1,5 +1,5 @@
 <?php
-    class RegX {
+    class Regx {
 
         // return true if name fits the pattern, false otherwise
         public function nameValid ($name) {

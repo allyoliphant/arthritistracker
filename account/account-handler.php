@@ -4,9 +4,9 @@
     session_start();
 
     require_once '../Dao.php';
-    require_once '../regx.php';
+    require_once '../Regx.php';
     $dao = new Dao();
-    $regx = new RegX();
+    $regx = new Regx();
 
     $messages = array();
     $inputsValid = true;

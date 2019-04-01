@@ -125,7 +125,6 @@
                 FROM Entry WHERE UserID = $userID AND Date LIKE '$date-%'
                 GROUP BY Side;", PDO::FETCH_ASSOC);
         }
-        
 
     }
 ?>
