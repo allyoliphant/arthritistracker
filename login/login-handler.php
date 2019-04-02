@@ -2,8 +2,8 @@
 
     session_start();
 
-    require_once '../Dao.php';
-    require_once '../Regx.php';
+    include_once '../Dao.php';
+    include_once '../Regx.php';
     $dao = new Dao();
     $regx = new Regx();
 
