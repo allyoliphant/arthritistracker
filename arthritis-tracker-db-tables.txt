@@ -13,7 +13,5 @@ CREATE TABLE Entry (
     Joint varchar(8) NOT NULL,
     PainLevel int DEFAULT 0,
     Time TIME NOT NULL,
-    Day int NOT NULL,
-    Month int NOT NULL,
-    Year int NOT NULL
+    Date Date NOT NULL
 );
