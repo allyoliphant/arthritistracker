@@ -7,10 +7,10 @@
     $dao = new Dao();
     $regx = new Regx();
 
+    $_SESSION['date'] = $_GET['date'];
+
     // check that something was entered and that it is a date
     if ($regx->dateValid($_GET['date'])) {
-
-        $_SESSION['date'] = $_GET['date'];
 
         $entries = $dao->getEntryByDay($_GET['date'], $_SESSION['userinfo']['ID']);
         
@@ -36,7 +36,7 @@
         }  
     }
     else {
-        $_SESSION['message'] = "Please enter a day";
+        $_SESSION['message'] = "Please enter a day - " . $_GET['date'];
     }     
          
     header("Location: ./day.php"); 

@@ -27,9 +27,8 @@
 
         // return true if date is a date, false otherwise
         public function dateValid ($date) {
-            // day, month, or year
-            $pattern = "/ (^[0-9]{4}-[0-9]{2}-[0-9]{2}$) | (^[0-9]{4}-[0-9]{2}$) | (^[0-9]{4}$) /";
-            return preg_match($pattern, $email);
+            $pattern = "/[\d\-]{4,10}/";
+            return preg_match($pattern, $date);
         }
     }
 ?>
