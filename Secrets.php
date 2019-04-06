@@ -6,19 +6,19 @@
         private $pass = "bcb11a77";
 
         public function getHost() {
-            return $host;
+            return $this->host;
         }
 
         public function getDB() {
-            return $db;
+            return $this->db;
         }
 
         public function getUsername() {
-            return $user;
+            return $this->user;
         }
 
         public function getPassword() {
-            return $pass;
+            return $this->pass;
         }
     }
 ?>
