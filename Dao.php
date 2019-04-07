@@ -1,14 +1,12 @@
-<?php
-    require_once 'Secrets.php';
-    
+<?php    
     class Dao {
-
-        public $secrets;
         
         private function getConnection () {
-            $this->secrets = new Secrets();
-            $conn = new PDO("mysql:host={$this->secrets->getHost()};dbname={$this->secrets->getDB()}",
-                 $this->secrets->getUsername(), $this->secrets->getPassword());
+            $host = getenv('DB_HOST');
+            $name = getenv('DB_NAME');
+            $username = getenv('DB_USERNAME');
+            $password = getenv('DB_PASSWORD');
+            $conn = new PDO("mysql:host={$host};dbname={$name}", $username, $password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $conn;
         }
