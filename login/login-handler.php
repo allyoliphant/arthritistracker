@@ -39,7 +39,7 @@
         }        
     }
     else {
-        $_SESSION['message'] = "Please enter an username and password";
+        $_SESSION['message'] = "Please enter username and password";
     }    
 
     $_SESSION['username'] = $_POST['username'];

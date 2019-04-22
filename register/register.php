@@ -7,6 +7,8 @@
         <header>
             <title>arthritis tracker</title>
             <link rel="stylesheet" href="register.css">
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+            <script src="../js/register.js"></script>
         </header>		
         <body>
             <div class="sidenav">
@@ -21,29 +23,37 @@
 			<form method="POST" action="register-handler.php">
                 <div>
                     <label>Name</label>                   
-                    <input type="text" name="name"
+                    <input id="name" type="text" name="name"
                         value="<?php echo isset($_SESSION['input']['name']) ? $_SESSION['input']['name'] : ''; 
                             unset($_SESSION['input']['name']); ?>"/>
+                    <span id="name-js-message" class="error message">* name must be 1 to 30 letters long</span>
                 </div>
                 <div>
                     <label>Username</label>                   
-                    <input type="text" name="username"
+                    <input id="username" type="text" name="username"
                         value="<?php echo isset($_SESSION['input']['username']) ? $_SESSION['input']['username'] : ''; 
                             unset($_SESSION['input']['username']); ?>"/>
+                    <span id="username-js-message" class="error message">* username must be 6 to 30 letters/numbers long</span>
                 </div>
                 <div>
                     <label>Password</label>
-                    <input type="password" name="password"/>
+                    <input id="password" type="password" name="password"/>
+                    <span id="password-js-message-length" class="error message">* password must be 6+ characters long</span>
+                    <span id="password-js-message-number" class="error message">* password must have 1+ numbers</span>
+                    <span id="password-js-message-letter" class="error message">* password must have 1+ letters</span>
+                    <span id="password-js-message-special" class="error message">* password must have 1+ special characters: ! @ # $ % & ? - _</span>
                 </div>
                 <div>
                     <label>Re-enter Password</label>
-                    <input type="password" name="confirm-password"/>
+                    <input id="confirm-password" type="password" name="confirm-password"/>
+                    <span id="confirm-password-js-message" class="error message">* passwords do not match</span>
                 </div>
                 <div>
                     <label>Email</label>                  
-                    <input type="text" name="email"
+                    <input id="email" type="text" name="email"
                         value="<?php echo isset($_SESSION['input']['email']) ? $_SESSION['input']['email'] : ''; 
                             unset($_SESSION['input']['email']); ?>"/>
+                    <span id="email-js-message" class="error message">* invalid email</span>
                 </div>
                 <?php
                     if (isset($_SESSION['messages'])) {
@@ -56,7 +66,7 @@
                     unset($_SESSION['messages']);
                 ?>
                 <div>
-                    <input class="button" type="submit" value="register"/>
+                    <input id="register" class="button" type="submit" value="register"/>
                 </div>
             </form>
 

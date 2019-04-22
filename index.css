@@ -2,7 +2,9 @@
 
 :root {
   --first-color: #313131;
+  --first-disabled-color: #c2c2c2;
   --second-color: #6dcff6;
+  --second-disabled-color: #bdecff;
   --third-color: #E3E3E3;
   --background-color: #FAFAFA;
   --header-font: 'Josefin Sans', sans-serif;
@@ -88,10 +90,15 @@ input {
 }
 
 .button:hover {   
-  text-decoration: none; 
   color: var(--second-color);
   background-color: var(--first-color);
   cursor: pointer; 
+}
+
+.button:disabled {   
+  color: var(--first-disabled-color);
+  background-color: var(--second-disabled-color);
+  cursor: not-allowed; 
 }
 
 .current-page {
@@ -128,6 +135,10 @@ input {
 
 .good {  
   color: rgb(15, 195, 15) !important;
+}
+
+.invalid {
+  border: 2px solid red;
 }
 
 #history-section-title {

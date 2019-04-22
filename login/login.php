@@ -6,6 +6,8 @@
 	<header>
 		<title>arthritis tracker</title>
 		<link rel="stylesheet" href="login.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+        <script src="../js/login.js"></script>
 	</header>		
 	<body>
 		<div class="sidenav">
@@ -20,12 +22,17 @@
 			<form method="POST" action="login-handler.php">
                 <div>
                     <label>Username</label>                    
-                    <input type="text" name="username"
+                    <input id="username" type="text" name="username" 
                         value="<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : ''; unset($_SESSION['username']); ?>"/>
+                    <span id="username-js-message" class="error message">* username must be 6 to 30 letters/numbers long</span>
                 </div>
                 <div>
                     <label>Password</label>
-                    <input type="password" name="password"/>
+                    <input id="password" type="password" name="password"/>
+                    <span id="password-js-message-length" class="error message">* password must be 6+ characters long</span>
+                    <span id="password-js-message-number" class="error message">* password must have 1+ numbers</span>
+                    <span id="password-js-message-letter" class="error message">* password must have 1+ letters</span>
+                    <span id="password-js-message-special" class="error message">* password must have 1+ special characters: ! @ # $ % & ? - _</span>
                 </div>
                 <?php
                     if (isset($_SESSION['message'])) {
@@ -36,7 +43,7 @@
                     unset($_SESSION['message']);
                 ?>
                 <div>
-                    <input class="button" type="submit" value="login"/>
+                    <input id="login" class="button" type="submit" value="login"/>
                 </div>
             </form>
 
