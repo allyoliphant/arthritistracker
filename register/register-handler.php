@@ -17,12 +17,12 @@
     }
     // check if name fits the required pattern
     if ($_POST['name'] != "" && !$regx->nameValid($_POST['name'])) {
-        $messages[] = "name: at least one letter, max 30 characters, and contain only letters and spaces";
+        $messages[] = "name: at least one letter or number, max 30 characters, and contain only letters, numbers, and spaces";
         $inputsValid = false; 
     }
     // check if username fits the required pattern
     if ($_POST['username'] != "" && !$regx->usernameValid($_POST['username'])) {
-        $messages[] = "username: 6 to 30 characters and contain only letters and numbers";
+        $messages[] = "username: 4 to 30 characters and contain only letters and numbers";
         $inputsValid = false; 
     }
     // check that username is not already taken
@@ -33,7 +33,7 @@
     // check if the passwords fits the required pattern
     if ($_POST['password'] != "" && !$regx->passwordValid($_POST['password']) ||
         $_POST['confirm-password'] != "" && !$regx->passwordValid($_POST['confirm-password'])) {
-        $messages[] = "password: 6 to 30 characters, and at least 1 letter, 1 number, and 1 special character (!, @, #, $, %, &, ?, -, _)";
+        $messages[] = "password: 6+ characters, and at least 1 letter, 1 number, and 1 special character (!, @, #, $, %, &, ?, -, _)";
         $inputsValid = false; 
     }
     // check that the passwords match

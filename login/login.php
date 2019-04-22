@@ -24,7 +24,7 @@
                     <label>Username</label>                    
                     <input id="username" type="text" name="username" 
                         value="<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : ''; unset($_SESSION['username']); ?>"/>
-                    <span id="username-js-message" class="error message">* username must be 6 to 30 letters/numbers long</span>
+                    <span id="username-js-message" class="error message">* username must be 4 to 30 letters/numbers long</span>
                 </div>
                 <div>
                     <label>Password</label>

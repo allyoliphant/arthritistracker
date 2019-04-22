@@ -36,13 +36,13 @@
 				    <label>Name</label>
 					<input id="name" type="text" name="name" 
 						value="<?php echo isset($_SESSION['userinfo']['Name']) ? $_SESSION['userinfo']['Name'] : ''; ?>"/>
-                    <span id="name-js-message" class="error message">* name must be 1 to 30 letters long</span>
+                    <span id="name-js-message" class="error message">* name must be 1 to 30 letters/numbers long</span>
 				</div>
 				<div>
 				    <label>Username</label>
 				    <input id="username" type="text" name="username"
 						value="<?php echo isset($_SESSION['userinfo']['Username']) ? $_SESSION['userinfo']['Username'] : ''; ?>"/>
-                    <span id="username-js-message" class="error message">* username must be 6 to 30 letters/numbers long</span>
+                    <span id="username-js-message" class="error message">* username must be 4 to 30 letters/numbers long</span>
 				</div>
 				<div>
 				    <label>Password</label>
