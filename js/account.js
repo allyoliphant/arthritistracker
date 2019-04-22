@@ -1,9 +1,9 @@
 $(function() {
     
-    var nameValid = true;
-    var usernameValid = true;
+    var nameValid = /^(?=.*[a-zA-Z0-9])[a-zA-Z0-9\s]{1,30}$/.test($('#name').val());
+    var usernameValid = /^[a-zA-Z0-9]{4,30}$/.test($('#username').val());
     var passwordValid = false;
-    var emailValid = true;
+    var emailValid = /^[a-zA-Z0-9_\.-]+@[a-zA-Z0-9-\.]+\.[a-zA-Z0-9-]+$/.test($('#email').val());
     
     $('#save').prop('disabled', true);
     $('#name-js-message').css("display", "none");
@@ -15,7 +15,7 @@ $(function() {
     $('#confirm-password-js-message').css("display", "none");
     $('#email-js-message').css("display", "none");
 
-    $('#name').blur('input', function() {
+    $('#name').bind('propertychange keyup input cut paste', function() {
         var pattern = /^(?=.*[a-zA-Z])[a-zA-Z\s]{1,30}$/;
         var input=$(this);
         var name=pattern.test(input.val());
@@ -35,7 +35,7 @@ $(function() {
         }
     });
 
-    $('#username').blur('input', function() {
+    $('#username').bind('propertychange keyup input cut paste', function() {
         var pattern = /^[a-zA-Z0-9]{6,30}$/;
         var input=$(this);
         var username=pattern.test(input.val());
@@ -55,7 +55,7 @@ $(function() {
         }
     });
 
-    $('#password').blur('input', function() {
+    $('#password').bind('propertychange keyup input cut paste', function() {
         var pattern = /(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#\$%&\?\-_])[a-zA-Z0-9!@#\$%&\?\-_]{6,30}/;
         var input=$(this);
         var password=pattern.test(input.val());
@@ -125,7 +125,7 @@ $(function() {
         }        
     });
 
-    $('#confirm-password').blur('input', function() {
+    $('#confirm-password').bind('propertychange keyup input cut paste', function() {
         var input=$(this);
         if(input.val() == $('#password').val()) {
             input.removeClass("invalid");
@@ -143,7 +143,7 @@ $(function() {
         }
     });
 
-    $('#email').blur('input', function() {
+    $('#email').bind('propertychange keyup input cut paste', function() {
         var pattern = /^[a-zA-Z0-9_\.-]+@[a-zA-Z0-9-\.]+\.[a-zA-Z0-9-]+$/;
         var input=$(this);
         var email=pattern.test(input.val());

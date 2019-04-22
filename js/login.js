@@ -1,16 +1,16 @@
 $(function() {
 
-   var usernameValid = false;
-   var passwordValid = false;
-   
-   $('#login').prop('disabled', true);
-   $('#username-js-message').css("display", "none");
-   $('#password-js-message-length').css("display", "none");
-   $('#password-js-message-number').css("display", "none");
-   $('#password-js-message-letter').css("display", "none");
-   $('#password-js-message-special').css("display", "none");
+    var usernameValid = /^[a-zA-Z0-9]{4,30}$/.test($('#username').val());
+    var passwordValid = false;
+    
+    $('#login').prop('disabled', true);
+    $('#username-js-message').css("display", "none");
+    $('#password-js-message-length').css("display", "none");
+    $('#password-js-message-number').css("display", "none");
+    $('#password-js-message-letter').css("display", "none");
+    $('#password-js-message-special').css("display", "none");
 
-    $('#username').blur('input', function() {
+    $('#username').bind('propertychange keyup input cut paste', function() {
         var pattern = /^[a-zA-Z0-9]{6,30}$/;
         var input=$(this);
         var username=pattern.test(input.val());
@@ -30,7 +30,7 @@ $(function() {
         }
     });
 
-    $('#password').blur('input', function() {
+    $('#password').bind('propertychange keyup input cut paste', function() {
         var pattern = /(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#\$%&\?\-_])[a-zA-Z0-9!@#\$%&\?\-_]{6,30}/;
         var input=$(this);
         var password=pattern.test(input.val());
