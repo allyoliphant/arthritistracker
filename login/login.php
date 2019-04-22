@@ -6,7 +6,7 @@
 	<header>
 		<title>arthritis tracker</title>
 		<link rel="stylesheet" href="login.css">
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+        <script src="../js/jquery-3.4.0.min.js" type="text/javascript"></script>
         <script src="../js/login.js"></script>
 	</header>		
 	<body>

@@ -13,7 +13,7 @@
 		<title>arthritis tracker</title>
 		<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
         <link rel="stylesheet" href="account.css">
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+        <script src="../js/jquery-3.4.0.min.js" type="text/javascript"></script>
         <script src="../js/account.js"></script>
 	</header>		
 	<body>
