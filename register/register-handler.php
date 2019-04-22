@@ -58,12 +58,15 @@
         // create user
         $dao->createUser($_POST['name'], $_POST['username'], $_POST['password'], $_POST['email']);
                     
-        $user = $dao->getUser($_POST['username']);
+        $user = $dao->getUser($_POST['username'], $_POST['password']);
         $userinfo = $user->fetch(PDO::FETCH_ASSOC);
 
         $_SESSION['logged_in'] = true;  
         $_SESSION['good'] = true; 
-        $_SESSION['userinfo'] = $userinfo;  
+        $_SESSION['user-name'] = $userinfo['Name'];  
+        $_SESSION['username'] = $userinfo['Username'];
+        $_SESSION['user-email'] = $userinfo['Email'];  
+        $_SESSION['user-id'] = $userinfo['ID'];    
         header("Location: ../home/home.php"); 
         exit(); 
     }      

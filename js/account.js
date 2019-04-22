@@ -2,10 +2,10 @@ $(function() {
     
     var nameValid = true;
     var usernameValid = true;
-    var passwordValid = true;
+    var passwordValid = false;
     var emailValid = true;
     
-    $('#save').prop('disabled', false);
+    $('#save').prop('disabled', true);
     $('#name-js-message').css("display", "none");
     $('#username-js-message').css("display", "none");
     $('#password-js-message-length').css("display", "none");
@@ -64,10 +64,17 @@ $(function() {
             $('#password-js-message-length').css("display", "none");
             $('#password-js-message-number').css("display", "none");
             $('#password-js-message-letter').css("display", "none");
-            $('#password-js-message-special').css("display", "none");
-            passwordValid = true;
-            if (nameValid && usernameValid && passwordValid && emailValid) {
-                $('#save').prop('disabled', false);
+            $('#password-js-message-special').css("display", "none");            
+            
+            if(input.val() == $('#confirm-password').val()) {
+                passwordValid = true;
+                if (nameValid && usernameValid && passwordValid && emailValid) {
+                    $('#save').prop('disabled', false);
+                }
+            }
+            else {
+                passwordValid = false;
+                $('#save').prop('disabled', true);
             }
         }
         else {

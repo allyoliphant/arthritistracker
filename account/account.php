@@ -35,19 +35,18 @@
 				<div>
 				    <label>Name</label>
 					<input id="name" type="text" name="name" 
-						value="<?php echo isset($_SESSION['userinfo']['Name']) ? $_SESSION['userinfo']['Name'] : ''; ?>"/>
+						value="<?php echo isset($_SESSION['user-name']) ? $_SESSION['user-name'] : ''; ?>"/>
                     <span id="name-js-message" class="error message">* name must be 1 to 30 letters/numbers long</span>
 				</div>
 				<div>
 				    <label>Username</label>
 				    <input id="username" type="text" name="username"
-						value="<?php echo isset($_SESSION['userinfo']['Username']) ? $_SESSION['userinfo']['Username'] : ''; ?>"/>
+						value="<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : ''; ?>"/>
                     <span id="username-js-message" class="error message">* username must be 4 to 30 letters/numbers long</span>
 				</div>
 				<div>
 				    <label>Password</label>
-				    <input id="password" type="password" name="password"
-						value="<?php echo isset($_SESSION['userinfo']['Password']) ? $_SESSION['userinfo']['Password'] : ''; ?>"/>
+				    <input id="password" type="password" name="password"/>
                     <span id="password-js-message-length" class="error message">* password must be 6+ characters long</span>
                     <span id="password-js-message-number" class="error message">* password must have 1+ numbers</span>
                     <span id="password-js-message-letter" class="error message">* password must have 1+ letters</span>
@@ -55,14 +54,13 @@
 				</div>
 				<div>
 				    <label>Re-enter Password</label>
-				    <input id="confirm-password" type="password" name="confirm-password"
-						value="<?php echo isset($_SESSION['userinfo']['Password']) ? $_SESSION['userinfo']['Password'] : ''; ?>"/>
+				    <input id="confirm-password" type="password" name="confirm-password"/>
                     <span id="confirm-password-js-message" class="error message">* passwords do not match</span>
 				</div>
 				<div>
 				    <label>Email</label>
 				    <input id="email" type="text" name="email"
-						value="<?php echo isset($_SESSION['userinfo']['Email']) ? $_SESSION['userinfo']['Email'] : ''; ?>"/>
+						value="<?php echo isset($_SESSION['user-email']) ? $_SESSION['user-email'] : ''; ?>"/>
                     <span id="email-js-message" class="error message">* invalid email</span>
 				</div>
                 <?php
@@ -76,7 +74,7 @@
                     unset($_SESSION['messages']);
                 ?>
 				<div>
-				    <input id="save" class="button" type="submit" value="save"/>
+				    <input id="save" class="button" type="submit" value="save" disabled/>
 				</div>
 			</form>
 			

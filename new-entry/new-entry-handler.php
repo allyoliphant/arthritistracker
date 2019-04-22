@@ -33,7 +33,7 @@
     // input is valid
     if ($inputsValid) {
         // create user
-        $dao->createEntry($_POST['side'], $_POST['joint'], $_POST['pain'], $_POST['date'], $_POST['time'], $_SESSION['userinfo']['ID']);
+        $dao->createEntry($_POST['side'], $_POST['joint'], $_POST['pain'], $_POST['date'], $_POST['time'], $_SESSION['user-id']);
 
         $messages[] = "Entry added!";
         $_SESSION['messages'] = $messages;

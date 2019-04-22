@@ -16,7 +16,7 @@ $(function() {
     $('#email-js-message').css("display", "none");
 
     $('#name').blur('input', function() {
-        var pattern = /^(?=.*[a-zA-Z])[a-zA-Z\s]{1,30}$/;
+        var pattern = /^(?=.*[a-zA-Z0-9])[a-zA-Z0-9\s]{1,30}$/;
         var input=$(this);
         var name=pattern.test(input.val());
         if(name) {
@@ -36,7 +36,7 @@ $(function() {
     });
 
     $('#username').blur('input', function() {
-        var pattern = /^[a-zA-Z0-9]{6,30}$/;
+        var pattern = /^[a-zA-Z0-9]{4,30}$/;
         var input=$(this);
         var username=pattern.test(input.val());
         if(username) {

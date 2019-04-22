@@ -15,9 +15,10 @@
 
         /**  Methods for user  **/
 
-        public function getUser($username) {
+        public function getUser($username, $password) {
             $conn = $this->getConnection();
-            return $conn->query("SELECT * FROM User WHERE Username = '$username'", PDO::FETCH_ASSOC);
+            $pass = md5($password . getenv('SALT'));
+            return $conn->query("SELECT * FROM User WHERE Username = '$username' AND Password = '$pass'");
         }
 
         // return true if username is available, false otherwise
@@ -36,22 +37,24 @@
 
         public function createUser($name, $username, $password, $email) {
             $conn = $this->getConnection();
+            $pass = md5($password . getenv('SALT'));
             $saveQuery = "INSERT INTO User (Name, Username, Password, Email) VALUES (:name, :username, :password, :email)";
             $q = $conn->prepare($saveQuery);
             $q->bindParam(":name", $name);
             $q->bindParam(":username", $username);
-            $q->bindParam(":password", $password);
+            $q->bindParam(":password", $pass);
             $q->bindParam(":email", $email);
             $q->execute();
         }
 
         public function updateUser($name, $username, $password, $email, $id) {
             $conn = $this->getConnection();
+            $pass = md5($password . getenv('SALT'));
             $saveQuery = "UPDATE User SET Name = :name, Username = :username, Password = :password, Email = :email WHERE ID = $id";
             $q = $conn->prepare($saveQuery);
             $q->bindParam(":name", $name);
             $q->bindParam(":username", $username);
-            $q->bindParam(":password", $password);
+            $q->bindParam(":password", $pass);
             $q->bindParam(":email", $email);
             $q->execute();
         }

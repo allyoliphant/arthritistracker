@@ -17,30 +17,29 @@
         $inputsValid = false;        
     }
     // check that changes were made
-    if ($_POST['name'] == $_SESSION['userinfo']['Name'] && $_POST['username'] == $_SESSION['userinfo']['Username'] && 
-        $_POST['password'] == $_SESSION['userinfo']['Password'] && $_POST['confirm-password'] == $_SESSION['userinfo']['Password'] && 
-        $_POST['email'] == $_SESSION['userinfo']['Email']) { 
+    if ($_POST['name'] == $_SESSION['user-name'] && $_POST['username'] == $_SESSION['username'] &&  
+        $_POST['email'] == $_SESSION['user-email']) { 
         $messages[] = "No changes to be made"; 
         $inputsValid = false;        
     }
     // check if name fits the required pattern
-    if ($_POST['name'] != $_SESSION['userinfo']['Name'] && $_POST['name'] != "" && !$regx->nameValid($_POST['name'])) {
+    if ($_POST['name'] != $_SESSION['user-name'] && $_POST['name'] != "" && !$regx->nameValid($_POST['name'])) {
         $messages[] = "name: at least one letter or number, max 30 characters, and contain only letters, numbers, and spaces";
         $inputsValid = false; 
     }
     // check if username fits the required pattern
-    if ($_POST['username'] != $_SESSION['userinfo']['Username'] && $_POST['username'] != "" && !$regx->usernameValid($_POST['username'])) {
+    if ($_POST['username'] != $_SESSION['username'] && $_POST['username'] != "" && !$regx->usernameValid($_POST['username'])) {
         $messages[] = "username: 4 to 30 characters and contain only letters and numbers";
         $inputsValid = false; 
     }
     // check that username is not already taken
-    if ($_POST['username'] != $_SESSION['userinfo']['Username'] && $_POST['username'] != "" && !$dao->usernameAvailable($_POST['username'])) {
+    if ($_POST['username'] != $_SESSION['username'] && $_POST['username'] != "" && !$dao->usernameAvailable($_POST['username'])) {
         $messages[] = "Username is taken";
         $inputsValid = false; 
     }
     // check if the passwords fits the required pattern
-    if (($_POST['password'] != $_SESSION['userinfo']['Password'] && $_POST['password'] != "" && !$regx->passwordValid($_POST['password'])) ||
-        ($_POST['confirm-password'] != $_SESSION['userinfo']['Password'] && $_POST['confirm-password'] != "" && !$regx->passwordValid($_POST['confirm-password']))) {
+    if (($_POST['password'] != "" && !$regx->passwordValid($_POST['password'])) || 
+        ($_POST['confirm-password'] != "" && !$regx->passwordValid($_POST['confirm-password']))) {
         $messages[] = "password: 6+ characters, and at least 1 letter, 1 number, and 1 special character (!, @, #, $, %, &, ?, -, _)";
         $inputsValid = false; 
     }
@@ -50,12 +49,12 @@
         $inputsValid = false; 
     }
     // check if email fits the required pattern
-    if ($_POST['email'] != $_SESSION['userinfo']['Email'] && $_POST['email'] != "" && !$regx->emailValid($_POST['email'])) {
+    if ($_POST['email'] != $_SESSION['user-email'] && $_POST['email'] != "" && !$regx->emailValid($_POST['email'])) {
         $messages[] = "email: must be a valid email";
         $inputsValid = false; 
     }
     // check that email is not already in use
-    if($_POST['email'] != $_SESSION['userinfo']['Email'] && $_POST['email'] != "" && !$dao->emailAvailable($_POST['email'])) {  
+    if($_POST['email'] != $_SESSION['user-email'] && $_POST['email'] != "" && !$dao->emailAvailable($_POST['email'])) {  
         $messages[] = "Email is already in use";
         $inputsValid = false; 
     }
@@ -64,7 +63,7 @@
     // input is valid
     if ($inputsValid) {
         // update user
-        $dao->updateUser($_POST['name'], $_POST['username'], $_POST['password'], $_POST['email'], $_SESSION['userinfo']['ID']);
+        $dao->updateUser($_POST['name'], $_POST['username'], $_POST['password'], $_POST['email'], $_SESSION['user-id']);
                     
         $user = $dao->getUser($_POST['username']);
         $userinfo = $user->fetch(PDO::FETCH_ASSOC);
@@ -73,7 +72,10 @@
         $_SESSION['messages'] = $messages; 
         $_SESSION['good'] = true; 
   
-        $_SESSION['userinfo'] = $userinfo;  
+        $_SESSION['user-name'] = $userinfo['Name'];  
+        $_SESSION['username'] = $userinfo['Username'];
+        $_SESSION['user-email'] = $userinfo['Email'];  
+        $_SESSION['user-id'] = $userinfo['ID'];  
         header("Location: ./account.php"); 
         exit(); 
     }      
