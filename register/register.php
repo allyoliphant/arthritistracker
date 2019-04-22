@@ -66,7 +66,7 @@
                     unset($_SESSION['messages']);
                 ?>
                 <div>
-                    <input id="register" class="button" type="submit" value="register"/>
+                    <input id="register" class="button" type="submit" value="register" disabled/>
                 </div>
             </form>
 

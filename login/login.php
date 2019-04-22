@@ -43,7 +43,7 @@
                     unset($_SESSION['message']);
                 ?>
                 <div>
-                    <input id="login" class="button" type="submit" value="login"/>
+                    <input id="login" class="button" type="submit" value="login" disabled/>
                 </div>
             </form>
 

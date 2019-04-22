@@ -32,7 +32,6 @@
             <form method="GET" action="logout-handler.php">
                 <p>Are you sure you want to log out?</p>
                 <input class="button" type="submit" value="yes" name="answer"/>
-                <input class="button" type="submit" value="no" name="answer"/>
             </form>
 			
 			<div class="footer">
