@@ -22,9 +22,9 @@
         }
 
         // return true if username is available, false otherwise
-        public function usernameAvailable($username) {
+        public function usernameAvailable($username, $id) {
             $conn = $this->getConnection();
-            $result = $conn->query("SELECT Username FROM User WHERE Username = '$username'", PDO::FETCH_ASSOC);
+            $result = $conn->query("SELECT Username FROM User WHERE Username = '$username' AND ID NOT LIKE '$id'", PDO::FETCH_ASSOC);
             return $result == null || $result->rowCount() <= 0;
         }
 

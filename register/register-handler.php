@@ -26,7 +26,7 @@
         $inputsValid = false; 
     }
     // check that username is not already taken
-    if($_POST['username'] != "" && !$dao->usernameAvailable($_POST['username'])) {
+    if($_POST['username'] != "" && !$dao->usernameAvailable($_POST['username'], -1)) {
         $messages[] = "Username is taken";
         $inputsValid = false; 
     }

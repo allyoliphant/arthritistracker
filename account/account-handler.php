@@ -33,7 +33,7 @@
         $inputsValid = false; 
     }
     // check that username is not already taken
-    if ($_POST['username'] != $_SESSION['username'] && $_POST['username'] != "" && !$dao->usernameAvailable($_POST['username'])) {
+    if ($_POST['username'] != $_SESSION['username'] && $_POST['username'] != "" && !$dao->usernameAvailable($_POST['username'], $_SESSION['user-id'])) {
         $messages[] = "Username is taken";
         $inputsValid = false; 
     }
@@ -65,7 +65,7 @@
         // update user
         $dao->updateUser($_POST['name'], $_POST['username'], $_POST['password'], $_POST['email'], $_SESSION['user-id']);
                     
-        $user = $dao->getUser($_POST['username']);
+        $user = $dao->getUser($_POST['username'], $_POST['password']);
         $userinfo = $user->fetch(PDO::FETCH_ASSOC);
         
         $messages[] = "Account updated!";
