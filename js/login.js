@@ -11,7 +11,7 @@ $(function() {
     $('#password-js-message-special').css("display", "none");
 
     $('#username').bind('propertychange keyup input cut paste', function() {
-        var pattern = /^[a-zA-Z0-9]{6,30}$/;
+        var pattern = /^[a-zA-Z0-9]{4,30}$/;
         var input=$(this);
         var username=pattern.test(input.val());
         if(username) {
