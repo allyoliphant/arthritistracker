@@ -21,9 +21,9 @@
             <a href="../home/home.php"><img src="../logo.png" width="70px" height="70px"/></a>
             <a class="button" href="../new-entry/new-entry.php">New Entry</a>
             <p id="history-section-title">entry history</p>
-            <a class="button" href="../entry-history/year/year.php">by year</a>
-            <a class="button" href="../entry-history/month/month.php">by month</a>
-            <a class="button" href="../entry-history/day/day.php">by day</a>
+            <a class="button" href="../entry-history/year/year.php">year</a>
+            <a class="button" href="../entry-history/month/month.php">month</a>
+            <a class="button" href="../entry-history/day/day.php">day</a>
             <a class="button current-page" id="account-nav-button" href="../account/account.php">my account</a>
             <a class="button" href="../logout/logout.php">logout</a>
 		</div>	
@@ -80,7 +80,7 @@
 			
 			<div class="footer">
 				<hr/>
-				arthritis tracker | Ally Oliphant | CS401
+				arthritis tracker | Ally Oliphant | CS401 | Spring 2019
 			</div>
 		</div>
 	</body>

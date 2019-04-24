@@ -5,7 +5,7 @@
   --first-disabled-color: #c2c2c2;
   --second-color: #6dcff6;
   --second-disabled-color: #bdecff;
-  --third-color: #E3E3E3;
+  --third-color: #FAFAFA;
   --background-color: #FAFAFA;
   --header-font: 'Josefin Sans', sans-serif;
   --body-font: 'Josefin Slab', serif;
@@ -62,13 +62,13 @@ input {
   display: block;
   background-color: var(--second-color); 
   color: var(--first-color);
-  padding: 8px;
-  margin: 5px 8px;
-  border-radius: 5px;
+  padding: 10px;
+  margin: 3px 0px;
+  border-radius: 0px;
 }
 
 .main {
-  padding: 10px 20px 10px 180px;
+  padding: 10px 30px 10px 190px;
   width: auto;
   height: auto;
   text-align: center;
@@ -95,6 +95,11 @@ input {
   cursor: pointer; 
 }
 
+.sidenav .button:hover {   
+  color: var(--first-color) !important;
+  background-color: var(--third-color) !important;
+}
+
 .button:disabled {   
   color: var(--first-disabled-color);
   background-color: var(--second-disabled-color);
@@ -115,7 +120,7 @@ input {
   text-align: center;
   width: 100%;
   position: relative;
-  margin-top: 100px;
+  margin-top: 80px;
   bottom: 0;
   padding: 5px;
   padding-bottom: 0;
@@ -146,7 +151,7 @@ input {
   font-size: 25px;
   font-family: var(--header-font);
   color: var(--second-color);
-  margin-top: 20px;
+  margin-top: 25px;
   margin-bottom: 10px;
 }
 
