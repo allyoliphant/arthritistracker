@@ -7,8 +7,9 @@
         <header>
             <title>arthritis tracker</title>
             <link rel="stylesheet" href="register.css">
-        <script src="../js/jquery-3.4.0.min.js" type="text/javascript"></script>
+            <script src="../js/jquery-3.4.0.min.js" type="text/javascript"></script>
             <script src="../js/register.js"></script>
+            <script src="../js/footer.js"></script>
         </header>		
         <body>
             <div class="sidenav">
@@ -70,10 +71,12 @@
                 </div>
             </form>
 
-            <div class="footer">
-				<hr/>
-                arthritis tracker | Ally Oliphant | CS401 | Spring 2019
-            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-content">
+                <hr/>
+                arthritis tracker | ally oliphant | 2019
+            </div>				
 		</div>
 	</body>
 </html>

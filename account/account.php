@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="account.css">
         <script src="../js/jquery-3.4.0.min.js" type="text/javascript"></script>
         <script src="../js/account.js"></script>
+        <script src="../js/footer.js"></script>
 	</header>		
 	<body>
 		<div class="sidenav">
@@ -77,10 +78,12 @@
 				    <input id="save" class="button" type="submit" value="save" disabled/>
 				</div>
 			</form>
-			
+
 			<div class="footer">
-				<hr/>
-				arthritis tracker | Ally Oliphant | CS401 | Spring 2019
+				<div class="footer-content">
+					<hr/>
+					arthritis tracker | ally oliphant | 2019
+				</div>				
 			</div>
 		</div>
 	</body>

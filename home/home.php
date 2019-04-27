@@ -13,6 +13,8 @@
 		<title>arthritis tracker</title>
 		<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
         <link rel="stylesheet" href="home.css">
+        <script src="../js/jquery-3.4.0.min.js" type="text/javascript"></script>
+        <script src="../js/footer.js"></script>
 	</header>		
 	<body>
 		<div class="sidenav">
@@ -31,11 +33,13 @@
 			<?php echo "<h2 class='name'>" . $_SESSION['user-name'] . "</h2>"; ?>
             
             <a class="button" href="../new-entry/new-entry.php">new entry</a>
+		</div>
 
-			<div class="footer">
+		<div class="footer">
+			<div class="footer-content">
 				<hr/>
-				arthritis tracker | ally oliphant | cs401 | Spring 2019
-			</div>
+				arthritis tracker | ally oliphant | 2019
+			</div>				
 		</div>
 	</body>
 </html>

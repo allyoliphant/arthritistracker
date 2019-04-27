@@ -16,6 +16,8 @@
 		<title>arthritis tracker</title>
 		<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
         <link rel="stylesheet" href="month.css">
+        <script src="../../js/jquery-3.4.0.min.js" type="text/javascript"></script>
+        <script src="../../js/footer.js"></script>
 	</header>		
 	<body>
 		<div class="sidenav">
@@ -120,12 +122,14 @@
             
             <div class="result <?php echo isset($_SESSION['error']) ? $_SESSION['error'] : ''; ?>">
                 No entries found for the month: <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date'; ?>
-            </div>     
-			
-			<div class="footer">
-				<hr/>
-				arthritis tracker | Ally Oliphant | CS401 | Spring 2019
-			</div>
+            </div>  
+
+        </div>
+        <div class="footer">
+            <div class="footer-content">
+                <hr/>
+                arthritis tracker | ally oliphant | 2019
+            </div>				
 		</div>
 	</body>
 </html>

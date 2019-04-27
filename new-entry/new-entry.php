@@ -13,6 +13,8 @@
 		<title>arthritis tracker</title>
 		<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
         <link rel="stylesheet" href="new-entry.css">
+        <script src="../js/jquery-3.4.0.min.js" type="text/javascript"></script>
+        <script src="../js/footer.js"></script>
 	</header>		
 	<body>
 		<div class="sidenav">
@@ -145,11 +147,12 @@
                     <input class="button" type="submit" value="add"/>  
                 </div>
             </form>
-
-            <div class="footer">
-				<hr/>
-				arthritis tracker | ally oliphant | cs401 | Spring 2019
-			</div>
+		</div>
+        <div class="footer">
+            <div class="footer-content">
+                <hr/>
+                arthritis tracker | ally oliphant | 2019
+            </div>				
 		</div>
 	</body>
 </html>
