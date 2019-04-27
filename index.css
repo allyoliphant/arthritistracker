@@ -118,6 +118,9 @@ input {
 
 .footer .footer-content { 
   position: absolute;
+  top: 93vh;
+  left: 180;
+  right: 20;
   text-align: center !important;
   width: auto;
   padding: 5px;
