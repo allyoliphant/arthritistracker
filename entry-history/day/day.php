@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="day.css">
         <script src="../../js/jquery-3.4.0.min.js" type="text/javascript"></script>
         <script src="../../js/footer.js"></script>
+        <script src="../../js/entry-history.js"></script>
 	</header>		
 	<body>
 		<div class="sidenav">
@@ -156,13 +157,22 @@
                         <td colspan="2">shoulder</td>
                     </tr>   
                 </table>
-                <div>
-                    color: average pain level 
-                        <span class="painOne key">1</span><span class="painTwo key">2</span><span class="painThree key">3</span><span class="painFour key">4</span><span class="painFive key">5</span>
-                </div>      
-                <div>
-                    number: number of entries
-                </div>
+
+                <div class="key">
+                    Key: <img id="question-button" src="../../question.png" width="15px" height="15px"/>
+                    <div>
+                        <div class="display-key">
+                            <div>
+                                color: average pain level 
+                                    <span class="painOne pain-colors">1</span><span class="painTwo pain-colors">2</span><span class="painThree pain-colors">3</span><span class="painFour pain-colors">4</span><span class="painFive pain-colors">5</span>
+                            </div>      
+                            <div>
+                                number: number of entries
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+
                 <div class="summary">    
                     <div class="summary-section">
                         <div><b>pain level</b></div>

@@ -10,6 +10,10 @@ h1, form, div {
     text-align: left;
 }
 
+table {    
+    border-collapse: collapse !important;
+}
+
 td {
     text-align: center;
     padding: 5px;
@@ -21,6 +25,40 @@ span {
 
 #top-y-value {   
     padding-bottom: 0px; 
+}
+
+#question-button {
+    text-align: left;
+    margin: 0px 0px -3px 0px !important;
+    display: inline;
+    line-height: 100%;
+    content: url(../question.png);
+}
+
+#question-button:hover {
+    cursor: pointer;
+    content: url(../question-hover.png);
+}
+
+.key {
+    text-align: left;
+    font-size: 15px;
+}
+
+.display-key {
+    background-color: white;
+    padding: 7px 9px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    display: none;
+    margin-top: 5px;
+}
+
+.inner-table {    
+    border-top-color: lightgrey;
+    border-top-style: solid;
+    border-top-width: 1px;
 }
 
 .y-axis {
@@ -78,10 +116,11 @@ span {
     background-color: var(--five-color);
 }
 
-.key {
+.pain-colors {
     margin: 0px;
-    padding: 2px 0px;
+    padding: 4px 0px 2px 0px;
     text-align: center;
     display: inline-block;
     width: 20px;
+    line-height: 100%;
 }
