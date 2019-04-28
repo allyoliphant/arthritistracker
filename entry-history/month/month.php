@@ -115,7 +115,7 @@
                                     <span class="painOne pain-colors">1</span><span class="painTwo pain-colors">2</span><span class="painThree pain-colors">3</span><span class="painFour pain-colors">4</span><span class="painFive pain-colors">5</span>
                             </div>      
                             <div>
-                                number: number of entries
+                                #: number of entries
                             </div>
                         </div>
                     </div>
