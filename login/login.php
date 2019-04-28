@@ -27,13 +27,13 @@
 			<form method="POST" action="login-handler.php">
                 <div>
                     <label>Username</label>                    
-                    <input id="username" type="text" name="username" 
+                    <input id="username" type="text" name="username" placeholder="username..."
                         value="<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : ''; unset($_SESSION['username']); ?>"/>
                     <span id="username-js-message" class="error message">* username must be 4 to 30 letters/numbers long</span>
                 </div>
                 <div>
                     <label>Password</label>
-                    <input id="password" type="password" name="password"/>
+                    <input id="password" type="password" name="password" placeholder="password..."/>
                     <span id="password-js-message-length" class="error message">* password must be 6+ characters long</span>
                     <span id="password-js-message-number" class="error message">* password must have 1+ numbers</span>
                     <span id="password-js-message-letter" class="error message">* password must have 1+ letters</span>

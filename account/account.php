@@ -55,19 +55,19 @@
 			<form method="POST" action="account-handler.php">
 				<div>
 				    <label>Name</label>
-					<input id="name" type="text" name="name" 
+					<input id="name" type="text" name="name" placeholder="name..."
 						value="<?php echo isset($_SESSION['user-name']) ? $_SESSION['user-name'] : ''; ?>"/>
                     <span id="name-js-message" class="error message">* name must be 1 to 30 letters/numbers long</span>
 				</div>
 				<div>
 				    <label>Username</label>
-				    <input id="username" type="text" name="username"
+				    <input id="username" type="text" name="username" placeholder="username..."
 						value="<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : ''; ?>"/>
                     <span id="username-js-message" class="error message">* username must be 4 to 30 letters/numbers long</span>
 				</div>
 				<div>
 				    <label>Password</label>
-				    <input id="password" type="password" name="password"/>
+				    <input id="password" type="password" name="password" placeholder="password..."/>
                     <span id="password-js-message-length" class="error message">* password must be 6+ characters long</span>
                     <span id="password-js-message-number" class="error message">* password must have 1+ numbers</span>
                     <span id="password-js-message-letter" class="error message">* password must have 1+ letters</span>
@@ -75,12 +75,12 @@
 				</div>
 				<div>
 				    <label>Re-enter Password</label>
-				    <input id="confirm-password" type="password" name="confirm-password"/>
+				    <input id="confirm-password" type="password" name="confirm-password" placeholder="re-enter password..."/>
                     <span id="confirm-password-js-message" class="error message">* passwords do not match</span>
 				</div>
 				<div>
 				    <label>Email</label>
-				    <input id="email" type="text" name="email"
+				    <input id="email" type="text" name="email" placeholder="email..."
 						value="<?php echo isset($_SESSION['user-email']) ? $_SESSION['user-email'] : ''; ?>"/>
                     <span id="email-js-message" class="error message">* invalid email</span>
 				</div>
