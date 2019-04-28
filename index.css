@@ -43,7 +43,7 @@ input {
   padding: 3px;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-device-width: 550px) {
 	.side {
 		display: none;
   }
@@ -62,7 +62,7 @@ input {
     left: 20px !important;
   }
 }
-@media screen and (min-width: 551px) {
+@media screen and (min-device-width: 551px) {
 	.mobile-menu {
 		display: none !important;
   }

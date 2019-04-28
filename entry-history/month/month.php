@@ -14,6 +14,7 @@
 <html>
 	<header>
 		<title>arthritis tracker</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
         <link rel="stylesheet" href="month.css">
         <script src="../../js/jquery-3.4.0.min.js" type="text/javascript"></script>
