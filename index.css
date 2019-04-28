@@ -162,7 +162,7 @@ input {
 .mobile-menu {
   background-color: var(--first-color);
   width: auto !important;
-  position: absolute;
+  position: fixed;
   top: 67;
   left: 0;
   right: 0;
