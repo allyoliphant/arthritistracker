@@ -12,6 +12,7 @@ h1, form, div {
 
 table {    
     border-collapse: collapse !important;
+    padding-right: 10px;
 }
 
 td {
@@ -37,7 +38,6 @@ span {
 
 #question-button:hover {
     cursor: pointer;
-    content: url(../question-hover.png);
 }
 
 .key {

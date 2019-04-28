@@ -3,19 +3,21 @@
 ?>
 
 <html>
-    <html>
-        <header>
-            <title>arthritis tracker</title>
-            <link rel="stylesheet" href="register.css">
-            <script src="../js/jquery-3.4.0.min.js" type="text/javascript"></script>
-            <script src="../js/register.js"></script>
-            <script src="../js/footer.js"></script>
-        </header>		
-        <body>
-            <div class="sidenav">
-                    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
-                <a href="../index.html"><img src="../logo.png" width="70px" height="70px"/></a>
-            </div>	
+    <header>
+        <title>arthritis tracker</title>
+        <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
+        <link rel="stylesheet" href="register.css">
+        <script src="../js/jquery-3.4.0.min.js" type="text/javascript"></script>
+        <script src="../js/register.js"></script>
+        <script src="../js/footer.js"></script>
+    </header>		
+    <body>
+        <div class="side nav">
+            <a href="../index.html"><img src="../logo.png" width="70px" height="70px"/></a>
+        </div>
+        <div class="mobile nav">	
+            <a href="../index.html"><img id="mobile-logo" src="../logo.png" width="40px" height="40px"/></a>
+        </div>	
         
 		<div class="main">
             <h1>arthritis tracker</h1>
