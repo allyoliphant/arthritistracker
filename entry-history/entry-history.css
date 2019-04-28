@@ -124,3 +124,8 @@ span {
     width: 20px;
     line-height: 100%;
 }
+
+.entry-table {
+    max-width: 100vh;
+    overflow: auto;
+}

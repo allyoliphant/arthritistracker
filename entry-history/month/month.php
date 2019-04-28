@@ -34,7 +34,7 @@
             <a class="button" href="../../logout/logout.php">logout</a>
 		</div>	
 		<div class="mobile nav">	
-            <a href="../home/home.php"><img id="mobile-logo" src="../../logo.png" width="40px" height="40px"/></a>	
+            <a href="../../home/home.php"><img id="mobile-logo" src="../../logo.png" width="40px" height="40px"/></a>	
 			<div id="menuToggle">	
 				<input type="checkbox" />			
 				<span></span>
@@ -77,31 +77,34 @@
 
             <div class="result <?php echo isset($_SESSION['show']) ? $_SESSION['show'] : ''; ?>">
                 <div class="date"><b>History for the month: <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date'; ?></b></div>
-                <table>
-                    <tr>
-                        <td id="top-y-value">12am</td>
-                    </tr>
-                    <tr>
-                        <td class="y-axis">6pm</td>
-                        <?php $e->getClassAndCount_Month('time4', $_SESSION['date']); ?>
-                    </tr>
-                    <tr>
-                        <td class="y-axis">12pm</td>
-                        <?php $e->getClassAndCount_Month('time3', $_SESSION['date']); ?>
-                    </tr>
-                    <tr>
-                        <td class="y-axis">6am</td>
-                        <?php $e->getClassAndCount_Month('time2', $_SESSION['date']); ?>
-                    </tr>
-                    <tr>
-                        <td class="y-axis">12am</td>
-                        <?php $e->getClassAndCount_Month('time1', $_SESSION['date']); ?>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <?php $e->xAxis($_SESSION['date']); ?>
-                    </tr>   
-                </table>
+                <div class="entry-table">
+                    <table>
+                        <tr>
+                            <td id="top-y-value">12am</td>
+                        </tr>
+                        <tr>
+                            <td class="y-axis">6pm</td>
+                            <?php $e->getClassAndCount_Month('time4', $_SESSION['date']); ?>
+                        </tr>
+                        <tr>
+                            <td class="y-axis">12pm</td>
+                            <?php $e->getClassAndCount_Month('time3', $_SESSION['date']); ?>
+                        </tr>
+                        <tr>
+                            <td class="y-axis">6am</td>
+                            <?php $e->getClassAndCount_Month('time2', $_SESSION['date']); ?>
+                        </tr>
+                        <tr>
+                            <td class="y-axis">12am</td>
+                            <?php $e->getClassAndCount_Month('time1', $_SESSION['date']); ?>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <?php $e->xAxis($_SESSION['date']); ?>
+                        </tr>   
+                    </table>
+                </div>
+                
 
                 <div class="key">
                     Key: <img id="question-button" src="../../question.png" width="15px" height="15px"/>
