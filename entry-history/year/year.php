@@ -18,7 +18,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
         <link rel="stylesheet" href="year.css">
         <script src="../../js/jquery-3.4.0.min.js" type="text/javascript"></script>
-        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+        <script src="../../js/jquery.validate.min.js"></script>
         <script src="../../js/footer.js"></script>
         <script src="../../js/entry-history.js"></script>
         <script src="../../js/mobile.js"></script>
