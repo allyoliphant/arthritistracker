@@ -126,6 +126,6 @@ span {
 }
 
 .entry-table {
-    max-width: 100vh;
+    max-width: 100%;
     overflow: auto;
 }

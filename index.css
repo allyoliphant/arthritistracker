@@ -62,11 +62,6 @@ input {
     left: 20px !important;
   }
 }
-@media screen and (min-device-width: 551px) {
-	.mobile-menu {
-		display: none !important;
-  }
-}
 
 @media screen and (max-width: 550px) {
 	.side {
@@ -85,11 +80,6 @@ input {
 
   .footer .footer-content {
     left: 20px !important;
-  }
-}
-@media screen and (min-width: 551px) {
-	.mobile-menu {
-		display: none !important;
   }
 }
 
