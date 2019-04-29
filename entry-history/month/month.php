@@ -18,6 +18,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
         <link rel="stylesheet" href="month.css">
         <script src="../../js/jquery-3.4.0.min.js" type="text/javascript"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
         <script src="../../js/footer.js"></script>
         <script src="../../js/entry-history.js"></script>
         <script src="../../js/mobile.js"></script>
@@ -55,9 +56,9 @@
 		<div class="main">
             <h1>entry history by month</h1>
 
-            <form method="GET" action="month-handler.php">
+            <form id="history-from" method="GET" action="month-handler.php">
                 <label>month:</label>
-                <input type="month" name="date" min="1990-01"
+                <input type="month" name="date" min="1990-01" required
                 <?php
                     date_default_timezone_set('America/Boise');
                     $date = date("Y-m");
@@ -65,7 +66,7 @@
                     $month = isset($_SESSION['date']) ? $_SESSION['date'] : $date;
                     echo "value='{$month}'";                         
                 ?>/>
-                <input class="button" type="submit" value="view entries"/>
+                <input id="get-history" class="button" type="submit" value="view entries"/>
             </form>
 
             <?php

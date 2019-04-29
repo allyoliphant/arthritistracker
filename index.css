@@ -68,6 +68,31 @@ input {
   }
 }
 
+@media screen and (max-width: 550px) {
+	.side {
+		display: none;
+  }
+
+  .mobile {
+    display: block !important;
+  }
+
+  .main {
+    padding: 10px 30px 85px 30px !important;
+    position: relative;
+    top: 50px;
+  }  
+
+  .footer .footer-content {
+    left: 20px !important;
+  }
+}
+@media screen and (min-width: 551px) {
+	.mobile-menu {
+		display: none !important;
+  }
+}
+
 .nav {
   position: fixed; 
   top: 0; 

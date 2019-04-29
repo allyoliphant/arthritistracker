@@ -18,6 +18,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
         <link rel="stylesheet" href="year.css">
         <script src="../../js/jquery-3.4.0.min.js" type="text/javascript"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
         <script src="../../js/footer.js"></script>
         <script src="../../js/entry-history.js"></script>
         <script src="../../js/mobile.js"></script>
@@ -55,9 +56,9 @@
 		<div class="main">
             <h1>entry history by year</h1>
 
-            <form method="GET" action="year-handler.php">
+            <form id="history-from" method="GET" action="year-handler.php">
                 <label>year:</label>
-                <input type="number" min="1990" name="date"
+                <input type="number" min="1990" name="date" required
                 <?php
                     date_default_timezone_set('America/Boise');
                     $date = date("Y");
@@ -65,7 +66,7 @@
                     $year = isset($_SESSION['date']) ? $_SESSION['date'] : $date;
                     echo "value='{$year}'";                        
                 ?>/>
-                <input class="button" type="submit" value="view entries"/>
+                <input id="get-history" class="button" type="submit" value="view entries"/>
             </form>
 
             <?php

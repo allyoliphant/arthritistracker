@@ -1,5 +1,21 @@
 $(function() {
 
+    $('#history-form').validate({ // initialize the plugin
+        rules: {
+            date: {
+                required: true
+            }
+        }
+    });    
+    $('#get-history').prop('disabled', false);    
+    $("[name='date']").bind('propertychange keyup input cut paste', function() {
+        if ($("[name='date']").valid() == true) {
+            $('#get-history').prop('disabled', false);
+        } else {
+            $('#get-history').prop('disabled', true);
+        }
+    });
+
     $("#question-button").click(function() {
         var question = $(this);
 
@@ -10,8 +26,7 @@ $(function() {
         else {
             $(".display-key").css('display', 'none');
             question.css('content', 'url(../../question.png)');
-        }
-        
+        }        
         
         pageHeight = $(window).height()*0.94;
         $(".footer").css("top", pageHeight);

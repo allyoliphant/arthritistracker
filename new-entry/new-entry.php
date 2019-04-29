@@ -15,8 +15,10 @@
 		<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
         <link rel="stylesheet" href="new-entry.css">
         <script src="../js/jquery-3.4.0.min.js" type="text/javascript"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/mobile.js"></script>
+        <script src="../js/new-entry.js"></script>
 	</header>		
 	<body>
 		<div class="side nav">
@@ -51,10 +53,10 @@
 		<div class="main">
             <h1>new entry</h1>            
 
-            <form method="POST" action="new-entry-handler.php">
+            <form id="new-entry-form" method="POST" action="new-entry-handler.php">
                 <div>
                     <div class="label">side:</div>
-                    <label><input type="radio" name="side" value="left" 
+                    <label><input type="radio" name="side" value="left" required
                         <?php if (isset($_SESSION['input']['side'])) {
                                 echo $_SESSION['input']['side']=="left" ? "checked" : "";
                         }?>
@@ -67,7 +69,7 @@
                 </div>
                 <div>
                     <div class="label">joint:</div>
-                    <label><input type="radio" name="joint" value="ankle" 
+                    <label><input type="radio" name="joint" value="ankle" required
                         <?php if (isset($_SESSION['input']['joint'])) {
                                 echo $_SESSION['input']['joint']=="ankle" ? "checked" : "";
                         }?>
@@ -105,7 +107,7 @@
                 </div>
                 <div>
                     <div class="label">pain level:</div>
-                    <label><input type="radio" name="pain" value="1" 
+                    <label><input type="radio" name="pain" value="1" required
                         <?php if (isset($_SESSION['input']['pain'])) {
                                 echo $_SESSION['input']['pain']==1 ? "checked" : "";
                         }?>
@@ -133,7 +135,7 @@
                 </div>
                 <div>
                     <div class="label">date:</div>
-                    <input type="date" name="date" min="1990-01-01"
+                    <input type="date" name="date" min="1990-01-01" required
                     <?php
                         date_default_timezone_set('America/Boise');
                         $date = date("Y-m-d");
@@ -144,7 +146,7 @@
                 </div>
                 <div>
                     <div class="label">time:</div>
-                    <input type="time" name="time" 
+                    <input type="time" name="time" required
                     <?php
                         date_default_timezone_set('America/Boise');
                         $time = date("H:i");
@@ -164,7 +166,7 @@
                     unset($_SESSION['input']);
                 ?>
                 <div>
-                    <input class="button" type="submit" value="add"/>  
+                    <input id="add-entry" class="button" type="submit" value="add" disabled/>  
                 </div>
             </form>
 		</div>
