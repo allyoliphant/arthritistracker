@@ -1,0 +1,19 @@
+List of current and future work I want to complete
+
+
+Bugs:
+* In mobile, footer is too far down on account page
+* In mobile, if navigation is open and changes to non-mobile (navigation moves from the top to the side), the menu remains open
+
+Features:
+* In entry history, change count of entries per joint to a bar graph
+* In entry history, hovering/clicking on counts opens a popup of details (joint, time, etc) of all the entries part of the count
+* In entry history, can move from year to month and month to day by clicking on month/day on the x-axis
+* In entry history, don't include the time range (y-axis) in the scrollable part of the table
+* In new entry, date and time are taken from the user's current location, instead of the timezone being hardcoded
+  (?) let the user enter a location/timezone, especially if one can't be automatically found for the user
+  (?) or just have a default timezone that will be used if none can be found
+* Change login page to a popup
+* Persistent login
+* Add possible causes tracking (weather, diet, exercise, etc)
+* Make the website into an app
