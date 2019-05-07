@@ -2,7 +2,7 @@ CREATE TABLE User (
     ID int auto_increment PRIMARY KEY,
     Name varchar(30) NOT NULL,
     Username varchar(30) NOT NULL UNIQUE,
-    Password varchar(30) NOT NULL,
+    Password varchar(32) NOT NULL,
     Email varchar(40) NOT NULL 
 );
 
