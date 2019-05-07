@@ -21,11 +21,11 @@ $(function() {
 
         if ($(".display-key").css('display') == "none") {
             $(".display-key").css('display', 'inline-block');
-            question.css('content', 'url(../../question-hover.png)');
+            question.css('content', 'url(../../img/question-hover.png)');
         }
         else {
             $(".display-key").css('display', 'none');
-            question.css('content', 'url(../../question.png)');
+            question.css('content', 'url(../../img/question.png)');
         }        
         
         pageHeight = $(window).height()*0.94;

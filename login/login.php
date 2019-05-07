@@ -7,17 +7,17 @@
 		<title>arthritis tracker</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="login.css">
-		<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
         <script src="../js/jquery-3.4.0.min.js" type="text/javascript"></script>
         <script src="../js/login.js"></script>
         <script src="../js/footer.js"></script>
 	</header>		
 	<body>
 		<div class="side nav">
-            <a href="../index.html"><img src="../logo.png" width="70px" height="70px"/></a>
+            <a href="../index.html"><img src="../img/logo.png" width="70px" height="70px"/></a>
 		</div>
 		<div class="mobile nav">	
-            <a href="../index.html"><img id="mobile-logo" src="../logo.png" width="40px" height="40px"/></a>
+            <a href="../index.html"><img id="mobile-logo" src="../img/logo.png" width="40px" height="40px"/></a>
 		</div>	
         
 		<div class="main">
