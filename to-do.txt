@@ -4,6 +4,7 @@ List of current and future work I want to complete
 Bugs:
 * In mobile, footer is too far down on account page
 * In mobile, if navigation is open and changes to non-mobile (navigation moves from the top to the side), the menu remains open
+* favicon not displaying
 
 Features:
 * In entry history, change count of entries per joint to a bar graph
@@ -17,3 +18,4 @@ Features:
 * Persistent login
 * Add possible causes tracking (weather, diet, exercise, etc)
 * Make the website into an app
+    - allow for use without the need for internet
