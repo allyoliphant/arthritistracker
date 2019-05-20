@@ -5,8 +5,19 @@
 		$_SESSION['message'] = "Please login to view";
 		header("Location: ../login/login.php");
 		exit();
-	}
-?>
+    }
+
+    // get user's timezone
+    $json = file_get_contents('http://ip-api.com/json/');  // get info based on IP address
+    $ipData = json_decode( $json, true);
+    if ($ipData['timezone']) {
+        $timezone = new DateTimeZone($ipData['timezone']);
+    } else {
+        // default
+        $timezone = new DateTimeZone('America/Boise');
+    }    
+    date_default_timezone_set(timezone_name_get($timezone));
+?>  
 
 <html>
 	<header>
@@ -137,7 +148,6 @@
                     <div class="label">date:</div>
                     <input type="date" name="date" min="1990-01-01" required
                     <?php
-                        date_default_timezone_set('America/Boise');
                         $date = date("Y-m-d");
                         echo "max='{$date}'";
                         $value = isset($_SESSION['input']['date']) ? $_SESSION['input']['date'] : $date;
@@ -148,7 +158,6 @@
                     <div class="label">time:</div>
                     <input type="time" name="time" required
                     <?php
-                        date_default_timezone_set('America/Boise');
                         $time = date("H:i");
                         $value = isset($_SESSION['input']['time']) ? $_SESSION['input']['time'] : $time;
                         echo "value='{$value}'";                        
