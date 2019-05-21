@@ -25,7 +25,7 @@ span {
 }
 
 #top-y-value {   
-    padding-bottom: 0px; 
+    padding-bottom: 0px;
 }
 
 #question-button {
@@ -62,7 +62,6 @@ span {
 }
 
 .y-axis {
-    border-right: 1px solid black;
     padding-bottom: 0px;
     padding-top: 10px;
 }
@@ -128,4 +127,48 @@ span {
 .entry-table {
     max-width: 100%;
     overflow: auto;
+}
+
+.table-scroll {
+	position: relative;
+	overflow: hidden;
+}
+
+.table-wrap {
+    margin-left: 1px;
+	overflow: auto;
+}
+
+.clone {
+	position: absolute;
+	top: 0;
+	left: 0;
+	pointer-events: none;
+}
+
+.clone th, .clone td {
+	visibility: hidden
+}
+
+.clone td, .clone th {
+	border-color: transparent
+}
+
+.clone tbody th {
+	visibility: visible;
+}
+
+.clone .fixed-side {
+	background: var(--background-color);
+    visibility: visible;
+}
+
+.clone .y-axis {    
+    border-right: 1px solid black;
+    padding-bottom: 0px;
+    padding-top: 10px;
+}
+
+.clone thead, .clone tfoot {
+    background: transparent;
 }

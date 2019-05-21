@@ -11,7 +11,6 @@ Features:
 * In entry history, hovering/clicking on counts opens a popup of details (joint, time, etc) of all the entries part of the count
 * In entry history, can edit or delete entries
 * In entry history, can move from year to month and month to day by clicking on month/day on the x-axis
-* In entry history, don't include the time range (y-axis) in the scrollable part of the table
 * Change login page to a popup
 * Persistent login
 * Add possible causes tracking (weather, diet, exercise, etc)
