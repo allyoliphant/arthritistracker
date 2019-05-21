@@ -79,47 +79,48 @@
             <div class="result <?php echo isset($_SESSION['show']) ? $_SESSION['show'] : ''; 
                 unset($_SESSION['show']);?>">
                 <div class="date"><b>History for the year: <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date'; ?></b></div>
-                <div class="entry-table">
-                    <table>
-                        <tr>
-                            <td id="top-y-value">12am</td>
-                        </tr>
-                        <tr>
-                            <td class="y-axis">6pm</td>
-                            <?php $e->getClassAndCount_Year('time4', $_SESSION['date']); ?>
-                        </tr>
-                        <tr>
-                            <td class="y-axis">12pm</td>
-                            <?php $e->getClassAndCount_Year('time3', $_SESSION['date']); ?>
-                        </tr>
-                        <tr>
-                            <td class="y-axis">6am</td>
-                            <?php $e->getClassAndCount_Year('time2', $_SESSION['date']); ?>
-                        </tr>
-                        <tr>
-                            <td class="y-axis">12am</td>
-                            <?php $e->getClassAndCount_Year('time1', $_SESSION['date']); ?>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td class="x-axis">Jan</td>
-                            <td class="x-axis">Feb</td>
-                            <td class="x-axis">Mar</td>
-                            <td class="x-axis">Apr</td>
-                            <td class="x-axis">May</td>
-                            <td class="x-axis">Jun</td>
-                            <td class="x-axis">Jul</td>
-                            <td class="x-axis">Aug</td>
-                            <td class="x-axis">Sept</td>
-                            <td class="x-axis">Oct</td>
-                            <td class="x-axis">Nov</td>
-                            <td class="x-axis">Dec</td>
-                        </tr>   
-                    </table>
-                </div>
                 
+                <div id="table-scroll" class="table-scroll">
+                    <div class="entry-table table-wrap">
+                        <table class="main-table">
+                            <tr>
+                                <td class="fixed-side" id="top-y-value">12am</td>
+                            </tr>
+                            <tr>
+                                <td class="y-axis fixed-side">6pm</td>
+                                <?php $e->getClassAndCount_Year('time4', $_SESSION['date']); ?>
+                            </tr>
+                            <tr>
+                                <td class="y-axis fixed-side">12pm</td>
+                                <?php $e->getClassAndCount_Year('time3', $_SESSION['date']); ?>
+                            </tr>
+                            <tr>
+                                <td class="y-axis fixed-side">6am</td>
+                                <?php $e->getClassAndCount_Year('time2', $_SESSION['date']); ?>
+                            </tr>
+                            <tr>
+                                <td class="y-axis fixed-side">12am</td>
+                                <?php $e->getClassAndCount_Year('time1', $_SESSION['date']); ?>
+                            </tr>
+                            <tr>
+                                <td class="fixed-side">&nbsp;</td>
+                                <td class="x-axis">Jan</td>
+                                <td class="x-axis">Feb</td>
+                                <td class="x-axis">Mar</td>
+                                <td class="x-axis">Apr</td>
+                                <td class="x-axis">May</td>
+                                <td class="x-axis">Jun</td>
+                                <td class="x-axis">Jul</td>
+                                <td class="x-axis">Aug</td>
+                                <td class="x-axis">Sept</td>
+                                <td class="x-axis">Oct</td>
+                                <td class="x-axis">Nov</td>
+                                <td class="x-axis">Dec</td>
+                            </tr>   
+                        </table>
+                    </div>
+                </div>               
                 
-
                 <div class="key">
                     Key: <img id="question-button" src="../../img/question.png" width="15px" height="15px"/>
                     <div>

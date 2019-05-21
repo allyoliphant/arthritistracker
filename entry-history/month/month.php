@@ -107,12 +107,7 @@
                             </tr>   
                         </table>
                     </div>
-                </div>
-
-
-
-                
-                
+                </div>  
 
                 <div class="key">
                     Key: <img id="question-button" src="../../img/question.png" width="15px" height="15px"/>
