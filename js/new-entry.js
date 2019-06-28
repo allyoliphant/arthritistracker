@@ -1,4 +1,13 @@
 $(function() {
+    
+    var date = new Date();
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    console.log(date); 
+    console.log(hours); 
+    console.log(minutes); 
+    
+
 
     $('#new-entry-form').validate({ // initialize the plugin
         rules: {
