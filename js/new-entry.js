@@ -1,15 +1,15 @@
-$(function() {
-    
-    var date = new Date();
-    var hours = date.getHours();
-    var minutes = date.getMinutes();
-    console.log(date); 
-    console.log(hours); 
-    console.log(minutes); 
-    
+$(function() { 
+        
+    var date = new Date();  // current date and time
+    var year = date.getFullYear();
+    var month = date.getMonth() < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1);
+    var day = date.getDay() < 10 ? '0' + date.getDay() : date.getDay();
+    var hour = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+    var minute = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+    $('#new-entry-date').val(year + '-' + month + '-' + day);
+    $('#new-entry-time').val(hour + ':' + minute);
 
-
-    $('#new-entry-form').validate({ // initialize the plugin
+    $('#new-entry-form').validate({  // initialize the plugin
         rules: {
             side: {
                 required: true

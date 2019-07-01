@@ -7,16 +7,7 @@
 		exit();
     }
 
-    // get user's timezone
-    $json = file_get_contents('http://ip-api.com/json/');  // get info based on IP address
-    $ipData = json_decode( $json, true);
-    if ($ipData['timezone']) {
-        $timezone = new DateTimeZone($ipData['timezone']);
-    } else {
-        // default
-        $timezone = new DateTimeZone('America/Boise');
-    }    
-    date_default_timezone_set(timezone_name_get($timezone));
+    date_default_timezone_set(timezone_name_get(new DateTimeZone('America/Boise')));
 ?>  
 
 <html>
@@ -146,7 +137,7 @@
                 </div>
                 <div>
                     <div class="label">date:</div>
-                    <input type="date" name="date" min="1990-01-01" required
+                    <input id="new-entry-date" type="date" name="date" min="1990-01-01" required
                     <?php
                         $date = date("Y-m-d");
                         echo "max='{$date}'";
@@ -156,7 +147,7 @@
                 </div>
                 <div>
                     <div class="label">time:</div>
-                    <input type="time" name="time" required
+                    <input id="new-entry-time" type="time" name="time" required
                     <?php
                         $time = date("H:i");
                         $value = isset($_SESSION['input']['time']) ? $_SESSION['input']['time'] : $time;
