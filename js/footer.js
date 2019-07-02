@@ -1,12 +1,12 @@
 $(function() {
 
-    var pageHeight = $(window).height()*0.94;
+    var pageHeight = $(window).height()*0.95;
 
     $(".footer").css("top", pageHeight);
     $(".footer-content").css("top", pageHeight);
 
     $(window).resize(function() {
-        pageHeight = $(window).height()*0.94;
+        pageHeight = $(window).height()*0.95;
 
         $(".footer").css("top", pageHeight);
         $(".footer-content").css("top", pageHeight);

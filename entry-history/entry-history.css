@@ -28,7 +28,7 @@ span {
     padding-bottom: 0px;
 }
 
-#question-button {
+.question-button {
     text-align: left;
     margin: 0px 0px -3px 0px !important;
     display: inline;
@@ -36,7 +36,7 @@ span {
     content: url(../img/question.png);
 }
 
-#question-button:hover {
+.question-button:hover {
     cursor: pointer;
 }
 
@@ -45,7 +45,8 @@ span {
     font-size: 15px;
 }
 
-.display-key {
+#display-key,
+#summary-display-key {
     background-color: white;
     padding: 7px 9px;
     border-style: solid;
@@ -94,6 +95,7 @@ span {
 
 .summary {
     margin-top: 20px;
+    padding-bottom: 10px;
 }
 
 .summary-section {
@@ -187,5 +189,5 @@ span {
 }
 
 #summary-table-scroll {
-    margin-top: 10px;
+    margin: 3px 0 13px 0;
 }
