@@ -22,7 +22,7 @@
         <script src="../../js/jquery.validate.min.js"></script>
         <script src="../../js/footer.js"></script>
         <script src="../../js/entry-history.js"></script>
-        <script src="../../js/mobile.js"></script>
+        <script src="../../js/mobile.js"></script>      
 	</header>		
 	<body>
 		<div class="side nav">
@@ -81,7 +81,7 @@
                 unset($_SESSION['show']);?>">
                 <div class="date"><b>History for the year: <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date'; ?></b></div>
                 
-                <div id="table-scroll" class="table-scroll">
+                <div id="main-table-scroll" class="table-scroll">
                     <div class="entry-table table-wrap">
                         <table class="main-table">
                             <tr>
@@ -144,31 +144,58 @@
                         <span>min: <?php echo $_SESSION['painStats']['Min']; ?></span>
                         <span>max: <?php echo $_SESSION['painStats']['Max']; 
                             unset($_SESSION['painStats']);?></span>
-                    </div>   
+                    </div>  
                     <div class="summary-section">
-                        <div><b>left</b></div>
-                        <span>ankle: <?php echo isset($_SESSION['left']) ? $_SESSION['left']['Ankle'] : 0; ?></span>
-                        <span>knee: <?php echo isset($_SESSION['left']) ? $_SESSION['left']['Knee'] : 0; ?></span>
-                        <span>hip: <?php echo isset($_SESSION['left']) ? $_SESSION['left']['Hip'] : 0; ?></span>
-                        <span>hand: <?php echo isset($_SESSION['left']) ? $_SESSION['left']['Hand'] : 0; ?></span>
-                        <span>wrist: <?php echo isset($_SESSION['left']) ? $_SESSION['left']['Wrist'] : 0; ?></span>
-                        <span>elbow: <?php echo isset($_SESSION['left']) ? $_SESSION['left']['Elbow'] : 0; ?></span>
-                        <span>shoulder: <?php echo isset($_SESSION['left']) ? $_SESSION['left']['Shoulder'] : 0; 
-                            unset($_SESSION['left']);?></span>
-                    </div>
-                    <div class="summary-section">
-                        <div><b>right</b></div>
-                        <span>ankle: <?php echo isset($_SESSION['right']) ? $_SESSION['right']['Ankle'] : 0; ?></span>
-                        <span>knee: <?php echo isset($_SESSION['right']) ? $_SESSION['right']['Knee'] : 0; ?></span>
-                        <span>hip: <?php echo isset($_SESSION['right']) ? $_SESSION['right']['Hip'] : 0; ?></span>
-                        <span>hand: <?php echo isset($_SESSION['right']) ? $_SESSION['right']['Hand'] : 0; ?></span>
-                        <span>wrist: <?php echo isset($_SESSION['right']) ? $_SESSION['right']['Wrist'] : 0; ?></span>
-                        <span>elbow: <?php echo isset($_SESSION['right']) ? $_SESSION['right']['Elbow'] : 0; ?></span>
-                        <span>shoulder: <?php echo isset($_SESSION['right']) ? $_SESSION['right']['Shoulder'] : 0; 
-                            unset($_SESSION['right']);?></span>
-                    </div>
+                        <div id="summary-table-scroll" class="table-scroll">
+                            <div class="entry-table table-wrap">
+                                <table class="summary-table">
+                                    <tbody style="display:block;">
+                                        <?php $e->summaryTable(35) ?>
+                                        <tr>
+                                            <td class="x-axis">left</td>
+                                            <td class="x-axis">right</td>
+                                            <td class="x-axis">&nbsp;</td>
+                                            <td class="x-axis">left</td>
+                                            <td class="x-axis">right</td>
+                                            <td class="x-axis">&nbsp;</td>
+                                            <td class="x-axis">left</td>
+                                            <td class="x-axis">right</td>
+                                            <td class="x-axis">&nbsp;</td>
+                                            <td class="x-axis">left</td>
+                                            <td class="x-axis">right</td>
+                                            <td class="x-axis">&nbsp;</td>
+                                            <td class="x-axis">left</td>
+                                            <td class="x-axis">right</td>
+                                            <td class="x-axis">&nbsp;</td>
+                                            <td class="x-axis">left</td>
+                                            <td class="x-axis">right</td>
+                                            <td class="x-axis">&nbsp;</td>
+                                            <td class="x-axis">left</td>
+                                            <td class="x-axis">right</td>
+                                        </tr>   
+                                        <tr>
+                                            <td colspan="2">ankle</td>
+                                            <td>&nbsp;</td>
+                                            <td colspan="2">knee</td>
+                                            <td>&nbsp;</td>
+                                            <td colspan="2">hip</td>
+                                            <td>&nbsp;</td>
+                                            <td colspan="2">hand</td>
+                                            <td>&nbsp;</td>
+                                            <td colspan="2">wrist</td>
+                                            <td>&nbsp;</td>
+                                            <td colspan="2">elbow</td>
+                                            <td>&nbsp;</td>
+                                            <td colspan="2">shoulder</td>
+                                        </tr>   
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>            
+                    </div> 
                 </div>
-            </div>    
+
+            </div>   
             
             <div class="result <?php echo isset($_SESSION['error']) ? $_SESSION['error'] : '';
                 unset($_SESSION['error']); ?>">

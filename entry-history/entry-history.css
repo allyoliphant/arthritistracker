@@ -172,3 +172,18 @@ span {
 .clone thead, .clone tfoot {
     background: transparent;
 }
+
+
+.summary-table {
+    height: 200px;
+    table-layout:fixed;
+}
+
+
+.left-bar {
+    background-color: var(--second-color);
+}
+
+.right-bar {
+    background-color: var(--first-color);
+}

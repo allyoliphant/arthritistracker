@@ -33,5 +33,5 @@ $(function() {
         $(".footer-content").css("top", pageHeight);
     });
 
-    $(".main-table").clone(true).appendTo('#table-scroll').addClass('clone');
+    $(".main-table").clone(true).appendTo('#main-table-scroll').addClass('clone');
 });
