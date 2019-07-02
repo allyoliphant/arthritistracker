@@ -14,7 +14,8 @@
 	<header>
 		<title>arthritis tracker</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+		<link rel="icon" href="favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="new-entry.css">
         <script src="../js/jquery-3.4.0.min.js" type="text/javascript"></script>
         <script src="../js/jquery.validate.min.js"></script>
