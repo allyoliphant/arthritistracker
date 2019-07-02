@@ -187,7 +187,10 @@
                                             <td class="x-axis-summary"><?php echo $_SESSION['left']['Shoulder']; ?></td>
                                             <td class="x-axis-summary"><?php echo $_SESSION['right']['Shoulder']; ?></td>
                                         </tr>   
-                                        <?php $e->summaryTable(15) ?>  
+                                        <?php $e->summaryTable($_SESSION['maxJointCount']);
+                                            unset($_SESSION['left']);
+                                            unset($_SESSION['right']);
+                                            unset($_SESSION['maxJointCount']); ?>  
                                     </tbody>
                                 </table>
                             </div>

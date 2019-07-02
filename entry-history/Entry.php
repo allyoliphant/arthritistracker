@@ -107,7 +107,7 @@
         }
 
         public function summaryTable($max) {
-            $height = 550 / $max;
+            $height = 400 / $max;
 
             for ($i = 1; $i <= $max; $i++) {
                echo "<tr style='height:{$height}px !important'>";
