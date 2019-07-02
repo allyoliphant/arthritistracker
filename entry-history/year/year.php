@@ -122,9 +122,9 @@
                 </div>               
                 
                 <div class="key">
-                    Key: <img id="question-button" src="../../img/question.png" width="15px" height="15px"/>
+                    Key: <img id="question-button" class="question-button" src="../../img/question.png" width="15px" height="15px"/>
                     <div>
-                        <div class="display-key">
+                        <div id="display-key">
                             <div>
                                 color: average pain level 
                                     <span class="painOne pain-colors">1</span><span class="painTwo pain-colors">2</span><span class="painThree pain-colors">3</span><span class="painFour pain-colors">4</span><span class="painFive pain-colors">5</span>
@@ -187,11 +187,26 @@
                                             <td class="x-axis-summary"><?php echo $_SESSION['left']['Shoulder']; ?></td>
                                             <td class="x-axis-summary"><?php echo $_SESSION['right']['Shoulder']; ?></td>
                                         </tr>   
-                                        <?php $e->summaryTable(45) ?>  
+                                        <?php $e->summaryTable(15) ?>  
                                     </tbody>
                                 </table>
                             </div>
-                        </div>            
+                        </div>  
+                        <div class="key">
+                            Key: <img id="summary-question-button" class="question-button" src="../../img/question.png" width="15px" height="15px"/>
+                            <div>
+                                <div id="summary-display-key">
+                                    <div>
+                                        <span style="margin: 2px 0px; padding: 0 12px;">left</span>
+                                        <span style="margin: 2px 0px; padding: 0 0 0 8px;">right</span>
+                                    </div>   
+                                    <div>
+                                        <span class="left-bar" style="margin: 0px; padding: 0 20px;">&nbsp;</span>
+                                        <span class="right-bar" style="margin: 0px; padding: 0 20px;">&nbsp;</span>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>        
                     </div> 
                 </div>
 
