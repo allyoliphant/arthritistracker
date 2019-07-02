@@ -15,8 +15,7 @@
 	<header>
 		<title>arthritis tracker</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-		<link rel="icon" href="favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
         <link rel="stylesheet" href="year.css">
         <script src="../../js/jquery-3.4.0.min.js" type="text/javascript"></script>
         <script src="../../js/jquery.validate.min.js"></script>
@@ -146,33 +145,11 @@
                             unset($_SESSION['painStats']);?></span>
                     </div>  
                     <div class="summary-section">
+                        <div><b>entries per joint</b></div>
                         <div id="summary-table-scroll" class="table-scroll">
                             <div class="entry-table table-wrap">
                                 <table class="summary-table">
-                                    <tbody style="display:block;">
-                                        <?php $e->summaryTable(35) ?>
-                                        <tr>
-                                            <td class="x-axis">left</td>
-                                            <td class="x-axis">right</td>
-                                            <td class="x-axis">&nbsp;</td>
-                                            <td class="x-axis">left</td>
-                                            <td class="x-axis">right</td>
-                                            <td class="x-axis">&nbsp;</td>
-                                            <td class="x-axis">left</td>
-                                            <td class="x-axis">right</td>
-                                            <td class="x-axis">&nbsp;</td>
-                                            <td class="x-axis">left</td>
-                                            <td class="x-axis">right</td>
-                                            <td class="x-axis">&nbsp;</td>
-                                            <td class="x-axis">left</td>
-                                            <td class="x-axis">right</td>
-                                            <td class="x-axis">&nbsp;</td>
-                                            <td class="x-axis">left</td>
-                                            <td class="x-axis">right</td>
-                                            <td class="x-axis">&nbsp;</td>
-                                            <td class="x-axis">left</td>
-                                            <td class="x-axis">right</td>
-                                        </tr>   
+                                    <tbody>
                                         <tr>
                                             <td colspan="2">ankle</td>
                                             <td>&nbsp;</td>
@@ -187,7 +164,30 @@
                                             <td colspan="2">elbow</td>
                                             <td>&nbsp;</td>
                                             <td colspan="2">shoulder</td>
+                                        </tr> 
+                                        <tr>
+                                            <td class="x-axis-summary"><?php echo $_SESSION['left']['Ankle']; ?></td>
+                                            <td class="x-axis-summary"><?php echo $_SESSION['right']['Ankle']; ?></td>
+                                            <td class="x-axis-summary">&nbsp;</td>
+                                            <td class="x-axis-summary"><?php echo $_SESSION['left']['Knee']; ?></td>
+                                            <td class="x-axis-summary"><?php echo $_SESSION['right']['Knee']; ?></td>
+                                            <td class="x-axis-summary">&nbsp;</td>
+                                            <td class="x-axis-summary"><?php echo $_SESSION['left']['Hip']; ?></td>
+                                            <td class="x-axis-summary"><?php echo $_SESSION['right']['Hip']; ?></td>
+                                            <td class="x-axis-summary">&nbsp;</td>
+                                            <td class="x-axis-summary"><?php echo $_SESSION['left']['Hand']; ?></td>
+                                            <td class="x-axis-summary"><?php echo $_SESSION['right']['Hand']; ?></td>
+                                            <td class="x-axis-summary">&nbsp;</td>
+                                            <td class="x-axis-summary"><?php echo $_SESSION['left']['Wrist']; ?></td>
+                                            <td class="x-axis-summary"><?php echo $_SESSION['right']['Wrist']; ?></td>
+                                            <td class="x-axis-summary">&nbsp;</td>
+                                            <td class="x-axis-summary"><?php echo $_SESSION['left']['Elbow']; ?></td>
+                                            <td class="x-axis-summary"><?php echo $_SESSION['right']['Elbow']; ?></td>
+                                            <td class="x-axis-summary">&nbsp;</td>
+                                            <td class="x-axis-summary"><?php echo $_SESSION['left']['Shoulder']; ?></td>
+                                            <td class="x-axis-summary"><?php echo $_SESSION['right']['Shoulder']; ?></td>
                                         </tr>   
+                                        <?php $e->summaryTable(45) ?>  
                                     </tbody>
                                 </table>
                             </div>
