@@ -1,9 +1,9 @@
 :root {
-    --one-color: #75e3ff;  /* 0 to 1.49 */
-    --two-color: #85ff75;  /* 1.5 to 2.49 */
-    --three-color: #fdff75;  /* 2.5 to 3.49 */
-    --four-color: #ffbf75;  /* 3.5 to 4.49 */
-    --five-color: #ff7575;  /* 4.5 to 5 */
+    --one-color: #a6ff9a;  /* 0 to 1.49 */
+    --two-color: #fdff89;  /* 1.5 to 2.49 */
+    --three-color: #ffc685;  /* 2.5 to 3.49 */
+    --four-color: #ffa4a4;  /* 3.5 to 4.49 */
+    --five-color: #f098ff;  /* 4.5 to 5 */
   }
 
 h1, form, div {

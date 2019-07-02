@@ -129,5 +129,20 @@
                 GROUP BY Side;", PDO::FETCH_ASSOC);
         }
 
+        public function getMaxJointCountByMonthOrYear($date, $userID) {
+            $conn = $this->getConnection();
+            return $conn->query("SELECT MAX(GREATEST(Ankle, Knee, Hip, Hand, Wrist, Elbow, Shoulder)) as MaxEntries
+                FROM (SELECT Side, 
+                    SUM(case when Joint = 'ankle' then 1 else 0 end) as Ankle, 
+                    SUM(case when Joint = 'knee' then 1 else 0 end) as Knee, 
+                    SUM(case when Joint = 'hip' then 1 else 0 end) as Hip, 
+                    SUM(case when Joint = 'hand' then 1 else 0 end) as Hand, 
+                    SUM(case when Joint = 'wrist' then 1 else 0 end) as Wrist, 
+                    SUM(case when Joint = 'elbow' then 1 else 0 end) as Elbow, 
+                    SUM(case when Joint = 'shoulder' then 1 else 0 end) as Shoulder
+                    FROM Entry WHERE UserID = $userID AND Date LIKE '$date-%'
+                    GROUP BY Side) as EntryCounts;", PDO::FETCH_ASSOC);
+        }
+
     }
 ?>
