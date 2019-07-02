@@ -107,64 +107,50 @@
         }
 
         public function summaryTable($max) {
-            $height = $max / 100;
+            $height = 550 / $max;
 
-            for ($i = $max; $i > 0; $i--) {
-               echo "<tr>";
+            for ($i = 1; $i <= $max; $i++) {
+               echo "<tr style='height:{$height}px !important'>";
 
                //ankle
-               echo $_SESSION['left']['Ankle'] == $i - 1 ? "<td style='height={$height}% !important'>" . $_SESSION['left']['Ankle'] . "</td>" 
-                : ($_SESSION['left']['Ankle'] >= $i ? "<td style='height={$height}% !important' class='left-bar'>&nbsp;</td>" :"<td style='height={$height}% !important'>&nbsp;</td>");
-               echo $_SESSION['right']['Ankle'] == $i - 1 ? "<td style='height={$height}% !important'>" . $_SESSION['right']['Ankle'] . "</td>" 
-                : ($_SESSION['right']['Ankle'] >= $i ? "<td style='height={$height}% !important' class='right-bar'>&nbsp;</td>" : "<td style='height={$height}% !important'>&nbsp;</td>");               
+               echo $_SESSION['left']['Ankle'] >= $i ? "<td class='left-bar'></td>" :"<td></td>";
+               echo ($_SESSION['right']['Ankle'] >= $i ? "<td class='right-bar'></td>" : "<td></td>");               
                
-               echo "<td>&nbsp;</td>";    
+               echo "<td></td>";    
 
                //knee
-               echo $_SESSION['left']['Knee'] == $i - 1 ? "<td style='height={$height}% !important'>" . $_SESSION['left']['Knee'] . "</td>" 
-                : ($_SESSION['left']['Knee'] >= $i ? "<td style='height={$height}% !important' class='left-bar'>&nbsp;</td>" : "<td style='height={$height}% !important'>&nbsp;</td>");
-               echo $_SESSION['right']['Knee'] == $i - 1 ? "<td style='height={$height}% !important'>" . $_SESSION['right']['Knee'] . "</td>" 
-                : ($_SESSION['right']['Knee'] >= $i ? "<td style='height={$height}% !important' class='right-bar'>&nbsp;</td>" : "<td style='height={$height}% !important'>&nbsp;</td>");        
+               echo  ($_SESSION['left']['Knee'] >= $i ? "<td class='left-bar'></td>" : "<td></td>");
+               echo ($_SESSION['right']['Knee'] >= $i ? "<td class='right-bar'></td>" : "<td></td>");        
                
-               echo "<td>&nbsp;</td>"; 
+               echo "<td></td>"; 
 
                //hip
-               echo $_SESSION['left']['Hip'] == $i - 1 ? "<td style='height={$height}% !important'>" . $_SESSION['left']['Hip'] . "</td>" 
-                : ($_SESSION['left']['Hip'] >= $i ? "<td style='height={$height}% !important' class='left-bar'>&nbsp;</td>" : "<td style='height={$height}% !important'>&nbsp;</td>");
-               echo $_SESSION['right']['Hip'] == $i - 1 ? "<td style='height={$height}% !important'>" . $_SESSION['right']['Hip'] . "</td>" 
-                : ($_SESSION['right']['Hip'] >= $i ? "<td style='height={$height}% !important' class='right-bar'>&nbsp;</td>" : "<td style='height={$height}% !important'>&nbsp;</td>");       
+               echo  ($_SESSION['left']['Hip'] >= $i ? "<td class='left-bar'></td>" : "<td></td>");
+               echo  ($_SESSION['right']['Hip'] >= $i ? "<td class='right-bar'></td>" : "<td></td>");       
                
-               echo "<td>&nbsp;</td>";
+               echo "<td></td>";
 
                //hand
-               echo $_SESSION['left']['Hand'] == $i - 1 ? "<td style='height={$height}% !important'>" . $_SESSION['left']['Hand'] . "</td>" 
-                : ($_SESSION['left']['Hand'] >= $i ? "<td style='height={$height}% !important' class='left-bar'>&nbsp;</td>" : "<td style='height={$height}% !important'>&nbsp;</td>");
-               echo $_SESSION['right']['Hand'] == $i - 1 ? "<td style='height={$height}% !important'>" . $_SESSION['right']['Hand'] . "</td>" 
-                : ($_SESSION['right']['Hand'] >= $i ? "<td style='height={$height}% !important' class='right-bar'>&nbsp;</td>" : "<td style='height={$height}% !important'>&nbsp;</td>");         
+               echo  ($_SESSION['left']['Hand'] >= $i ? "<td class='left-bar'></td>" : "<td></td>");
+               echo ($_SESSION['right']['Hand'] >= $i ? "<td class='right-bar'></td>" : "<td></td>");         
                
-               echo "<td>&nbsp;</td>";  
+               echo "<td></td>";  
 
                //wrist
-               echo $_SESSION['left']['Wrist'] == $i - 1 ? "<td style='height={$height}% !important'>" . $_SESSION['left']['Wrist'] . "</td>" 
-                : ($_SESSION['left']['Wrist'] >= $i ? "<td style='height={$height}% !important' class='left-bar'>&nbsp;</td>" : "<td style='height={$height}% !important'>&nbsp;</td>");
-               echo $_SESSION['right']['Wrist'] == $i - 1 ? "<td style='height={$height}% !important'>" . $_SESSION['right']['Wrist'] . "</td>" 
-                : ($_SESSION['right']['Wrist'] >= $i ? "<td style='height={$height}% !important' class='right-bar'>&nbsp;</td>" : "<td style='height={$height}% !important'>&nbsp;</td>");        
+               echo  ($_SESSION['left']['Wrist'] >= $i ? "<td class='left-bar'></td>" : "<td></td>");
+               echo ($_SESSION['right']['Wrist'] >= $i ? "<td class='right-bar'></td>" : "<td></td>");        
                
-               echo "<td>&nbsp;</td>"; 
+               echo "<td></td>"; 
 
                //elbow
-               echo $_SESSION['left']['Elbow'] == $i - 1 ? "<td style='height={$height}% !important'>" . $_SESSION['left']['Elbow'] . "</td>" 
-                : ($_SESSION['left']['Elbow'] >= $i ? "<td style='height={$height}% !important' class='left-bar'>&nbsp;</td>" : "<td style='height={$height}% !important'>&nbsp;</td>");
-               echo $_SESSION['right']['Elbow'] == $i - 1 ? "<td style='height={$height}% !important'>" . $_SESSION['right']['Elbow'] . "</td>" 
-                : ($_SESSION['right']['Elbow'] >= $i ? "<td style='height={$height}% !important' class='right-bar'>&nbsp;</td>" : "<td style='height={$height}% !important'>&nbsp;</td>");        
+               echo  ($_SESSION['left']['Elbow'] >= $i ? "<td class='left-bar'></td>" : "<td></td>");
+               echo  ($_SESSION['right']['Elbow'] >= $i ? "<td class='right-bar'></td>" : "<td></td>");        
                
-               echo "<td>&nbsp;</td>"; 
+               echo "<td></td>"; 
 
                //shoulder
-               echo $_SESSION['left']['Shoulder'] == $i - 1 ? "<td style='height={$height}% !important'>" . $_SESSION['left']['Shoulder'] . "</td>" 
-                : ($_SESSION['left']['Shoulder'] >= $i ? "<td style='height={$height}% !important' class='left-bar'>&nbsp;</td>" : "<td style='height={$height}% !important'>&nbsp;</td>");
-               echo $_SESSION['right']['Shoulder'] == $i - 1 ? "<td style='height={$height}% !important'>" . $_SESSION['right']['Shoulder'] . "</td>" 
-                : ($_SESSION['right']['Shoulder'] >= $i ? "<td style='height={$height}% !important' class='right-bar'>&nbsp;</td>" : "<td style='height={$height}% !important'>&nbsp;</td>");   
+               echo  ($_SESSION['left']['Shoulder'] >= $i ? "<td class='left-bar'></td>" : "<td></td>");
+               echo  ($_SESSION['right']['Shoulder'] >= $i ? "<td class='right-bar'></td>" : "<td></td>");   
 
                echo "</tr>";
             }

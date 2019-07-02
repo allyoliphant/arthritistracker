@@ -70,6 +70,11 @@ span {
     border-top: 1px solid black;
 }
 
+.x-axis-summary {
+    border-bottom: 1px solid black;
+    min-width: 25px;
+}
+
 .date {
     margin-bottom: 10px;
 }
@@ -173,17 +178,14 @@ span {
     background: transparent;
 }
 
-
-.summary-table {
-    height: 200px;
-    table-layout:fixed;
-}
-
-
 .left-bar {
     background-color: var(--second-color);
 }
 
 .right-bar {
     background-color: var(--first-color);
+}
+
+#summary-table-scroll {
+    margin-top: 10px;
 }
