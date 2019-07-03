@@ -155,8 +155,9 @@
         }
 
         public function summaryTable2($max, $entries, $side) {
+            $w = round(500 / $max);
             for ($i = 0; $i < $entries; $i++) {
-                echo "<td class='{$side}-bar'></td>";
+                echo "<td class='{$side}-bar' style='width: {$w}px !important'></td>";
             }
         }
 

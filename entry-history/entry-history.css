@@ -74,8 +74,7 @@ span {
 }
 
 .x-axis-summary {
-    border-right: 1px solid black;
-    line-height: 20px;
+    line-height: 22px;
 }
 
 .empty-space {
@@ -186,22 +185,43 @@ span {
 
 .left-bar {
     background-color: var(--second-color);
+    padding: 0 !important;
+    min-width: 1px;
 }
 
 .right-bar {
     background-color: var(--first-color);
+    padding: 0 !important;
+    min-width: 1px;
 }
 
 #summary-table-scroll {
-    margin: 3px 0 13px 0;
+    margin: 3px 0 8px 0;
     height: auto;
 }
 
-.summary-table {
-    margin-left: -40px !important;
+.summary-joint {    
+	padding: 0;
 }
 
-.summary-joint {    
-	transform: rotate(-90deg);
-    transform-origin: 65% 35% 0;
+#summary-table-scroll .y-axis {
+    max-width: 20px !important;
+}
+
+
+.rotate {
+    white-space: nowrap;
+    vertical-align: middle;
+    width: 1em;
+  }
+.rotate span {
+    display: inline-block;
+    -moz-transform: rotate(-90.0deg);  /* FF3.5+ */
+    -o-transform: rotate(-90.0deg);  /* Opera 10.5 */
+    -webkit-transform: rotate(-90.0deg);  /* Saf3.1+, Chrome */
+    filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083);  /* IE6,IE7 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)"; /* IE8 */
+    margin-left: -10px;
+    margin-right: -10px;
+    text-align: center !important;
 }
