@@ -13,6 +13,7 @@ h1, form, div {
 table {    
     border-collapse: collapse !important;
     padding-right: 10px;
+    font-size: 14px;
 }
 
 td {
@@ -42,7 +43,7 @@ span {
 
 .key {
     text-align: left;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 #display-key,
@@ -65,15 +66,20 @@ span {
 .y-axis {
     padding-bottom: 0px;
     padding-top: 10px;
+    line-height: 20px;
 }
 
 .x-axis {
-    border-top: 1px solid black;
+    border-top: 1px solid black !important;
 }
 
 .x-axis-summary {
     border-bottom: 1px solid black;
-    min-width: 25px;
+    min-width: 19px;
+}
+
+.empty-space {
+    min-width: 10px !important;
 }
 
 .date {

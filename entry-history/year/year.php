@@ -78,7 +78,7 @@
 
             <div class="result <?php echo isset($_SESSION['show']) ? $_SESSION['show'] : ''; 
                 unset($_SESSION['show']);?>">
-                <div class="date"><b>History for the year: <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date'; ?></b></div>
+                <div class="date"><b>History for the year <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date'; ?></b></div>
                 
                 <div id="main-table-scroll" class="table-scroll">
                     <div class="entry-table table-wrap">
@@ -145,7 +145,7 @@
                             unset($_SESSION['painStats']);?></span>
                     </div>  
                     <div class="summary-section">
-                        <div><b>entries per joint</b></div>
+                        <div><b>number of entries per joint</b></div>
                         <div id="summary-table-scroll" class="table-scroll">
                             <div class="entry-table table-wrap">
                                 <table class="summary-table">
@@ -168,22 +168,22 @@
                                         <tr>
                                             <td class="x-axis-summary"><?php echo $_SESSION['left']['Ankle']; ?></td>
                                             <td class="x-axis-summary"><?php echo $_SESSION['right']['Ankle']; ?></td>
-                                            <td class="x-axis-summary">&nbsp;</td>
+                                            <td class="x-axis-summary empty-space">&nbsp;</td>
                                             <td class="x-axis-summary"><?php echo $_SESSION['left']['Knee']; ?></td>
                                             <td class="x-axis-summary"><?php echo $_SESSION['right']['Knee']; ?></td>
-                                            <td class="x-axis-summary">&nbsp;</td>
+                                            <td class="x-axis-summary empty-space">&nbsp;</td>
                                             <td class="x-axis-summary"><?php echo $_SESSION['left']['Hip']; ?></td>
                                             <td class="x-axis-summary"><?php echo $_SESSION['right']['Hip']; ?></td>
-                                            <td class="x-axis-summary">&nbsp;</td>
+                                            <td class="x-axis-summary empty-space">&nbsp;</td>
                                             <td class="x-axis-summary"><?php echo $_SESSION['left']['Hand']; ?></td>
                                             <td class="x-axis-summary"><?php echo $_SESSION['right']['Hand']; ?></td>
-                                            <td class="x-axis-summary">&nbsp;</td>
+                                            <td class="x-axis-summary empty-space">&nbsp;</td>
                                             <td class="x-axis-summary"><?php echo $_SESSION['left']['Wrist']; ?></td>
                                             <td class="x-axis-summary"><?php echo $_SESSION['right']['Wrist']; ?></td>
-                                            <td class="x-axis-summary">&nbsp;</td>
+                                            <td class="x-axis-summary empty-space">&nbsp;</td>
                                             <td class="x-axis-summary"><?php echo $_SESSION['left']['Elbow']; ?></td>
                                             <td class="x-axis-summary"><?php echo $_SESSION['right']['Elbow']; ?></td>
-                                            <td class="x-axis-summary">&nbsp;</td>
+                                            <td class="x-axis-summary empty-space">&nbsp;</td>
                                             <td class="x-axis-summary"><?php echo $_SESSION['left']['Shoulder']; ?></td>
                                             <td class="x-axis-summary"><?php echo $_SESSION['right']['Shoulder']; ?></td>
                                         </tr>   

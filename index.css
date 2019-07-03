@@ -43,7 +43,7 @@ input {
   padding: 3px;
 }
 
-@media screen and (max-device-width: 550px) {
+@media screen and (max-device-width: 780px) {
 	.side {
 		display: none;
   }
@@ -63,7 +63,7 @@ input {
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 780px) {
 	.side {
 		display: none;
   }
