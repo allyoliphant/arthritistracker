@@ -78,7 +78,7 @@
 
             <div class="result <?php echo isset($_SESSION['show']) ? $_SESSION['show'] : ''; 
                 unset($_SESSION['show']);?>">
-                <div class="date"><b>History for <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date'; ?></b></div>
+                <div class="date"><b>History for the year <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date'; ?></b></div>
                 
                 <div id="main-table-scroll" class="table-scroll">
                     <div class="entry-table table-wrap">
@@ -143,54 +143,113 @@
                         <span>min: <?php echo isset($_SESSION['painStats']['Min']) ? $_SESSION['painStats']['Min'] : 0; ?></span>
                         <span>max: <?php echo isset($_SESSION['painStats']['Max']) ? $_SESSION['painStats']['Max'] : 0; 
                             unset($_SESSION['painStats']);?></span>
-                    </div>  
-                    <div class="summary-section">
+                    </div>  <div class="summary-section">
                         <div><b>number of entries per joint</b></div>
                         <div id="summary-table-scroll" class="table-scroll">
-                            <div class="entry-table table-wrap">
-                                <table class="summary-table">
+                            <div class="entry-table table-wrap" style="min-height: 415px;">
+                                <table class="summary-table" data-count-fixed-columns="2">
                                     <tbody>
                                         <tr>
-                                            <td colspan="2">ankle</td>
-                                            <td>&nbsp;</td>
-                                            <td colspan="2">knee</td>
-                                            <td>&nbsp;</td>
-                                            <td colspan="2">hip</td>
-                                            <td>&nbsp;</td>
-                                            <td colspan="2">hand</td>
-                                            <td>&nbsp;</td>
-                                            <td colspan="2">wrist</td>
-                                            <td>&nbsp;</td>
-                                            <td colspan="2">elbow</td>
-                                            <td>&nbsp;</td>
-                                            <td colspan="2">shoulder</td>
+                                            <td rowspan="2" class="summary-joint">ankle</td>
+                                            <td class="x-axis-summary"><?php echo isset($_SESSION['left']) ? $_SESSION['left']['Ankle'] : 0; ?></td>
+                                            <?php $e->summaryTable2((isset($_SESSION['maxJointCount']) ? $_SESSION['maxJointCount'] : 0),
+                                                (isset($_SESSION['left']) ? $_SESSION['left']['Ankle'] : 0) , 'left'); ?> 
                                         </tr> 
                                         <tr>
-                                            <td class="x-axis-summary"><?php echo isset($_SESSION['left']) ? $_SESSION['left']['Ankle'] : 0; ?></td>
-                                            <td class="x-axis-summary"><?php echo isset($_SESSION['right']) ?$_SESSION['right']['Ankle'] : 0; ?></td>
-                                            <td class="x-axis-summary empty-space">&nbsp;</td>
-                                            <td class="x-axis-summary"><?php echo isset($_SESSION['left']) ?$_SESSION['left']['Knee'] : 0; ?></td>
-                                            <td class="x-axis-summary"><?php echo isset($_SESSION['right']) ?$_SESSION['right']['Knee'] : 0; ?></td>
-                                            <td class="x-axis-summary empty-space">&nbsp;</td>
-                                            <td class="x-axis-summary"><?php echo isset($_SESSION['left']) ?$_SESSION['left']['Hip'] : 0; ?></td>
-                                            <td class="x-axis-summary"><?php echo isset($_SESSION['right']) ?$_SESSION['right']['Hip'] : 0; ?></td>
-                                            <td class="x-axis-summary empty-space">&nbsp;</td>
-                                            <td class="x-axis-summary"><?php echo isset($_SESSION['left']) ?$_SESSION['left']['Hand'] : 0; ?></td>
-                                            <td class="x-axis-summary"><?php echo isset($_SESSION['right']) ?$_SESSION['right']['Hand'] : 0; ?></td>
-                                            <td class="x-axis-summary empty-space">&nbsp;</td>
-                                            <td class="x-axis-summary"><?php echo isset($_SESSION['left']) ?$_SESSION['left']['Wrist'] : 0; ?></td>
-                                            <td class="x-axis-summary"><?php echo isset($_SESSION['right']) ?$_SESSION['right']['Wrist'] : 0; ?></td>
-                                            <td class="x-axis-summary empty-space">&nbsp;</td>
-                                            <td class="x-axis-summary"><?php echo isset($_SESSION['left']) ?$_SESSION['left']['Elbow'] : 0; ?></td>
-                                            <td class="x-axis-summary"><?php echo isset($_SESSION['right']) ?$_SESSION['right']['Elbow'] : 0; ?></td>
-                                            <td class="x-axis-summary empty-space">&nbsp;</td>
-                                            <td class="x-axis-summary"><?php echo isset($_SESSION['left']) ?$_SESSION['left']['Shoulder'] : 0; ?></td>
-                                            <td class="x-axis-summary"><?php echo isset($_SESSION['right']) ?$_SESSION['right']['Shoulder'] : 0; ?></td>
-                                        </tr>   
-                                        <?php $e->summaryTable(isset($_SESSION['maxJointCount']) ? $_SESSION['maxJointCount'] : 0);
-                                            unset($_SESSION['left']);
-                                            unset($_SESSION['right']);
-                                            unset($_SESSION['maxJointCount']); ?>  
+                                            <td class="x-axis-summary"><?php echo isset($_SESSION['right']) ? $_SESSION['right']['Ankle'] : 0; ?></td>
+                                            <?php $e->summaryTable2((isset($_SESSION['maxJointCount']) ? $_SESSION['maxJointCount'] : 0),
+                                                (isset($_SESSION['right']) ? $_SESSION['right']['Ankle'] : 0) , 'right'); ?> 
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td class="x-axis-summary"></td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="2" class="summary-joint">knee</td>
+                                            <td class="x-axis-summary"><?php echo isset($_SESSION['left']) ? $_SESSION['left']['Knee'] : 0; ?></td>
+                                            <?php $e->summaryTable2((isset($_SESSION['maxJointCount']) ? $_SESSION['maxJointCount'] : 0),
+                                                (isset($_SESSION['left']) ? $_SESSION['left']['Knee'] : 0) , 'left'); ?> 
+                                        </tr> 
+                                        <tr>
+                                            <td class="x-axis-summary"><?php echo isset($_SESSION['right']) ? $_SESSION['right']['Knee'] : 0; ?></td>
+                                            <?php $e->summaryTable2((isset($_SESSION['maxJointCount']) ? $_SESSION['maxJointCount'] : 0),
+                                                (isset($_SESSION['right']) ? $_SESSION['right']['Knee'] : 0) , 'right'); ?> 
+                                        </tr>
+                                        <tr>
+                                            <td class="fixed-side"></td>
+                                            <td class="x-axis-summary"></td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="2" class="summary-joint">hip</td>
+                                            <td class="x-axis-summary"><?php echo isset($_SESSION['left']) ? $_SESSION['left']['Hip'] : 0; ?></td>
+                                            <?php $e->summaryTable2((isset($_SESSION['maxJointCount']) ? $_SESSION['maxJointCount'] : 0),
+                                                (isset($_SESSION['left']) ? $_SESSION['left']['Hip'] : 0) , 'left'); ?> 
+                                        </tr> 
+                                        <tr>
+                                            <td class="x-axis-summary"><?php echo isset($_SESSION['right']) ? $_SESSION['right']['Hip'] : 0; ?></td>
+                                            <?php $e->summaryTable2((isset($_SESSION['maxJointCount']) ? $_SESSION['maxJointCount'] : 0),
+                                                (isset($_SESSION['right']) ? $_SESSION['right']['Hip'] : 0) , 'right'); ?> 
+                                        </tr>
+                                        <tr>
+                                            <td class="fixed-side"></td>
+                                            <td class="x-axis-summary"></td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="2" class="summary-joint">hand</td>
+                                            <td class="x-axis-summary"><?php echo isset($_SESSION['left']) ? $_SESSION['left']['Hand'] : 0; ?></td>
+                                            <?php $e->summaryTable2((isset($_SESSION['maxJointCount']) ? $_SESSION['maxJointCount'] : 0),
+                                                (isset($_SESSION['left']) ? $_SESSION['left']['Hand'] : 0) , 'left'); ?> 
+                                        </tr> 
+                                        <tr>
+                                            <td class="x-axis-summary"><?php echo isset($_SESSION['right']) ? $_SESSION['right']['Hand'] : 0; ?></td>
+                                            <?php $e->summaryTable2((isset($_SESSION['maxJointCount']) ? $_SESSION['maxJointCount'] : 0),
+                                                (isset($_SESSION['right']) ? $_SESSION['right']['Hand'] : 0) , 'right'); ?> 
+                                        </tr>
+                                        <tr>
+                                            <td class="fixed-side"></td>
+                                            <td class="x-axis-summary"></td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="2" class="summary-joint">wrist</td>
+                                            <td class="x-axis-summary"><?php echo isset($_SESSION['left']) ? $_SESSION['left']['Wrist'] : 0; ?></td>
+                                            <?php $e->summaryTable2((isset($_SESSION['maxJointCount']) ? $_SESSION['maxJointCount'] : 0),
+                                                (isset($_SESSION['left']) ? $_SESSION['left']['Wrist'] : 0) , 'left'); ?> 
+                                        </tr> 
+                                        <tr>
+                                            <td class="x-axis-summary"><?php echo isset($_SESSION['right']) ? $_SESSION['right']['Wrist'] : 0; ?></td>
+                                            <?php $e->summaryTable2((isset($_SESSION['maxJointCount']) ? $_SESSION['maxJointCount'] : 0),
+                                                (isset($_SESSION['right']) ? $_SESSION['right']['Wrist'] : 0) , 'right'); ?> 
+                                        </tr>
+                                        <tr>
+                                            <td class="fixed-side"></td>
+                                            <td class="x-axis-summary"></td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="2" class="summary-joint">elbow</td>
+                                            <td class="x-axis-summary"><?php echo isset($_SESSION['left']) ? $_SESSION['left']['Elbow'] : 0; ?></td>
+                                            <?php $e->summaryTable2((isset($_SESSION['maxJointCount']) ? $_SESSION['maxJointCount'] : 0),
+                                                (isset($_SESSION['left']) ? $_SESSION['left']['Elbow'] : 0) , 'left'); ?> 
+                                        </tr> 
+                                        <tr>
+                                            <td class="x-axis-summary"><?php echo isset($_SESSION['right']) ? $_SESSION['right']['Elbow'] : 0; ?></td>
+                                            <?php $e->summaryTable2((isset($_SESSION['maxJointCount']) ? $_SESSION['maxJointCount'] : 0),
+                                                (isset($_SESSION['right']) ? $_SESSION['right']['Elbow'] : 0) , 'right'); ?> 
+                                        </tr>
+                                        <tr>
+                                            <td class="fixed-side"></td>
+                                            <td class="x-axis-summary"></td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="2" class="summary-joint">shoulder</td>
+                                            <td class="x-axis-summary"><?php echo isset($_SESSION['left']) ? $_SESSION['left']['Shoulder'] : 0; ?></td>
+                                            <?php $e->summaryTable2((isset($_SESSION['maxJointCount']) ? $_SESSION['maxJointCount'] : 0),
+                                                (isset($_SESSION['left']) ? $_SESSION['left']['Shoulder'] : 0) , 'left'); ?> 
+                                        </tr> 
+                                        <tr>
+                                            <td class="x-axis-summary"><?php echo isset($_SESSION['right']) ? $_SESSION['right']['Shoulder'] : 0; ?></td>
+                                            <?php $e->summaryTable2((isset($_SESSION['maxJointCount']) ? $_SESSION['maxJointCount'] : 0),
+                                                (isset($_SESSION['right']) ? $_SESSION['right']['Shoulder'] : 0) , 'right'); ?> 
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
