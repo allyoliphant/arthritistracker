@@ -107,7 +107,6 @@
         }
 
         public function summaryTable($max) {
-
             for ($i = 1; $i <= $max; $i++) {
                echo "<tr class='bar-row'>";
 
@@ -152,6 +151,12 @@
                echo isset($_SESSION['right']) ? ($_SESSION['right']['Shoulder'] >= $i ? "<td class='right-bar'></td>" : "<td></td>") : "<td></td>";   
 
                echo "</tr>";
+            }
+        }
+
+        public function summaryTable2($max, $entries, $side) {
+            for ($i = 0; $i < $entries; $i++) {
+                echo "<td class='{$side}-bar'></td>";
             }
         }
 

@@ -74,8 +74,8 @@ span {
 }
 
 .x-axis-summary {
-    border-bottom: 1px solid black;
-    min-width: 19px;
+    border-right: 1px solid black;
+    line-height: 20px;
 }
 
 .empty-space {
@@ -178,8 +178,6 @@ span {
 
 .clone .y-axis {    
     border-right: 1px solid black;
-    padding-bottom: 0px;
-    padding-top: 10px;
 }
 
 .clone thead, .clone tfoot {
@@ -196,8 +194,14 @@ span {
 
 #summary-table-scroll {
     margin: 3px 0 13px 0;
+    height: auto;
 }
 
-.bar-row {
-    height: 10px !important;
+.summary-table {
+    margin-left: -40px !important;
+}
+
+.summary-joint {    
+	transform: rotate(-90deg);
+    transform-origin: 65% 35% 0;
 }
