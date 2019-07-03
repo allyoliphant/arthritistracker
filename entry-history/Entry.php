@@ -106,55 +106,7 @@
             }
         }
 
-        public function summaryTable($max) {
-            for ($i = 1; $i <= $max; $i++) {
-               echo "<tr class='bar-row'>";
-
-               //ankle
-               echo isset($_SESSION['left']) ? ($_SESSION['left']['Ankle'] >= $i ? "<td class='left-bar'></td>" : "<td></td>") : "<td></td>";
-               echo isset($_SESSION['right']) ? ($_SESSION['right']['Ankle'] >= $i ? "<td class='right-bar'></td>" : "<td></td>") : "<td></td>";               
-               
-               echo "<td></td>";    
-
-               //knee
-               echo isset($_SESSION['left']) ? ($_SESSION['left']['Knee'] >= $i ? "<td class='left-bar'></td>" : "<td></td>") : "<td></td>";
-               echo isset($_SESSION['right']) ? ($_SESSION['right']['Knee'] >= $i ? "<td class='right-bar'></td>" : "<td></td>") : "<td></td>";        
-               
-               echo "<td></td>"; 
-
-               //hip
-               echo isset($_SESSION['left']) ? ($_SESSION['left']['Hip'] >= $i ? "<td class='left-bar'></td>" : "<td></td>") : "<td></td>";
-               echo isset($_SESSION['right']) ? ($_SESSION['right']['Hip'] >= $i ? "<td class='right-bar'></td>" : "<td></td>") : "<td></td>";       
-               
-               echo "<td></td>";
-
-               //hand
-               echo isset($_SESSION['left']) ? ($_SESSION['left']['Hand'] >= $i ? "<td class='left-bar'></td>" : "<td></td>") : "<td></td>";
-               echo isset($_SESSION['right']) ? ($_SESSION['right']['Hand'] >= $i ? "<td class='right-bar'></td>" : "<td></td>") : "<td></td>";         
-               
-               echo "<td></td>";  
-
-               //wrist
-               echo isset($_SESSION['left']) ? ($_SESSION['left']['Wrist'] >= $i ? "<td class='left-bar'></td>" : "<td></td>") : "<td></td>";
-               echo isset($_SESSION['right']) ? ($_SESSION['right']['Wrist'] >= $i ? "<td class='right-bar'></td>" : "<td></td>") : "<td></td>";        
-               
-               echo "<td></td>"; 
-
-               //elbow
-               echo isset($_SESSION['left']) ? ($_SESSION['left']['Elbow'] >= $i ? "<td class='left-bar'></td>" : "<td></td>") : "<td></td>";
-               echo isset($_SESSION['right']) ? ($_SESSION['right']['Elbow'] >= $i ? "<td class='right-bar'></td>" : "<td></td>") : "<td></td>";        
-               
-               echo "<td></td>"; 
-
-               //shoulder
-               echo isset($_SESSION['left']) ? ($_SESSION['left']['Shoulder'] >= $i ? "<td class='left-bar'></td>" : "<td></td>") : "<td></td>";
-               echo isset($_SESSION['right']) ? ($_SESSION['right']['Shoulder'] >= $i ? "<td class='right-bar'></td>" : "<td></td>") : "<td></td>";   
-
-               echo "</tr>";
-            }
-        }
-
-        public function summaryTable2($max, $entries, $side) {
+        public function summaryTable($max, $entries, $side) {
             $w = round(500 / $max);
             for ($i = 0; $i < $entries; $i++) {
                 echo "<td class='{$side}-bar' style='width: {$w}px !important'></td>";
