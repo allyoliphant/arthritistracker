@@ -51,4 +51,5 @@ $(function() {
     });
 
     $(".main-table").clone(true).appendTo('#main-table-scroll').addClass('clone');
+    $(".summary-table").clone(true).appendTo('#summary-table-scroll').addClass('clone');
 });
