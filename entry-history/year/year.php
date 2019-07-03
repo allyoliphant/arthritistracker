@@ -78,7 +78,7 @@
 
             <div class="result <?php echo isset($_SESSION['show']) ? $_SESSION['show'] : ''; 
                 unset($_SESSION['show']);?>">
-                <div class="date"><b>History for the year <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date'; ?></b></div>
+                <div class="date"><b>History for <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date'; ?></b></div>
                 
                 <div id="main-table-scroll" class="table-scroll">
                     <div class="entry-table table-wrap">
@@ -88,19 +88,19 @@
                             </tr>
                             <tr>
                                 <td class="y-axis fixed-side">6pm</td>
-                                <?php $e->getClassAndCount_Year('time4', $_SESSION['date']); ?>
+                                <?php $e->getClassAndCount_Year('time4', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
                             </tr>
                             <tr>
                                 <td class="y-axis fixed-side">12pm</td>
-                                <?php $e->getClassAndCount_Year('time3', $_SESSION['date']); ?>
+                                <?php $e->getClassAndCount_Year('time3', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
                             </tr>
                             <tr>
                                 <td class="y-axis fixed-side">6am</td>
-                                <?php $e->getClassAndCount_Year('time2', $_SESSION['date']); ?>
+                                <?php $e->getClassAndCount_Year('time2', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
                             </tr>
                             <tr>
                                 <td class="y-axis fixed-side">12am</td>
-                                <?php $e->getClassAndCount_Year('time1', $_SESSION['date']); ?>
+                                <?php $e->getClassAndCount_Year('time1', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
                             </tr>
                             <tr>
                                 <td class="fixed-side">&nbsp;</td>
@@ -139,9 +139,9 @@
                 <div class="summary">    
                     <div class="summary-section">
                         <div><b>pain level</b></div>
-                        <span>average: <?php echo $_SESSION['painStats']['Avg']; ?></span>
-                        <span>min: <?php echo $_SESSION['painStats']['Min']; ?></span>
-                        <span>max: <?php echo $_SESSION['painStats']['Max']; 
+                        <span>average: <?php echo isset($_SESSION['painStats']['Avg']) ? $_SESSION['painStats']['Avg'] : 0; ?></span>
+                        <span>min: <?php echo isset($_SESSION['painStats']['Min']) ? $_SESSION['painStats']['Min'] : 0; ?></span>
+                        <span>max: <?php echo isset($_SESSION['painStats']['Max']) ? $_SESSION['painStats']['Max'] : 0; 
                             unset($_SESSION['painStats']);?></span>
                     </div>  
                     <div class="summary-section">
@@ -166,28 +166,28 @@
                                             <td colspan="2">shoulder</td>
                                         </tr> 
                                         <tr>
-                                            <td class="x-axis-summary"><?php echo $_SESSION['left']['Ankle']; ?></td>
-                                            <td class="x-axis-summary"><?php echo $_SESSION['right']['Ankle']; ?></td>
+                                            <td class="x-axis-summary"><?php echo isset($_SESSION['left']) ? $_SESSION['left']['Ankle'] : 0; ?></td>
+                                            <td class="x-axis-summary"><?php echo isset($_SESSION['right']) ?$_SESSION['right']['Ankle'] : 0; ?></td>
                                             <td class="x-axis-summary empty-space">&nbsp;</td>
-                                            <td class="x-axis-summary"><?php echo $_SESSION['left']['Knee']; ?></td>
-                                            <td class="x-axis-summary"><?php echo $_SESSION['right']['Knee']; ?></td>
+                                            <td class="x-axis-summary"><?php echo isset($_SESSION['left']) ?$_SESSION['left']['Knee'] : 0; ?></td>
+                                            <td class="x-axis-summary"><?php echo isset($_SESSION['right']) ?$_SESSION['right']['Knee'] : 0; ?></td>
                                             <td class="x-axis-summary empty-space">&nbsp;</td>
-                                            <td class="x-axis-summary"><?php echo $_SESSION['left']['Hip']; ?></td>
-                                            <td class="x-axis-summary"><?php echo $_SESSION['right']['Hip']; ?></td>
+                                            <td class="x-axis-summary"><?php echo isset($_SESSION['left']) ?$_SESSION['left']['Hip'] : 0; ?></td>
+                                            <td class="x-axis-summary"><?php echo isset($_SESSION['right']) ?$_SESSION['right']['Hip'] : 0; ?></td>
                                             <td class="x-axis-summary empty-space">&nbsp;</td>
-                                            <td class="x-axis-summary"><?php echo $_SESSION['left']['Hand']; ?></td>
-                                            <td class="x-axis-summary"><?php echo $_SESSION['right']['Hand']; ?></td>
+                                            <td class="x-axis-summary"><?php echo isset($_SESSION['left']) ?$_SESSION['left']['Hand'] : 0; ?></td>
+                                            <td class="x-axis-summary"><?php echo isset($_SESSION['right']) ?$_SESSION['right']['Hand'] : 0; ?></td>
                                             <td class="x-axis-summary empty-space">&nbsp;</td>
-                                            <td class="x-axis-summary"><?php echo $_SESSION['left']['Wrist']; ?></td>
-                                            <td class="x-axis-summary"><?php echo $_SESSION['right']['Wrist']; ?></td>
+                                            <td class="x-axis-summary"><?php echo isset($_SESSION['left']) ?$_SESSION['left']['Wrist'] : 0; ?></td>
+                                            <td class="x-axis-summary"><?php echo isset($_SESSION['right']) ?$_SESSION['right']['Wrist'] : 0; ?></td>
                                             <td class="x-axis-summary empty-space">&nbsp;</td>
-                                            <td class="x-axis-summary"><?php echo $_SESSION['left']['Elbow']; ?></td>
-                                            <td class="x-axis-summary"><?php echo $_SESSION['right']['Elbow']; ?></td>
+                                            <td class="x-axis-summary"><?php echo isset($_SESSION['left']) ?$_SESSION['left']['Elbow'] : 0; ?></td>
+                                            <td class="x-axis-summary"><?php echo isset($_SESSION['right']) ?$_SESSION['right']['Elbow'] : 0; ?></td>
                                             <td class="x-axis-summary empty-space">&nbsp;</td>
-                                            <td class="x-axis-summary"><?php echo $_SESSION['left']['Shoulder']; ?></td>
-                                            <td class="x-axis-summary"><?php echo $_SESSION['right']['Shoulder']; ?></td>
+                                            <td class="x-axis-summary"><?php echo isset($_SESSION['left']) ?$_SESSION['left']['Shoulder'] : 0; ?></td>
+                                            <td class="x-axis-summary"><?php echo isset($_SESSION['right']) ?$_SESSION['right']['Shoulder'] : 0; ?></td>
                                         </tr>   
-                                        <?php $e->summaryTable($_SESSION['maxJointCount']);
+                                        <?php $e->summaryTable(isset($_SESSION['maxJointCount']) ? $_SESSION['maxJointCount'] : 0);
                                             unset($_SESSION['left']);
                                             unset($_SESSION['right']);
                                             unset($_SESSION['maxJointCount']); ?>  

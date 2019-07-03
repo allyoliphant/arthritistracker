@@ -197,3 +197,7 @@ span {
 #summary-table-scroll {
     margin: 3px 0 13px 0;
 }
+
+.bar-row {
+    height: 10px !important;
+}
