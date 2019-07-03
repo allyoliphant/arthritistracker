@@ -225,3 +225,8 @@ span {
     margin-right: -10px;
     text-align: center !important;
 }
+
+.summary-key-color {
+    line-height: 20px;
+    min-width: 40px;
+}
