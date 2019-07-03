@@ -240,14 +240,18 @@
                             Key: <img id="summary-question-button" class="question-button" src="../../img/question.png" width="15px" height="15px"/>
                             <div>
                                 <div id="summary-display-key">
-                                    <div>
-                                        <span style="margin: 2px 0px; padding: 0 12px;">left</span>
-                                        <span style="margin: 2px 0px; padding: 0 0 0 8px;">right</span>
-                                    </div>   
-                                    <div>
-                                        <span class="left-bar" style="margin: 0px; padding: 0 20px;">&nbsp;</span>
-                                        <span class="right-bar" style="margin: 0px; padding: 0 20px;">&nbsp;</span>
-                                    </div> 
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td>left</td>
+                                                <td class="left-bar summary-key-color">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td>right</td>
+                                                <td class="right-bar summary-key-color">&nbsp;</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>        
