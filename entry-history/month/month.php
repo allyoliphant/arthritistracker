@@ -135,7 +135,11 @@
                         <span>max: <?php echo isset($_SESSION['painStats']['Max']) ? $_SESSION['painStats']['Max'] : 0; 
                             unset($_SESSION['painStats']);?></span>
                     </div>  
+<<<<<<< HEAD
                     <div class="summary-section">
+=======
+                    </div>  <div class="summary-section">
+>>>>>>> 2d00dc1aaf4a1eb1abcf5317a9344bb674d90472
                         <div><b>number of entries per joint</b></div>
                         <div id="summary-table-scroll" class="table-scroll">
                             <div class="entry-table table-wrap">
