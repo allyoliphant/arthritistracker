@@ -101,8 +101,17 @@
             $arrayOfDays = array_fill(0, $days, 1);
             $i = 1;
             foreach($arrayOfDays as $day) {
-                echo "<td class='x-axis'>" . $i . "</td>";
+                echo "<td class='x-axis'>";
+                echo "<button value='" . $_SESSION['date'] . "-" . ($i < 10 ? "0".$i : $i) . "'";
+                echo "type='submit' name='date'>{$i}</button></td>";
                 $i = $i + 1;
+            }
+        }
+
+        public function summaryTable($max, $entries, $side) {
+            $w = round(500 / $max);
+            for ($i = 0; $i < $entries; $i++) {
+                echo "<td class='{$side}-bar' style='width: {$w}px !important'></td>";
             }
         }
 

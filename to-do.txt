@@ -7,10 +7,8 @@ Bugs:
 * favicon not displaying
 
 Features:
-* In entry history, change count of entries per joint to a bar graph
 * In entry history, hovering/clicking on counts opens a popup of details (joint, time, etc) of all the entries part of the count
 * In entry history, can edit or delete entries
-* In entry history, can move from year to month and month to day by clicking on month/day on the x-axis
 * Change login page to a popup
 * Persistent login
 * Add possible causes tracking (weather, diet, exercise, etc)

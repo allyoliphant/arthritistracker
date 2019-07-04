@@ -1,9 +1,9 @@
 :root {
-    --one-color: #75e3ff;  /* 0 to 1.49 */
-    --two-color: #85ff75;  /* 1.5 to 2.49 */
-    --three-color: #fdff75;  /* 2.5 to 3.49 */
-    --four-color: #ffbf75;  /* 3.5 to 4.49 */
-    --five-color: #ff7575;  /* 4.5 to 5 */
+    --one-color: #a6ff9a;  /* 0 to 1.49 */
+    --two-color: #fdff89;  /* 1.5 to 2.49 */
+    --three-color: #ffc685;  /* 2.5 to 3.49 */
+    --four-color: #ffa4a4;  /* 3.5 to 4.49 */
+    --five-color: #f098ff;  /* 4.5 to 5 */
   }
 
 h1, form, div {
@@ -13,6 +13,7 @@ h1, form, div {
 table {    
     border-collapse: collapse !important;
     padding-right: 10px;
+    font-size: 14px;
 }
 
 td {
@@ -24,11 +25,22 @@ span {
     margin-right: 10px;
 }
 
+button {    
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+    outline: inherit;
+    text-transform: lowercase;
+}
+
 #top-y-value {   
     padding-bottom: 0px;
 }
 
-#question-button {
+.question-button {
     text-align: left;
     margin: 0px 0px -3px 0px !important;
     display: inline;
@@ -36,16 +48,17 @@ span {
     content: url(../img/question.png);
 }
 
-#question-button:hover {
+.question-button:hover {
     cursor: pointer;
 }
 
 .key {
     text-align: left;
-    font-size: 15px;
+    font-size: 14px;
 }
 
-.display-key {
+#display-key,
+#summary-display-key {
     background-color: white;
     padding: 7px 9px;
     border-style: solid;
@@ -64,10 +77,19 @@ span {
 .y-axis {
     padding-bottom: 0px;
     padding-top: 10px;
+    line-height: 20px;
 }
 
 .x-axis {
-    border-top: 1px solid black;
+    border-top: 1px solid black !important;
+}
+
+.x-axis-summary {
+    line-height: 22px;
+}
+
+.empty-space {
+    min-width: 10px !important;
 }
 
 .date {
@@ -89,6 +111,7 @@ span {
 
 .summary {
     margin-top: 20px;
+    padding-bottom: 10px;
 }
 
 .summary-section {
@@ -165,10 +188,56 @@ span {
 
 .clone .y-axis {    
     border-right: 1px solid black;
-    padding-bottom: 0px;
-    padding-top: 10px;
 }
 
 .clone thead, .clone tfoot {
     background: transparent;
+}
+
+.left-bar {
+    background-color: var(--second-color);
+    padding: 0 !important;
+    min-width: 1px;
+}
+
+.right-bar {
+    background-color: var(--first-color);
+    padding: 0 !important;
+    min-width: 1px;
+}
+
+#summary-table-scroll {
+    margin: 3px 0 8px 0;
+    height: auto;
+}
+
+.summary-joint {    
+	padding: 0;
+}
+
+#summary-table-scroll .y-axis {
+    max-width: 20px !important;
+}
+
+
+.rotate {
+    white-space: nowrap;
+    vertical-align: middle;
+    width: 1em;
+  }
+.rotate span {
+    display: inline-block;
+    -moz-transform: rotate(-90.0deg);  /* FF3.5+ */
+    -o-transform: rotate(-90.0deg);  /* Opera 10.5 */
+    -webkit-transform: rotate(-90.0deg);  /* Saf3.1+, Chrome */
+    filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083);  /* IE6,IE7 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)"; /* IE8 */
+    margin-left: -10px;
+    margin-right: -10px;
+    text-align: center !important;
+}
+
+.summary-key-color {
+    line-height: 20px;
+    min-width: 40px;
 }

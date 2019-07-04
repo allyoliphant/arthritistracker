@@ -78,9 +78,9 @@
             ?>
 
             <div class="result <?php echo isset($_SESSION['show']) ? $_SESSION['show'] : ''; ?>">
-                <div class="date"><b>History for the day: <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date'; ?></b></div>
+                <div class="date"><b>History for <?php echo isset($_SESSION['date']) ? date_format(new DateTime($_SESSION['date']), 'F jS Y') : 'no date'; ?></b></div>
                
-                <div id="table-scroll" class="table-scroll">
+                <div id="main-table-scroll" class="table-scroll">
                     <div class="entry-table table-wrap">
                         <table class="main-table">
                             <tr>
@@ -183,12 +183,12 @@
                             </tr>   
                         </table>
                     </div>                    
-                </div>
-
+                </div>            
+                
                 <div class="key">
-                    Key: <img id="question-button" src="../../img/question.png" width="15px" height="15px"/>
+                    Key: <img id="question-button" class="question-button" src="../../img/question.png" width="15px" height="15px"/>
                     <div>
-                        <div class="display-key">
+                        <div id="display-key">
                             <div>
                                 color: average pain level 
                                     <span class="painOne pain-colors">1</span><span class="painTwo pain-colors">2</span><span class="painThree pain-colors">3</span><span class="painFour pain-colors">4</span><span class="painFive pain-colors">5</span>
@@ -211,7 +211,7 @@
             </div>  
             
             <div class="result <?php echo isset($_SESSION['error']) ? $_SESSION['error'] : ''; ?>">
-                No entries found for the day: <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date'; ?>
+                No entries found for the day: <?php echo isset($_SESSION['date']) ? date_format(new DateTime($_SESSION['date']), 'F jS Y') : 'no date'; ?>
             </div>
 
         </div>

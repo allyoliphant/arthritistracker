@@ -43,6 +43,9 @@
                 $_SESSION['left'] = $_SESSION['jointCount'][0];
                 $_SESSION['right'] = $_SESSION['jointCount'][1];
             }
+            
+            $maxJointCount = $dao->getMaxJointCountByMonthOrYear($_GET['date'], $_SESSION['user-id']);
+            $_SESSION['maxJointCount'] = $maxJointCount->fetchAll(PDO::FETCH_ASSOC)[0]['MaxEntries'];
         }
         else {
             $_SESSION['error'] = "no-result";
