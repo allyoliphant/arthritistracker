@@ -101,7 +101,9 @@
             $arrayOfDays = array_fill(0, $days, 1);
             $i = 1;
             foreach($arrayOfDays as $day) {
-                echo "<td class='x-axis'>" . $i . "</td>";
+                echo "<td class='x-axis'>";
+                echo "<button value='" . $_SESSION['date'] . "-" . ($i < 10 ? "0".$i : $i) . "'";
+                echo "type='submit' name='date'>{$i}</button></td>";
                 $i = $i + 1;
             }
         }

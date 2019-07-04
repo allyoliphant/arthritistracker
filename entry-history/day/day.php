@@ -211,7 +211,7 @@
             </div>  
             
             <div class="result <?php echo isset($_SESSION['error']) ? $_SESSION['error'] : ''; ?>">
-                No entries found for the day: <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date'; ?>
+                No entries found for the day: <?php echo isset($_SESSION['date']) ? date_format(new DateTime($_SESSION['date']), 'F jS Y') : 'no date'; ?>
             </div>
 
         </div>

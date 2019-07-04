@@ -103,8 +103,10 @@
                                 <?php $e->getClassAndCount_Month('time1', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
                             </tr>
                             <tr>
-                                <td class="fixed-side">&nbsp;</td>
-                                <?php $e->xAxis($_SESSION['date']); ?>
+                                <form method="GET" action="../day/day-handler.php">
+                                    <td class="fixed-side">&nbsp;</td>
+                                    <?php $e->xAxis($_SESSION['date']); ?>
+                                </form>
                             </tr>   
                         </table>
                     </div>
@@ -133,7 +135,7 @@
                         <span>max: <?php echo isset($_SESSION['painStats']['Max']) ? $_SESSION['painStats']['Max'] : 0; 
                             unset($_SESSION['painStats']);?></span>
                     </div>  
-                    </div>  <div class="summary-section">
+                    <div class="summary-section">
                         <div><b>number of entries per joint</b></div>
                         <div id="summary-table-scroll" class="table-scroll">
                             <div class="entry-table table-wrap">
@@ -250,10 +252,11 @@
             </div>   
             
             <div class="result <?php echo isset($_SESSION['error']) ? $_SESSION['error'] : ''; ?>">
-                No entries found for the month: <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date'; ?>
+                No entries found for the month: <?php echo isset($_SESSION['date']) ? date_format(new DateTime($_SESSION['date']), 'F Y') : 'no date'; ?>
             </div>  
 
         </div>
+
         <div class="footer">
             <div class="footer-content">
                 <hr/>
@@ -274,4 +277,5 @@
     unset($_SESSION['error']);
     unset($_SESSION['left']);
     unset($_SESSION['right']);
+    unset($_SESSION['maxJointCount']);
 ?>

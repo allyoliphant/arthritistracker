@@ -104,19 +104,57 @@
                                 <?php $e->getClassAndCount_Year('time1', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
                             </tr>
                             <tr>
-                                <td class="fixed-side">&nbsp;</td>
-                                <td class="x-axis">Jan</td>
-                                <td class="x-axis">Feb</td>
-                                <td class="x-axis">Mar</td>
-                                <td class="x-axis">Apr</td>
-                                <td class="x-axis">May</td>
-                                <td class="x-axis">Jun</td>
-                                <td class="x-axis">Jul</td>
-                                <td class="x-axis">Aug</td>
-                                <td class="x-axis">Sept</td>
-                                <td class="x-axis">Oct</td>
-                                <td class="x-axis">Nov</td>
-                                <td class="x-axis">Dec</td>
+                                <form method="GET" action="../month/month-handler.php">
+                                    <td class="fixed-side">&nbsp;</td>
+                                    <td class="x-axis">
+                                        <button value="<?php echo isset($_SESSION['date']) ? $_SESSION['date'] : '0000'; ?>-01"
+                                        type="submit" name="date">Jan</button>
+                                    </td>
+                                    <td class="x-axis">
+                                        <button value="<?php echo isset($_SESSION['date']) ? $_SESSION['date'] : '0000'; ?>-02"
+                                        type="submit" name="date">Feb</button>
+                                    </td>
+                                    <td class="x-axis">
+                                        <button value="<?php echo isset($_SESSION['date']) ? $_SESSION['date'] : '0000'; ?>-03"
+                                        type="submit" name="date">Mar</button>
+                                    </td>
+                                    <td class="x-axis">
+                                        <button value="<?php echo isset($_SESSION['date']) ? $_SESSION['date'] : '0000'; ?>-04"
+                                        type="submit" name="date">Apr</button>
+                                    </td>
+                                    <td class="x-axis">
+                                        <button value="<?php echo isset($_SESSION['date']) ? $_SESSION['date'] : '0000'; ?>-05"
+                                        type="submit" name="date">May</button>
+                                    </td>
+                                    <td class="x-axis">
+                                        <button value="<?php echo isset($_SESSION['date']) ? $_SESSION['date'] : '0000'; ?>-06"
+                                        type="submit" name="date">Jun</button>
+                                    </td>
+                                    <td class="x-axis">
+                                        <button value="<?php echo isset($_SESSION['date']) ? $_SESSION['date'] : '0000'; ?>-07"
+                                        type="submit" name="date">Jul</button>
+                                    </td>
+                                    <td class="x-axis">
+                                        <button value="<?php echo isset($_SESSION['date']) ? $_SESSION['date'] : '0000'; ?>-08"
+                                        type="submit" name="date">Aug</button>
+                                    </td>
+                                    <td class="x-axis">
+                                        <button value="<?php echo isset($_SESSION['date']) ? $_SESSION['date'] : '0000'; ?>-09"
+                                        type="submit" name="date">Sept</button>
+                                    </td>
+                                    <td class="x-axis">
+                                        <button value="<?php echo isset($_SESSION['date']) ? $_SESSION['date'] : '0000'; ?>-10"
+                                        type="submit" name="date">Oct</button>
+                                    </td>
+                                    <td class="x-axis">
+                                        <button value="<?php echo isset($_SESSION['date']) ? $_SESSION['date'] : '0000'; ?>-11"
+                                        type="submit" name="date">Nov</button>
+                                    </td>
+                                    <td class="x-axis">
+                                        <button value="<?php echo isset($_SESSION['date']) ? $_SESSION['date'] : '0000'; ?>-12"
+                                        type="submit" name="date">Dec</button>
+                                    </td>
+                                </form>
                             </tr>   
                         </table>
                     </div>
@@ -278,4 +316,15 @@
 </html>
 
 <?php
+    unset($_SESSION['show']); 
+    unset($_SESSION['date']);
+    unset($_SESSION['time1']);
+    unset($_SESSION['time2']);
+    unset($_SESSION['time3']);
+    unset($_SESSION['time4']);
+    unset($_SESSION['painStats']);
+    unset($_SESSION['error']);
+    unset($_SESSION['left']);
+    unset($_SESSION['right']);
+    unset($_SESSION['maxJointCount']);
 ?>
