@@ -219,6 +219,10 @@ button {
     max-width: 20px !important;
 }
 
+.summary-table {
+    max-width: 575px;
+}
+
 
 .rotate {
     white-space: nowrap;
@@ -240,4 +244,9 @@ button {
 .summary-key-color {
     line-height: 20px;
     min-width: 40px;
+}
+
+.joint-percent-bar {
+    width: 565px; 
+    height: 30px; 
 }

@@ -108,8 +108,26 @@
             }
         }
 
-        public function summaryTable($max, $entries, $side) {
-            $w = round(500 / $max);
+        public function countBySide($side) {
+            $count = 0;
+            foreach ($_SESSION[$side] as $joint) {
+                $count += intval($joint);
+            }
+            return $count;
+        }
+
+        public function percentBySide() {
+            $leftCount = $this->countBySide('left');
+            $rightCount = $this->countBySide('right');
+            
+            $total = $leftCount + $rightCount;
+            $percent = intval(($leftCount / $total) * 100);
+            
+            return $percent;
+        }
+
+        public function summaryJointTable($max, $entries, $side) {
+            $w = round(550 / $max);
             for ($i = 0; $i < $entries; $i++) {
                 echo "<td class='{$side}-bar' style='width: {$w}px !important'></td>";
             }
