@@ -30,6 +30,19 @@
 
             $painStats = $dao->getPainStatsByDay($_GET['date'], $_SESSION['user-id']);
             $_SESSION['painStats'] = $painStats->fetch(PDO::FETCH_ASSOC);
+
+            $jointCount = $dao->getJointCountByDay($_GET['date'], $_SESSION['user-id']);
+            $_SESSION['jointCount'] = $jointCount->fetchAll(PDO::FETCH_ASSOC);
+            if (count($_SESSION['jointCount']) == 1) {
+                if($_SESSION['jointCount'][0]['Side'] == 'left') {
+                    $_SESSION['left'] = $_SESSION['jointCount'][0];
+                } else {
+                    $_SESSION['right'] = $_SESSION['jointCount'][0];
+                }
+            } else {
+                $_SESSION['left'] = $_SESSION['jointCount'][0];
+                $_SESSION['right'] = $_SESSION['jointCount'][1];
+            }
         }
         else {
             $_SESSION['error'] = "no-result";

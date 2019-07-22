@@ -110,9 +110,11 @@
 
         public function countBySide($side) {
             $count = 0;
-            foreach ($_SESSION[$side] as $joint) {
-                $count += intval($joint);
-            }
+            if (isset($_SESSION[$side])) {
+                foreach ($_SESSION[$side] as $joint) {
+                    $count += intval($joint);
+                }
+            }            
             return $count;
         }
 

@@ -206,6 +206,22 @@
                         <span>average: <?php echo $_SESSION['painStats']['Avg']; ?></span>
                         <span>min: <?php echo $_SESSION['painStats']['Min']; ?></span>
                         <span>max: <?php echo $_SESSION['painStats']['Max']; ?></span>
+                    </div>  
+                    <div class="summary-section">
+                        <div><b>number of entries per side</b></div>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td style="text-align: left;">left: <?php echo $e->countBySide('left') . " (" . $e->percentBySide() . "%)"; ?></td>
+                                    <td style="text-align: right;"><?php echo $e->countBySide('right') . " (" . (100 - $e->percentBySide()) . "%)"; ?> :right</td>
+                                </tr>
+                                <tr>
+                                    <td style="background: linear-gradient(to right, var(--second-color) <?php echo $e->percentBySide(); ?>%, var(--first-color) 0%);"
+                                        colspan="2" class="joint-percent-bar">&nbsp;
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>   
                 </div>
             </div>  
