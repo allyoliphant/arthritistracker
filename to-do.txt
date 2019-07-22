@@ -3,8 +3,6 @@ List of current and future work I want to complete
 
 Bugs:
 * In mobile, footer is too far down on account page
-* In mobile, if navigation is open and changes to non-mobile (navigation moves from the top to the side), the menu remains open
-* favicon not displaying
 
 Features:
 * In entry history, hovering/clicking on counts opens a popup of details (joint, time, etc) of all the entries part of the count
