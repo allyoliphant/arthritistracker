@@ -174,6 +174,39 @@
                         </div>
                     </div>
                 </div> 
+                <button id="myBtn">Open Modal</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <div>
+                            <b>Entries</b>
+                            <table>
+                                <tr>
+                                    <td>side</td>
+                                    <td>joint</td>
+                                    <td>pain level</td>
+                                    <td>time</td>
+                                    <td>date</td>
+                                </tr>
+                            <?php 
+                                foreach ($_SESSION['time3'] as $entry) {
+                                    echo "<tr>";
+                                    echo "<td>" . $entry['Side'] . "</td>";
+                                    echo "<td> " . $entry['Joint'] . "</td>";
+                                    echo "<td>" . $entry['PainLevel'] . "</td>";
+                                    echo "<td>" . date_format(new DateTime($entry['Time']), 'h:m a') . "</td>";
+                                    echo "<td>" . date_format(new DateTime($entry['Date']), 'M j, Y') . "</td>";
+                                    echo "</tr>";
+                                }   
+                            ?>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
     
                 <div class="summary">    
                     <div class="summary-section">
