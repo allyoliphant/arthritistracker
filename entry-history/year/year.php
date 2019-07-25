@@ -180,9 +180,11 @@
 
                     <!-- Modal content -->
                     <div class="modal-content">
-                        <span class="close">&times;</span>
                         <div>
-                            <b>Entries</b>
+                            <div>
+                                <b>Entries</b>
+                                <b class="close">&times;</b>
+                            </div>
                             <table>
                                 <tr>
                                     <td>side</td>
@@ -198,7 +200,7 @@
                                     echo "<td> " . $entry['Joint'] . "</td>";
                                     echo "<td>" . $entry['PainLevel'] . "</td>";
                                     echo "<td>" . date_format(new DateTime($entry['Time']), 'h:m a') . "</td>";
-                                    echo "<td>" . date_format(new DateTime($entry['Date']), 'M j, Y') . "</td>";
+                                    echo "<td>" . date_format(new DateTime($entry['Date']), 'm/d/y') . "</td>";
                                     echo "</tr>";
                                 }   
                             ?>
