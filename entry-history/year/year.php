@@ -22,7 +22,8 @@
         <script src="../../js/jquery.validate.min.js"></script>
         <script src="../../js/footer.js"></script>
         <script src="../../js/entry-history.js"></script>
-        <script src="../../js/mobile.js"></script>      
+        <script src="../../js/mobile.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>      
 	</header>		
 	<body>
 		<div class="side nav">
@@ -88,10 +89,10 @@
                                 <td class="fixed-side" id="top-y-value">12am</td>
                             </tr>
                             <tr>
-                                <form method="GET" >
+                                <form class="entry-modal-form"> 
                                     <td class="y-axis fixed-side">6pm</td>
                                     <?php $e->getClassAndCount_Year('time4', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
-                                </form>
+                                </form> 
                             </tr>
                             <tr>
                                 <td class="y-axis fixed-side">12pm</td>
@@ -176,7 +177,7 @@
                         </div>
                     </div>
                 </div> 
-                <button class="myBtn">Open Modal</button>
+                <button class="myBtn">Open Modal</button>       
                 <!-- The Modal -->
                 <div id="myModal" class="modal">
 
@@ -187,6 +188,11 @@
                                 <b>Entries</b>
                                 <b class="close">&times;</b>
                             </div>
+                            <?php
+                    if (isset($_SESSION['entryModal'])) {
+                        echo '<pre>' . print_r($_SESSION['entryModal'], 1) . '</pre>';
+                    }                                    
+                ?>
                             <table>
                                 <tr>
                                     <td class="bottom-border">side</td>
@@ -199,7 +205,6 @@
                             </table>
                         </div>
                     </div>
-
                 </div>
     
                 <div class="summary">    

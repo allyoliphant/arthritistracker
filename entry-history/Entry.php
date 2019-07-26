@@ -90,7 +90,7 @@
                     }
                 } 
                 echo ">";
-                echo "<button value='{$i}' type='submit' name='{$time}' class='myBtn'>";
+                echo "<button type='submit' value='{$i}' name='date' class='myBtn'>";
                 echo $count>0 ? $count : '';
                 echo "</button></td>";
                 $i = $i + 1;
@@ -142,6 +142,7 @@
             } else {
                 $pattern = "/[0-9][0-9][0-9][0-9]-" . $month . "-[0-3][0-9]$/";
             } 
+                           
             foreach ($_SESSION[$time] as $entry) {
                 if (preg_match($pattern, $entry['Date'])) {
                     echo "<tr>";
@@ -152,9 +153,7 @@
                     echo "<td>" . date_format(new DateTime($entry['Date']), 'm/d/y') . "</td>";
                     echo "</tr>";
                 }
-            }
-
-            
+            }            
         }
 
     }

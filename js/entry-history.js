@@ -55,8 +55,6 @@ $(function () {
 
 
 
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
 
     // When the user clicks the button, open the modal 
     $(".myBtn").click(function () {
@@ -78,10 +76,6 @@ $(function () {
         $(".modal-content").css("margin-right", (((bw - w - padding) / 2) < 0 ? 0 : ((bw - w - padding) / 2)) + "px");
     })
 
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-        $("#myModal").css("display", "none");
-    }
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
@@ -110,20 +104,43 @@ $(function () {
     })
 
     $('.myBtn').click(function() {
-        console.log(sessionStorage);
-        console.log(document.cookie);
+        console.log(Cookies.get('time1'));
+         
+        $.post("../entryModal", {
+            entries: Cookies.get('time1'),
+            date: 5
+        }, function(data) {
+            console.log(data);
+        });
+
         /** 
         $.ajax({
-            url: 'Entry.php',
-            type: 'POST',
+            url: '../entryModal.php',
+            type: 'GET',
             data: {
-                entries: 'email@example.com',
-                message: 'hello world!'
+                entries: Cookies.get('time1'),
+                date: 3
             },
-            success: function(msg) {
-                alert('Email Sent');
+            success: function() {
+                console.log(Cookies.get('time1'));
             }               
         });*/
+    });
+
+    $("form.entry-modal-form").submit(function (e) {
+        e.preventDefault();
+        console.log(Cookies.get('time1'));
+        $.ajax({
+            type: 'GET',
+            url: '../entryModal.php',
+            data: {
+                entries: Cookies.get('time1'),
+                date: 5
+            },
+            success: function () {
+                console.log('success');
+            }
+        });
     });
 
 
