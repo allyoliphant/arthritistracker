@@ -88,8 +88,10 @@
                                 <td class="fixed-side" id="top-y-value">12am</td>
                             </tr>
                             <tr>
-                                <td class="y-axis fixed-side">6pm</td>
-                                <?php $e->getClassAndCount_Year('time4', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
+                                <form method="GET" >
+                                    <td class="y-axis fixed-side">6pm</td>
+                                    <?php $e->getClassAndCount_Year('time4', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
+                                </form>
                             </tr>
                             <tr>
                                 <td class="y-axis fixed-side">12pm</td>
@@ -174,7 +176,7 @@
                         </div>
                     </div>
                 </div> 
-                <button id="myBtn">Open Modal</button>
+                <button class="myBtn">Open Modal</button>
                 <!-- The Modal -->
                 <div id="myModal" class="modal">
 
@@ -187,23 +189,13 @@
                             </div>
                             <table>
                                 <tr>
-                                    <td>side</td>
-                                    <td>joint</td>
-                                    <td>pain level</td>
-                                    <td>time</td>
-                                    <td>date</td>
+                                    <td class="bottom-border">side</td>
+                                    <td class="bottom-border">joint</td>
+                                    <td class="bottom-border">pain level</td>
+                                    <td class="bottom-border">time</td>
+                                    <td class="bottom-border">date</td>
                                 </tr>
-                            <?php 
-                                foreach ($_SESSION['time3'] as $entry) {
-                                    echo "<tr>";
-                                    echo "<td>" . $entry['Side'] . "</td>";
-                                    echo "<td> " . $entry['Joint'] . "</td>";
-                                    echo "<td>" . $entry['PainLevel'] . "</td>";
-                                    echo "<td>" . date_format(new DateTime($entry['Time']), 'h:m a') . "</td>";
-                                    echo "<td>" . date_format(new DateTime($entry['Date']), 'm/d/y') . "</td>";
-                                    echo "</tr>";
-                                }   
-                            ?>
+                                <?php $e->entryModal_Year('time3', 5); ?>
                             </table>
                         </div>
                     </div>

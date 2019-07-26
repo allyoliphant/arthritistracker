@@ -59,7 +59,7 @@ $(function () {
     var span = document.getElementsByClassName("close")[0];
 
     // When the user clicks the button, open the modal 
-    document.getElementById("myBtn").onclick = function () {
+    $(".myBtn").click(function () {
         $("#myModal").css("display", "block");
 
         var padding = 40;
@@ -76,7 +76,7 @@ $(function () {
         $(".modal-content").css("margin-top", (((bh - h) / 3) < 0 ? 0 : ((bh - h) / 3)) + "px");
         $(".modal-content").css("margin-left", (((bw - w - padding) / 2) < 0 ? 0 : ((bw - w - padding) / 2)) + "px");
         $(".modal-content").css("margin-right", (((bw - w - padding) / 2) < 0 ? 0 : ((bw - w - padding) / 2)) + "px");
-    }
+    })
 
     // When the user clicks on <span> (x), close the modal
     span.onclick = function () {
@@ -109,8 +109,22 @@ $(function () {
         }
     })
 
-
-
+    $('.myBtn').click(function() {
+        console.log(sessionStorage);
+        console.log(document.cookie);
+        /** 
+        $.ajax({
+            url: 'Entry.php',
+            type: 'POST',
+            data: {
+                entries: 'email@example.com',
+                message: 'hello world!'
+            },
+            success: function(msg) {
+                alert('Email Sent');
+            }               
+        });*/
+    });
 
 
 

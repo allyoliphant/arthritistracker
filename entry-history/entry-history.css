@@ -274,7 +274,7 @@ button {
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    max-height: 80vh;
+    max-height: 75vh;
     overflow: auto;
   }
   
@@ -290,4 +290,9 @@ button {
     color: #000;
     text-decoration: none;
     cursor: pointer;
+  }
+
+
+  .bottom-border {
+      border-bottom: #000 1px solid;
   }
