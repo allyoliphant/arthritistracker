@@ -23,7 +23,11 @@
         <script src="../../js/footer.js"></script>
         <script src="../../js/entry-history.js"></script>
         <script src="../../js/mobile.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- jQuery Modal -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />     
 	</header>		
 	<body>
 		<div class="side nav">
@@ -89,10 +93,8 @@
                                 <td class="fixed-side" id="top-y-value">12am</td>
                             </tr>
                             <tr>
-                                <form class="entry-modal-form"> 
-                                    <td class="y-axis fixed-side">6pm</td>
-                                    <?php $e->getClassAndCount_Year('time4', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
-                                </form> 
+                                <td class="y-axis fixed-side">6pm</td>
+                                <?php $e->getClassAndCount_Year('time4', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
                             </tr>
                             <tr>
                                 <td class="y-axis fixed-side">12pm</td>
@@ -177,34 +179,23 @@
                         </div>
                     </div>
                 </div> 
-                <button class="myBtn">Open Modal</button>       
-                <!-- The Modal -->
-                <div id="myModal" class="modal">
-
-                    <!-- Modal content -->
-                    <div class="modal-content">
-                        <div>
-                            <div>
-                                <b>Entries</b>
-                                <b class="close">&times;</b>
-                            </div>
-                            <?php
-                    if (isset($_SESSION['entryModal'])) {
-                        echo '<pre>' . print_r($_SESSION['entryModal'], 1) . '</pre>';
-                    }                                    
-                ?>
-                            <table>
-                                <tr>
-                                    <td class="bottom-border">side</td>
-                                    <td class="bottom-border">joint</td>
-                                    <td class="bottom-border">pain level</td>
-                                    <td class="bottom-border">time</td>
-                                    <td class="bottom-border">date</td>
-                                </tr>
-                                <?php $e->entryModal_Year('time3', 5); ?>
-                            </table>
-                        </div>
-                    </div>
+                
+                <div id="entry-modal" class="modal">
+                    <table>
+                        <tr>
+                            <td class="bottom-border">side</td>
+                            <td class="bottom-border">joint</td>
+                            <td class="bottom-border">pain</td>
+                            <td class="bottom-border">time</td>
+                            <td class="bottom-border">date</td>
+                            <td class="bottom-border">edit</td>
+                        </tr>
+                        <?php $e->entryModal_Year('time4', 4); ?>
+                    </table>
+                </div>
+                
+                <div id="entry-edit" class="modal">
+                    edit entry
                 </div>
     
                 <div class="summary">    

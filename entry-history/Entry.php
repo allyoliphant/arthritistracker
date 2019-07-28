@@ -90,9 +90,9 @@
                     }
                 } 
                 echo ">";
-                echo "<button type='submit' value='{$i}' name='date' class='myBtn'>";
+                echo "<a href='#entry-modal' rel='modal:open' class='no-style-link'>";
                 echo $count>0 ? $count : '';
-                echo "</button></td>";
+                echo "</a></td>";
                 $i = $i + 1;
             }
         }
@@ -149,8 +149,11 @@
                     echo "<td>" . $entry['Side'] . "</td>";
                     echo "<td> " . $entry['Joint'] . "</td>";
                     echo "<td>" . $entry['PainLevel'] . "</td>";
-                    echo "<td>" . date_format(new DateTime($entry['Time']), 'g:m a') . "</td>";
+                    echo "<td>" . date_format(new DateTime($entry['Time']), 'g:ma') . "</td>";
                     echo "<td>" . date_format(new DateTime($entry['Date']), 'm/d/y') . "</td>";
+                    echo "<td><a href='#entry-edit' rel='modal:open' class='no-style-link'>
+                        <i class='material-icons' style='font-size:14px'>edit</i>
+                        </a></td>";
                     echo "</tr>";
                 }
             }            
