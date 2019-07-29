@@ -1,4 +1,6 @@
 $(function () {
+    
+    var edit = true;
 
     $('#history-form').validate({ // initialize the plugin
         rules: {
@@ -61,18 +63,18 @@ $(function () {
         showSpinner: true
     };
 
-    $('a[rel="ajax:modal"]').click(function(event) {
-        $.ajax({      
-          url: $(this).attr('href'),      
-          data: {
-            'entry': $(this).find('input').val()
-          },      
-          success: function(newHTML, textStatus, jqXHR) {
-            $(newHTML).appendTo('body').modal();
-          }
+    $('a[rel="ajax:modal"]').click(function (event) {
+        $.ajax({
+            url: $(this).attr('href'),
+            data: {
+                'entry': $(this).find('input').val()
+            },
+            success: function (newHTML, textStatus, jqXHR) {
+                $(newHTML).appendTo('body').modal();
+            }
         });
-      
+
         return false;
-      });
+    });
 
 });

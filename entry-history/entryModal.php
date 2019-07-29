@@ -9,26 +9,32 @@
 
 
 <div class="modal">
+    <header>
+        <script src="../../js/entry-history.js"></script>     
+	</header>	
+
     <table>
         <tr>
             <td class="bottom-border">side</td>
             <td class="bottom-border">joint</td>
             <td class="bottom-border">pain</td>
-            <td class="bottom-border">time</td>
             <td class="bottom-border">date</td>
+            <td class="bottom-border">time</td>
             <td class="bottom-border">edit</td>
         </tr>  
 
         <?php
             foreach ($_SESSION[$time] as $entry) {
+                $entryString = json_encode($entry);
                 if (preg_match($pattern, $entry['Date'])) {
                     echo "<tr>";
                     echo "<td>" . $entry['Side'] . "</td>";
                     echo "<td> " . $entry['Joint'] . "</td>";
                     echo "<td>" . $entry['PainLevel'] . "</td>";
-                    echo "<td>" . date_format(new DateTime($entry['Time']), 'g:ma') . "</td>";
                     echo "<td>" . date_format(new DateTime($entry['Date']), 'm/d/y') . "</td>";
-                    echo "<td><a href='#entry-edit' rel='modal:open' class='no-style-link'>
+                    echo "<td>" . date("g:i a", strtotime($entry['Time'])) . "</td>";
+                    echo "<td><a href='../entryEdit' rel='ajax:modal' class='no-style-link edit'>
+                        <input type='hidden' name='entry-value' value='{$entryString}'/>
                         <i class='material-icons' style='font-size:14px'>edit</i>
                         </a></td>";
                     echo "</tr>";

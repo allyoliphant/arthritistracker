@@ -1,16 +1,21 @@
 :root {
-    --one-color: #a6ff9a;  /* 0 to 1.49 */
-    --two-color: #fdff89;  /* 1.5 to 2.49 */
-    --three-color: #ffc685;  /* 2.5 to 3.49 */
-    --four-color: #ffa4a4;  /* 3.5 to 4.49 */
-    --five-color: #f098ff;  /* 4.5 to 5 */
-  }
+    --one-color: #a6ff9a;
+    /* 0 to 1.49 */
+    --two-color: #fdff89;
+    /* 1.5 to 2.49 */
+    --three-color: #ffc685;
+    /* 2.5 to 3.49 */
+    --four-color: #ffa4a4;
+    /* 3.5 to 4.49 */
+    --five-color: #f098ff;
+    /* 4.5 to 5 */
+}
 
 h1, form, div {
     text-align: left;
 }
 
-table {    
+table {
     border-collapse: collapse !important;
     padding-right: 10px;
     font-size: 14px;
@@ -25,18 +30,18 @@ span {
     margin-right: 10px;
 }
 
-button {    
-	background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
     outline: inherit;
     text-transform: lowercase;
 }
 
-#top-y-value {   
+#top-y-value {
     padding-bottom: 0px;
 }
 
@@ -57,8 +62,7 @@ button {
     font-size: 14px;
 }
 
-#display-key,
-#summary-display-key {
+#display-key, #summary-display-key {
     background-color: white;
     padding: 7px 9px;
     border-style: solid;
@@ -68,7 +72,7 @@ button {
     margin-top: 5px;
 }
 
-.inner-table {    
+.inner-table {
     border-top-color: lightgrey;
     border-top-style: solid;
     border-top-width: 1px;
@@ -153,40 +157,40 @@ button {
 }
 
 .table-scroll {
-	position: relative;
-	overflow: hidden;
+    position: relative;
+    overflow: hidden;
 }
 
 .table-wrap {
     margin-left: 1px;
-	overflow: auto;
+    overflow: auto;
 }
 
 .clone {
-	position: absolute;
-	top: 0;
-	left: 0;
-	pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
 }
 
 .clone th, .clone td {
-	visibility: hidden
+    visibility: hidden
 }
 
 .clone td, .clone th {
-	border-color: transparent
+    border-color: transparent
 }
 
 .clone tbody th {
-	visibility: visible;
-}
-
-.clone .fixed-side {
-	background: var(--background-color);
     visibility: visible;
 }
 
-.clone .y-axis {    
+.clone .fixed-side {
+    background: var(--background-color);
+    visibility: visible;
+}
+
+.clone .y-axis {
     border-right: 1px solid black;
 }
 
@@ -211,8 +215,8 @@ button {
     height: auto;
 }
 
-.summary-joint {    
-	padding: 0;
+.summary-joint {
+    padding: 0;
 }
 
 #summary-table-scroll .y-axis {
@@ -223,19 +227,24 @@ button {
     max-width: 575px;
 }
 
-
 .rotate {
     white-space: nowrap;
     vertical-align: middle;
     width: 1em;
-  }
+}
+
 .rotate span {
     display: inline-block;
-    -moz-transform: rotate(-90.0deg);  /* FF3.5+ */
-    -o-transform: rotate(-90.0deg);  /* Opera 10.5 */
-    -webkit-transform: rotate(-90.0deg);  /* Saf3.1+, Chrome */
-    filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083);  /* IE6,IE7 */
-    -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)"; /* IE8 */
+    -moz-transform: rotate(-90.0deg);
+    /* FF3.5+ */
+    -o-transform: rotate(-90.0deg);
+    /* Opera 10.5 */
+    -webkit-transform: rotate(-90.0deg);
+    /* Saf3.1+, Chrome */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083);
+    /* IE6,IE7 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)";
+    /* IE8 */
     margin-left: -10px;
     margin-right: -10px;
     text-align: center !important;
@@ -247,8 +256,8 @@ button {
 }
 
 .joint-percent-bar {
-    width: 565px; 
-    height: 30px; 
+    width: 565px;
+    height: 30px;
 }
 
 .no-style-link {
@@ -262,7 +271,11 @@ button {
     font-size: 14px !important;
 }
 
+.label {
+    margin-top: 15px;
+    width: 100%;
+}
 
-  .bottom-border {
-      border-bottom: #000 1px solid;
-  }
+.bottom-border {
+    border-bottom: #000 1px solid;
+}

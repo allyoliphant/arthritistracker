@@ -137,28 +137,5 @@
             }
         }
 
-        public function entryModal_Year($time, $month) {
-            if ($month < 10) {
-                $pattern = "/[0-9][0-9][0-9][0-9]-0" . $month . "-[0-3][0-9]$/";
-            } else {
-                $pattern = "/[0-9][0-9][0-9][0-9]-" . $month . "-[0-3][0-9]$/";
-            } 
-                           
-            foreach ($_SESSION[$time] as $entry) {
-                if (preg_match($pattern, $entry['Date'])) {
-                    echo "<tr>";
-                    echo "<td>" . $entry['Side'] . "</td>";
-                    echo "<td> " . $entry['Joint'] . "</td>";
-                    echo "<td>" . $entry['PainLevel'] . "</td>";
-                    echo "<td>" . date_format(new DateTime($entry['Time']), 'g:ma') . "</td>";
-                    echo "<td>" . date_format(new DateTime($entry['Date']), 'm/d/y') . "</td>";
-                    echo "<td><a href='#entry-edit' rel='modal:open' class='no-style-link'>
-                        <i class='material-icons' style='font-size:14px'>edit</i>
-                        </a></td>";
-                    echo "</tr>";
-                }
-            }            
-        }
-
     }
 ?>

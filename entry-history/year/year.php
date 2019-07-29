@@ -181,11 +181,7 @@
                         </div>
                     </div>
                 </div> 
-                
-                <div id="entry-edit" class="modal">
-                    edit entry
-                </div>
-    
+                    
                 <div class="summary">    
                     <div class="summary-section">
                         <div><b>pain level</b></div>
