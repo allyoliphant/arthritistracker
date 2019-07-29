@@ -325,8 +325,7 @@
             
             <div class="result <?php echo isset($_SESSION['error']) ? $_SESSION['error'] : '';
                 unset($_SESSION['error']); ?>">
-                No entries found for the year: <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date'; 
-                unset($_SESSION['date']); ?>
+                No entries found for the year: <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date';?>
             </div>  
 
         </div>
@@ -341,7 +340,6 @@
 
 <?php
     unset($_SESSION['show']); 
-    unset($_SESSION['date']);
     unset($_SESSION['painStats']);
     unset($_SESSION['error']);
     unset($_SESSION['left']);

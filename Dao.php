@@ -75,6 +75,19 @@
             $q->execute();
         }
 
+        public function editEntry($side, $joint, $pain, $date, $time, $entryid) {
+            $conn = $this->getConnection();
+            $saveQuery = "UPDATE Entry SET Side = :side, Joint = :joint, PainLevel = :pain, Date = :date, Time = :time WHERE ID = :entryid";
+            $q = $conn->prepare($saveQuery);
+            $q->bindParam(":side", $side);
+            $q->bindParam(":joint", $joint);
+            $q->bindParam(":pain", $pain);
+            $q->bindParam(":date", $date);
+            $q->bindParam(":time", $time);
+            $q->bindParam(":entryid", $entryid);
+            $q->execute();
+        }
+
 
         /** By day **/
 

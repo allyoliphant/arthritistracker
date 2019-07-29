@@ -56,7 +56,7 @@
 		<div class="main">
             <h1>new entry</h1>            
 
-            <form id="new-entry-form" method="POST" action="new-entry-handler.php">
+            <form id="entry-form" method="POST" action="new-entry-handler.php">
                 <div>
                     <div class="label">side:</div>
                     <label><input type="radio" name="side" value="left" required

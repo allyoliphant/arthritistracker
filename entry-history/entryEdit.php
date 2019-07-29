@@ -5,7 +5,13 @@
 ?>
 
 <div id="entry-edit" class="modal">
-    <form id="entry-edit-form" method="POST" action="edit-entry-handler.php">
+    <header>
+        <script src="../../js/edit-entry.js"></script>
+	</header>
+
+    <form id="entry-form" method="POST" action="../edit-entry-handler.php">
+        <input type="hidden" name="entry-id" value="<?php echo $entry['ID']; ?>" />
+        <input id="url-input" type="hidden" name="path" />
         <div>
             <div>side:</div>
             <label><input type="radio" name="side" value="left" required
@@ -75,7 +81,7 @@
         </div>
         <div>
             <a class="button" href="#" rel="modal:close">Cancel</a>
-            <input id="add-entry" class="button" type="submit" value="save" disabled/>  
+            <input id="edit-entry" class="button" type="submit" value="save" disabled/>  
         </div>
     </form>
 </div>

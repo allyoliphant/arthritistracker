@@ -7,31 +7,33 @@
     $dao = new Dao();
     $regx = new Regx();
 
-    $_SESSION['date'] = $_GET['date'];
+    $_SESSION['date'] = isset($_SESSION['edit-date']) ? $_SESSION['edit-date'] : $_GET['date'];
+    unset($_SESSION['edit-date']);
+    $date = $_SESSION['date'];
 
     // check that something was entered and that it is a date
-    if ($regx->dateValid($_GET['date'])) {
+    if ($regx->dateValid($date)) {
 
-        $entries = $dao->getEntryByMonthOrYear($_GET['date'], $_SESSION['user-id']);
+        $entries = $dao->getEntryByMonthOrYear($date, $_SESSION['user-id']);
         
         if ($entries->rowCount() > 0) {
             $_SESSION['show'] = "show";        
 
             $_SESSION['entries'] = $entries->fetchAll(PDO::FETCH_ASSOC);
 
-            $time1 = $dao->getEntryByMonthOrYear_TimeRange($_GET['date'], $_SESSION['user-id'], '00:00:00', '05:59:59');
+            $time1 = $dao->getEntryByMonthOrYear_TimeRange($date, $_SESSION['user-id'], '00:00:00', '05:59:59');
             $_SESSION['time1'] = $time1->fetchAll(PDO::FETCH_ASSOC);
-            $time2 = $dao->getEntryByMonthOrYear_TimeRange($_GET['date'], $_SESSION['user-id'], '06:00:00', '11:59:59');
+            $time2 = $dao->getEntryByMonthOrYear_TimeRange($date, $_SESSION['user-id'], '06:00:00', '11:59:59');
             $_SESSION['time2'] = $time2->fetchAll(PDO::FETCH_ASSOC);
-            $time3 = $dao->getEntryByMonthOrYear_TimeRange($_GET['date'], $_SESSION['user-id'], '12:00:00', '17:59:59');
+            $time3 = $dao->getEntryByMonthOrYear_TimeRange($date, $_SESSION['user-id'], '12:00:00', '17:59:59');
             $_SESSION['time3'] = $time3->fetchAll(PDO::FETCH_ASSOC);
-            $time4 = $dao->getEntryByMonthOrYear_TimeRange($_GET['date'], $_SESSION['user-id'], '18:00:00', '23:59:59');
+            $time4 = $dao->getEntryByMonthOrYear_TimeRange($date, $_SESSION['user-id'], '18:00:00', '23:59:59');
             $_SESSION['time4'] = $time4->fetchAll(PDO::FETCH_ASSOC);
 
-            $painStats = $dao->getPainStatsByMonthOrYear($_GET['date'], $_SESSION['user-id']);
+            $painStats = $dao->getPainStatsByMonthOrYear($date, $_SESSION['user-id']);
             $_SESSION['painStats'] = $painStats->fetch(PDO::FETCH_ASSOC);
 
-            $jointCount = $dao->getJointCountByMonthOrYear($_GET['date'], $_SESSION['user-id']);
+            $jointCount = $dao->getJointCountByMonthOrYear($date, $_SESSION['user-id']);
             $_SESSION['jointCount'] = $jointCount->fetchAll(PDO::FETCH_ASSOC);
             if (count($_SESSION['jointCount']) == 1) {
                 if($_SESSION['jointCount'][0]['Side'] == 'left') {
@@ -44,7 +46,7 @@
                 $_SESSION['right'] = $_SESSION['jointCount'][1];
             }
             
-            $maxJointCount = $dao->getMaxJointCountByMonthOrYear($_GET['date'], $_SESSION['user-id']);
+            $maxJointCount = $dao->getMaxJointCountByMonthOrYear($date, $_SESSION['user-id']);
             $_SESSION['maxJointCount'] = $maxJointCount->fetchAll(PDO::FETCH_ASSOC)[0]['MaxEntries'];
         }
         else {
