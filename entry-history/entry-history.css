@@ -279,3 +279,7 @@ button {
 .bottom-border {
     border-bottom: #000 1px solid;
 }
+
+.gray-border {
+    border-top: lightgray 1px solid;
+}

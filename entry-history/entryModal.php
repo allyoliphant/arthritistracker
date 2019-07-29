@@ -39,7 +39,7 @@
                 $correctEntry = $monthOrYear ? preg_match($pattern, $entry['Date']) : ($entry['Side'] == $side && $entry['Joint'] == $joint);
 
                 if ($correctEntry) {
-                    echo "<tr>";
+                    echo "<tr class='gray-border'>";
                     echo "<td>" . $entry['Side'] . "</td>";
                     echo "<td> " . $entry['Joint'] . "</td>";
                     echo "<td>" . $entry['PainLevel'] . "</td>";
