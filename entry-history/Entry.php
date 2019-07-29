@@ -30,16 +30,17 @@
             $arrayOfDays = array_fill(0, $days, 1);
             $i = 1;
             foreach($arrayOfDays as $day) {
+                if ($i < 10) {
+                    $pattern = "/.0" . $i . "$/";
+                } else {
+                    $pattern = "/." . $i . "$/";
+                } 
                 echo "<td ";                
                 if (isset($_SESSION[$time])) {
                     $count = 0;
                     $painSum = 0;
                     foreach($_SESSION[$time] as $entry) { 
-                        if ($i < 10) {
-                            $pattern = "/.0" . $i . "$/";
-                        } else {
-                            $pattern = "/." . $i . "$/";
-                        }    
+                           
                         if (preg_match($pattern, $entry['Date'])) {
                             $count = $count + 1;
                             $painSum = $painSum + $entry['PainLevel'];
@@ -55,8 +56,10 @@
                     }
                 } 
                 echo ">";
+                echo "<a href='../entryModal.php' rel='ajax:modal' class='no-style-link' value='{$time} {$pattern}'>";
+                echo "<input type='hidden' name='entry-value' value='{$time} {$pattern}'/>";
                 echo $count>0 ? $count : '';
-                echo "</td>";
+                echo "</a></td>";
                 $i = $i + 1;
             }
         }

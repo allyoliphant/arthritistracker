@@ -64,8 +64,7 @@
                     date_default_timezone_set('America/Boise');
                     $date = date("Y-m-d");
                     echo "max='{$date}'";
-                    $day = isset($_SESSION['date']) ? $_SESSION['date'] : $date;
-                    echo "value='{$day}'";                        
+                    echo "value='{$date}'";                        
                 ?>/> 
                 <input id="get-history" class="button" type="submit" value="view entries"/>
             </form>

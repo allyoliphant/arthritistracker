@@ -23,6 +23,10 @@
         <script src="../../js/footer.js"></script>
         <script src="../../js/entry-history.js"></script>
         <script src="../../js/mobile.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <!-- jQuery Modal -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 	</header>		
 	<body>
 		<div class="side nav">
@@ -64,8 +68,7 @@
                     date_default_timezone_set('America/Boise');
                     $date = date("Y-m");
                     echo "max='{$date}'";
-                    $month = isset($_SESSION['date']) ? $_SESSION['date'] : $date;
-                    echo "value='{$month}'";                         
+                    echo "value='{$date}'";                         
                 ?>/>
                 <input id="get-history" class="button" type="submit" value="view entries"/>
             </form>
@@ -85,23 +88,25 @@
                         <table class="main-table">
                             <tr>
                                 <td class="fixed-side" id="top-y-value">12am</td>
-                            </tr>
-                            <tr>
-                                <td class="y-axis fixed-side">6pm</td>
-                                <?php $e->getClassAndCount_Month('time4', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
-                            </tr>
-                            <tr>
-                                <td class="y-axis fixed-side">12pm</td>
-                                <?php $e->getClassAndCount_Month('time3', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
-                            </tr>
-                            <tr>
-                                <td class="y-axis fixed-side">6am</td>
-                                <?php $e->getClassAndCount_Month('time2', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
-                            </tr>
-                            <tr>
-                                <td class="y-axis fixed-side">12am</td>
-                                <?php $e->getClassAndCount_Month('time1', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
-                            </tr>
+                            </tr>                            
+                            <form id="entries">
+                                <tr>
+                                    <td class="y-axis fixed-side">6pm</td>
+                                    <?php $e->getClassAndCount_Month('time4', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
+                                </tr>
+                                <tr>
+                                    <td class="y-axis fixed-side">12pm</td>
+                                    <?php $e->getClassAndCount_Month('time3', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
+                                </tr>
+                                <tr>
+                                    <td class="y-axis fixed-side">6am</td>
+                                    <?php $e->getClassAndCount_Month('time2', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
+                                </tr>
+                                <tr>
+                                    <td class="y-axis fixed-side">12am</td>
+                                    <?php $e->getClassAndCount_Month('time1', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
+                                </tr>
+                            </form>
                             <tr>
                                 <form method="GET" action="../day/day-handler.php">
                                     <td class="fixed-side">&nbsp;</td>
@@ -284,11 +289,6 @@
 
 <?php
     unset($_SESSION['show']); 
-    unset($_SESSION['date']);
-    unset($_SESSION['time1']);
-    unset($_SESSION['time2']);
-    unset($_SESSION['time3']);
-    unset($_SESSION['time4']);
     unset($_SESSION['painStats']);
     unset($_SESSION['error']);
     unset($_SESSION['left']);

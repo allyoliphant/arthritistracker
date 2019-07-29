@@ -27,15 +27,16 @@
     // input is valid
     if ($inputsValid) {
         // edit entry
-        $dao->editEntry($_POST['side'], $_POST['joint'], $_POST['pain'], $_POST['date'], $_POST['time'], $_POST['entry-id']);
-  
-        $_SESSION['edit-date'] = $_SESSION['date'];
-        header("Location: ". $path); 
-        exit(); 
+        $dao->editEntry($_POST['side'], $_POST['joint'], $_POST['pain'], $_POST['date'], $_POST['time'], $_POST['entry-id']);  
     }
     
-    header("Location: ". $path);
-    exit();
-
+    $_SESSION['edit-date'] = $_SESSION['date'];
+    unset($_SESSION['date']);
+    unset($_SESSION['time1']);
+    unset($_SESSION['time2']);
+    unset($_SESSION['time3']);
+    unset($_SESSION['time4']);
+    header("Location: ". $path); 
+    exit(); 
 
 ?>
