@@ -45,7 +45,7 @@
                     echo "<td>" . $entry['PainLevel'] . "</td>";
                     echo "<td>" . date_format(new DateTime($entry['Date']), 'm/d/y') . "</td>";
                     echo "<td>" . date("g:i a", strtotime($entry['Time'])) . "</td>";
-                    echo "<td><a href='../entryEdit' rel='ajax:modal' class='no-style-link edit'>
+                    echo "<td><a href='../entryEdit.php' rel='ajax:modal' class='no-style-link edit'>
                         <input type='hidden' name='entry-value' value='{$entryString}'/>
                         <i class='material-icons' style='font-size:14px'>edit</i>
                         </a></td>";
