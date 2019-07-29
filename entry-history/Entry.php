@@ -65,16 +65,16 @@
             $months = array_fill(0, 12, 1);
             $i = 1;
             foreach($months as $month) {
+                if ($i < 10) {
+                    $pattern = "/" . $date . "-0" . $i . "-[0-3][0-9]$/";
+                } else {
+                    $pattern = "/" . $date . "-" . $i . "-[0-3][0-9]$/";
+                }
                 echo "<td ";                
                 if (isset($_SESSION[$time])) {
                     $count = 0;
                     $painSum = 0;
                     foreach($_SESSION[$time] as $entry) { 
-                        if ($i < 10) {
-                            $pattern = "/" . $date . "-0" . $i . "-[0-3][0-9]$/";
-                        } else {
-                            $pattern = "/" . $date . "-" . $i . "-[0-3][0-9]$/";
-                        }    
                         if (preg_match($pattern, $entry['Date'])) {
                             $count = $count + 1;
                             $painSum = $painSum + $entry['PainLevel'];
@@ -90,7 +90,8 @@
                     }
                 } 
                 echo ">";
-                echo "<a href='#entry-modal' rel='modal:open' class='no-style-link'>";
+                echo "<a href='../entryModal.php' rel='ajax:modal' class='no-style-link' value='{$time} {$pattern}'>";
+                echo "<input type='hidden' name='entry-value' value='{$time} {$pattern}'/>";
                 echo $count>0 ? $count : '';
                 echo "</a></td>";
                 $i = $i + 1;

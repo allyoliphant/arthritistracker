@@ -21,16 +21,12 @@
 
             $time1 = $dao->getEntryByMonthOrYear_TimeRange($_GET['date'], $_SESSION['user-id'], '00:00:00', '05:59:59');
             $_SESSION['time1'] = $time1->fetchAll(PDO::FETCH_ASSOC);
-            setcookie('time1', json_encode($_SESSION['time1']), 0, "/");
             $time2 = $dao->getEntryByMonthOrYear_TimeRange($_GET['date'], $_SESSION['user-id'], '06:00:00', '11:59:59');
             $_SESSION['time2'] = $time2->fetchAll(PDO::FETCH_ASSOC);
-            setcookie('time2', json_encode($_SESSION['time2']), 0, "/");
             $time3 = $dao->getEntryByMonthOrYear_TimeRange($_GET['date'], $_SESSION['user-id'], '12:00:00', '17:59:59');
             $_SESSION['time3'] = $time3->fetchAll(PDO::FETCH_ASSOC);
-            setcookie('time3', json_encode($_SESSION['time3']), 0, "/");
             $time4 = $dao->getEntryByMonthOrYear_TimeRange($_GET['date'], $_SESSION['user-id'], '18:00:00', '23:59:59');
             $_SESSION['time4'] = $time4->fetchAll(PDO::FETCH_ASSOC);
-            setcookie('time4', json_encode($_SESSION['time4']), 0, "/");
 
             $painStats = $dao->getPainStatsByMonthOrYear($_GET['date'], $_SESSION['user-id']);
             $_SESSION['painStats'] = $painStats->fetch(PDO::FETCH_ASSOC);

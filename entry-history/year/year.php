@@ -92,22 +92,24 @@
                             <tr>
                                 <td class="fixed-side" id="top-y-value">12am</td>
                             </tr>
-                            <tr>
-                                <td class="y-axis fixed-side">6pm</td>
-                                <?php $e->getClassAndCount_Year('time4', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
-                            </tr>
-                            <tr>
-                                <td class="y-axis fixed-side">12pm</td>
-                                <?php $e->getClassAndCount_Year('time3', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
-                            </tr>
-                            <tr>
-                                <td class="y-axis fixed-side">6am</td>
-                                <?php $e->getClassAndCount_Year('time2', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
-                            </tr>
-                            <tr>
-                                <td class="y-axis fixed-side">12am</td>
-                                <?php $e->getClassAndCount_Year('time1', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
-                            </tr>
+                            <form id="entries">
+                                <tr>
+                                    <td class="y-axis fixed-side">6pm</td>
+                                    <?php $e->getClassAndCount_Year('time4', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
+                                </tr>
+                                <tr>
+                                    <td class="y-axis fixed-side">12pm</td>
+                                    <?php $e->getClassAndCount_Year('time3', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
+                                </tr>
+                                <tr>
+                                    <td class="y-axis fixed-side">6am</td>
+                                    <?php $e->getClassAndCount_Year('time2', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
+                                </tr>
+                                <tr>
+                                    <td class="y-axis fixed-side">12am</td>
+                                    <?php $e->getClassAndCount_Year('time1', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
+                                </tr>
+                            </form>
                             <tr>
                                 <form method="GET" action="../month/month-handler.php">
                                     <td class="fixed-side">&nbsp;</td>
@@ -179,20 +181,6 @@
                         </div>
                     </div>
                 </div> 
-                
-                <div id="entry-modal" class="modal">
-                    <table>
-                        <tr>
-                            <td class="bottom-border">side</td>
-                            <td class="bottom-border">joint</td>
-                            <td class="bottom-border">pain</td>
-                            <td class="bottom-border">time</td>
-                            <td class="bottom-border">date</td>
-                            <td class="bottom-border">edit</td>
-                        </tr>
-                        <?php $e->entryModal_Year('time4', 4); ?>
-                    </table>
-                </div>
                 
                 <div id="entry-edit" class="modal">
                     edit entry
@@ -358,10 +346,6 @@
 <?php
     unset($_SESSION['show']); 
     unset($_SESSION['date']);
-    unset($_SESSION['time1']);
-    unset($_SESSION['time2']);
-    unset($_SESSION['time3']);
-    unset($_SESSION['time4']);
     unset($_SESSION['painStats']);
     unset($_SESSION['error']);
     unset($_SESSION['left']);

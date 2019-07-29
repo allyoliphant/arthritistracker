@@ -5,7 +5,6 @@ Bugs:
 * In mobile, footer is too far down on account page
 
 Features:
-* In entry history, hovering/clicking on counts opens a popup of details (joint, time, etc) of all the entries part of the count
 * In entry history, can edit or delete entries
 * Change login page to a popup
 * Persistent login
