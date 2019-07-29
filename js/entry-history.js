@@ -64,7 +64,6 @@ $(function () {
     };
 
     $('a[rel="ajax:modal"]').click(function (event) {
-        console.log($(this).find('input').val());
         $.ajax({
             url: $(this).attr('href'),
             data: {

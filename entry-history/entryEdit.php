@@ -81,7 +81,7 @@
         </div>
         <div>
             <a class="button" href="#" rel="modal:close">Cancel</a>
-            <input id="edit-entry" class="button" type="submit" value="save" disabled/>  
+            <input id="edit-entry" class="button" type="submit" value="save"/>  
         </div>
     </form>
 </div>

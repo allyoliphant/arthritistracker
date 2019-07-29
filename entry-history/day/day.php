@@ -23,6 +23,11 @@
         <script src="../../js/footer.js"></script>
         <script src="../../js/entry-history.js"></script>
         <script src="../../js/mobile.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- jQuery Modal -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" /> 
 	</header>		
 	<body>
 		<div class="side nav">
@@ -85,74 +90,76 @@
                             <tr>
                                 <td class="fixed-side" id="top-y-value">12am</td>
                             </tr>
-                            <tr>
-                                <td class="y-axis fixed-side">6pm</td>
-                                <td <?php $e->getClassAndCount_Day('time4', 'left', 'ankle') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time4', 'right', 'ankle') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time4', 'left', 'knee') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time4', 'right', 'knee') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time4', 'left', 'hip') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time4', 'right', 'hip') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time4', 'left', 'hand') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time4', 'right', 'hand') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time4', 'left', 'wrist') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time4', 'right', 'wrist') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time4', 'left', 'elbow') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time4', 'right', 'elbow') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time4', 'left', 'shoulder') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time4', 'right', 'shoulder') ?></td>
-                            </tr>
-                            <tr>
-                                <td class="y-axis fixed-side">12pm</td>
-                                <td <?php $e->getClassAndCount_Day('time3', 'left', 'ankle') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time3', 'right', 'ankle') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time3', 'left', 'knee') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time3', 'right', 'knee') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time3', 'left', 'hip') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time3', 'right', 'hip') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time3', 'left', 'hand') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time3', 'right', 'hand') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time3', 'left', 'wrist') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time3', 'right', 'wrist') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time3', 'left', 'elbow') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time3', 'right', 'elbow') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time3', 'left', 'shoulder') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time3', 'right', 'shoulder') ?></td>
-                            </tr>
-                            <tr>
-                                <td class="y-axis fixed-side">6am</td>
-                                <td <?php $e->getClassAndCount_Day('time2', 'left', 'ankle') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time2', 'right', 'ankle') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time2', 'left', 'knee') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time2', 'right', 'knee') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time2', 'left', 'hip') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time2', 'right', 'hip') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time2', 'left', 'hand') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time2', 'right', 'hand') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time2', 'left', 'wrist') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time2', 'right', 'wrist') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time2', 'left', 'elbow') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time2', 'right', 'elbow') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time2', 'left', 'shoulder') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time2', 'right', 'shoulder') ?></td>
-                            </tr>
-                            <tr>
-                                <td class="y-axis fixed-side">12am</td>
-                                <td <?php $e->getClassAndCount_Day('time1', 'left', 'ankle') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time1', 'right', 'ankle') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time1', 'left', 'knee') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time1', 'right', 'knee') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time1', 'left', 'hip') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time1', 'right', 'hip') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time1', 'left', 'hand') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time1', 'right', 'hand') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time1', 'left', 'wrist') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time1', 'right', 'wrist') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time1', 'left', 'elbow') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time1', 'right', 'elbow') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time1', 'left', 'shoulder') ?></td>
-                                <td <?php $e->getClassAndCount_Day('time1', 'right', 'shoulder') ?></td>                        
-                            </tr>
+                            <form id="entries">
+                                <tr>
+                                    <td class="y-axis fixed-side">6pm</td>
+                                    <td <?php $e->getClassAndCount_Day('time4', 'left', 'ankle') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time4', 'right', 'ankle') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time4', 'left', 'knee') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time4', 'right', 'knee') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time4', 'left', 'hip') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time4', 'right', 'hip') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time4', 'left', 'hand') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time4', 'right', 'hand') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time4', 'left', 'wrist') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time4', 'right', 'wrist') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time4', 'left', 'elbow') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time4', 'right', 'elbow') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time4', 'left', 'shoulder') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time4', 'right', 'shoulder') ?></td>
+                                </tr>
+                                <tr>
+                                    <td class="y-axis fixed-side">12pm</td>
+                                    <td <?php $e->getClassAndCount_Day('time3', 'left', 'ankle') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time3', 'right', 'ankle') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time3', 'left', 'knee') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time3', 'right', 'knee') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time3', 'left', 'hip') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time3', 'right', 'hip') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time3', 'left', 'hand') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time3', 'right', 'hand') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time3', 'left', 'wrist') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time3', 'right', 'wrist') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time3', 'left', 'elbow') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time3', 'right', 'elbow') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time3', 'left', 'shoulder') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time3', 'right', 'shoulder') ?></td>
+                                </tr>
+                                <tr>
+                                    <td class="y-axis fixed-side">6am</td>
+                                    <td <?php $e->getClassAndCount_Day('time2', 'left', 'ankle') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time2', 'right', 'ankle') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time2', 'left', 'knee') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time2', 'right', 'knee') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time2', 'left', 'hip') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time2', 'right', 'hip') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time2', 'left', 'hand') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time2', 'right', 'hand') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time2', 'left', 'wrist') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time2', 'right', 'wrist') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time2', 'left', 'elbow') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time2', 'right', 'elbow') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time2', 'left', 'shoulder') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time2', 'right', 'shoulder') ?></td>
+                                </tr>
+                                <tr>
+                                    <td class="y-axis fixed-side">12am</td>
+                                    <td <?php $e->getClassAndCount_Day('time1', 'left', 'ankle') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time1', 'right', 'ankle') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time1', 'left', 'knee') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time1', 'right', 'knee') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time1', 'left', 'hip') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time1', 'right', 'hip') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time1', 'left', 'hand') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time1', 'right', 'hand') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time1', 'left', 'wrist') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time1', 'right', 'wrist') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time1', 'left', 'elbow') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time1', 'right', 'elbow') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time1', 'left', 'shoulder') ?></td>
+                                    <td <?php $e->getClassAndCount_Day('time1', 'right', 'shoulder') ?></td>                        
+                                </tr>
+                            </form>
                             <tr>
                                 <td class="fixed-side">&nbsp;</td>
                                 <td class="x-axis">left</td>
@@ -241,11 +248,6 @@
 
 <?php
     unset($_SESSION['show']); 
-    unset($_SESSION['date']);
-    unset($_SESSION['time1']);
-    unset($_SESSION['time2']);
-    unset($_SESSION['time3']);
-    unset($_SESSION['time4']);
     unset($_SESSION['painStats']);
     unset($_SESSION['error']);
 ?>

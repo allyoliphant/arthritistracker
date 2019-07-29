@@ -4,7 +4,16 @@
     $get = isset($_GET['entry']) ? $_GET['entry'] : '';
     $entryValues = explode(' ', $get);
     $time = $entryValues[0];
-    $pattern = $entryValues[1];
+
+    if (sizeof($entryValues) < 3) {
+        $pattern = $entryValues[1];
+        $monthOrYear = true;
+    } else {
+        $side = $entryValues[1];
+        $joint = $entryValues[2];
+        $monthOrYear = false;
+    }
+    
 ?>
 
 
@@ -26,7 +35,10 @@
         <?php
             foreach ($_SESSION[$time] as $entry) {
                 $entryString = json_encode($entry);
-                if (preg_match($pattern, $entry['Date'])) {
+                
+                $correctEntry = $monthOrYear ? preg_match($pattern, $entry['Date']) : ($entry['Side'] == $side && $entry['Joint'] == $joint);
+
+                if ($correctEntry) {
                     echo "<tr>";
                     echo "<td>" . $entry['Side'] . "</td>";
                     echo "<td> " . $entry['Joint'] . "</td>";

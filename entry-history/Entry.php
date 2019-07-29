@@ -22,7 +22,10 @@
                 }
             } 
             echo ">";
+            echo "<a href='../entryModal.php' rel='ajax:modal' class='no-style-link' value='{$time} {$side} {$joint}'>";
+            echo "<input type='hidden' name='entry-value' value='{$time} {$side} {$joint}'/>";
             echo $count>0 ? $count : '';
+            echo "</a>";
         }
 
         public function getClassAndCount_Month($time, $date) {
