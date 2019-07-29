@@ -17,9 +17,40 @@
 ?>
 
 
-<div class="modal">
+<div class="modal entry-modal">
     <header>
-        <script src="../../js/entry-history.js"></script>     
+        <script>
+            $.modal.defaults = {
+                closeExisting: true,
+                clickClose: false,
+                showClose: true,
+                showSpinner: true
+            };
+
+            $('a[rel="ajax:modal"]').off('click').click(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: $(this).attr('href'),
+                    data: {
+                        'entry': $(this).find('input').val()
+                    },
+                    success: function (newHTML, textStatus, jqXHR) {
+                        $('.modal').each(modal => {
+                            $('.modal').get(modal).remove();
+                        });
+                        $(newHTML).appendTo('body').modal();
+                    }
+                });
+                return false;
+            });
+
+            $('a[rel="modal:close"]').off('click').click(function () {
+                $('.blocker').each(modal => {
+                    $('.blocker').get(modal).remove();
+                });
+                return false;
+            });
+        </script>     
 	</header>	
 
     <table>
