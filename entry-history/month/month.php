@@ -23,6 +23,7 @@
         <script src="../../js/footer.js"></script>
         <script src="../../js/entry-history.js"></script>
         <script src="../../js/mobile.js"></script>
+        <script src="../../js/logout.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <!-- jQuery Modal -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
@@ -37,7 +38,7 @@
             <a class="button current-page" href="../month/month.php">month</a>
             <a class="button" href="../day/day.php">day</a>
             <a class="button" id="account-nav-button" href="../../account/account.php">my account</a>
-            <a class="button" href="../../logout/logout.php">logout</a>
+            <a class="button" href="/logout/logout.php" rel="ajax:modal">logout</a>
 		</div>	
 		<div class="mobile nav">	
             <a href="../../home/home.php"><img id="mobile-logo" src="../../img/logo.png" width="40px" height="40px"/></a>	
@@ -55,7 +56,7 @@
 			<a class="mobile-btn current-page" href="../../entry-history/month/month.php">month</a>
 			<a class="mobile-btn" href="../../entry-history/day/day.php">day</a>
 			<a class="mobile-btn" id="account-nav-button" href="../../account/account.php">account</a>
-			<a class="mobile-btn" href="../../logout/logout.php">logout</a>
+            <a class="button" href="/logout/logout.php" rel="ajax:modal">logout</a>
 		</div>
 
 		<div class="main">

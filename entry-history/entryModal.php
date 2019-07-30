@@ -5,10 +5,10 @@
     $entryValues = explode(' ', $get);
     $time = $entryValues[0];
 
-    if (sizeof($entryValues) < 3) {
+    if (sizeof($entryValues) == 2) {
         $pattern = $entryValues[1];
         $monthOrYear = true;
-    } else {
+    } else if (sizeof($entryValues) == 3){
         $side = $entryValues[1];
         $joint = $entryValues[2];
         $monthOrYear = false;

@@ -18,6 +18,10 @@
         <script src="../js/jquery-3.4.0.min.js" type="text/javascript"></script>
         <script src="../js/footer.js"></script>
         <script src="../js/mobile.js"></script>
+        <script src="../js/logout.js"></script>
+		<!-- jQuery Modal -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 	</header>		
 	<body>
 		<div class="side nav">
@@ -28,7 +32,7 @@
             <a class="button" href="../entry-history/month/month.php">month</a>
             <a class="button" href="../entry-history/day/day.php">day</a>
             <a class="button" id="account-nav-button" href="../account/account.php">account</a>
-            <a class="button" href="../logout/logout.php">logout</a>
+            <a class="button" href="/logout/logout.php" rel="ajax:modal">logout</a>
 		</div>
 		<div class="mobile nav">	
 			<img id="mobile-logo" src="../img/logo.png" width="40px" height="40px"/>			
@@ -46,7 +50,7 @@
 			<a class="mobile-btn" href="../entry-history/month/month.php">month</a>
 			<a class="mobile-btn" href="../entry-history/day/day.php">day</a>
 			<a class="mobile-btn" id="account-nav-button" href="../account/account.php">account</a>
-			<a class="mobile-btn" href="../logout/logout.php">logout</a>
+            <a class="button" href="/logout/logout.php" rel="ajax:modal">logout</a>
 		</div>
 
 		<div class="main">

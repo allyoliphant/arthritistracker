@@ -4,7 +4,7 @@
     $entry = json_decode($_GET['entry'], true);
 ?>
 
-<div class="modal">
+<div class="modal entry-modal">
     <header>
         <script src="../../js/edit-entry.js"></script>
 	</header>

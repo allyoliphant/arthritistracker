@@ -5,7 +5,6 @@ Bugs:
 * In mobile, footer is too far down on account page
 
 Features:
-* Change login page to a popup
 * Persistent login
 * Add possible causes tracking (weather, diet, exercise, etc)
 * Make the website into an app
