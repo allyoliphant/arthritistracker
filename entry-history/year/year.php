@@ -17,7 +17,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 		<link rel="icon" href="favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="year.css">
+        <link rel="stylesheet" href="/index.min.css">
+        <link rel="stylesheet" href="/entry-history/entry-history.min.css">
+        <link rel="stylesheet" href="/entry-history/year/year.css">
         <script src="/js/min/jquery-3.4.0.min.js" type="text/javascript"></script>
         <script src="/js/min/jquery.validate.min.js"></script>
         <script src="/js/min/footer.min.js"></script>
@@ -61,9 +63,9 @@
 		</div>
 
 		<div class="main">
-            <h1>entry history by year</h1>
+            <h1 class="align-left">entry history by year</h1>
 
-            <form id="history-from" method="GET" action="year-handler.php">
+            <form id="history-from" method="GET" action="year-handler.php" class="align-left">
                 <label>year:</label>
                 <input type="number" min="1990" name="date" required
                 <?php
@@ -92,7 +94,7 @@
                             <tr>
                                 <td class="fixed-side" id="top-y-value">12am</td>
                             </tr>
-                            <form id="entries">
+                            <form id="entries" class="align-left">
                                 <tr>
                                     <td class="y-axis fixed-side">6pm</td>
                                     <?php $e->getClassAndCount_Year('time4', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
@@ -111,7 +113,7 @@
                                 </tr>
                             </form>
                             <tr>
-                                <form method="GET" action="../month/month-handler.php">
+                                <form method="GET" action="../month/month-handler.php" class="align-left">
                                     <td class="fixed-side">&nbsp;</td>
                                     <td class="x-axis">
                                         <button value="<?php echo isset($_SESSION['date']) ? $_SESSION['date'] : '0000'; ?>-01"

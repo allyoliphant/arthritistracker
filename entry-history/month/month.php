@@ -17,7 +17,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 		<link rel="icon" href="favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="month.css">
+        <link rel="stylesheet" href="/index.min.css">
+        <link rel="stylesheet" href="/entry-history/entry-history.min.css">
+        <link rel="stylesheet" href="/entry-history/month/month.css">
         <script src="/js/min/jquery-3.4.0.min.js" type="text/javascript"></script>
         <script src="/js/min/jquery.validate.min.js"></script>
         <script src="/js/min/footer.min.js"></script>
@@ -60,9 +62,9 @@
 		</div>
 
 		<div class="main">
-            <h1>entry history by month</h1>
+            <h1 class="align-left">entry history by month</h1>
 
-            <form id="history-from" method="GET" action="month-handler.php">
+            <form id="history-from" method="GET" action="month-handler.php" class="align-left">
                 <label>month:</label>
                 <input type="month" name="date" min="1990-01" required
                 <?php
@@ -90,7 +92,7 @@
                             <tr>
                                 <td class="fixed-side" id="top-y-value">12am</td>
                             </tr>                            
-                            <form id="entries">
+                            <form id="entries" class="align-left"> 
                                 <tr>
                                     <td class="y-axis fixed-side">6pm</td>
                                     <?php $e->getClassAndCount_Month('time4', isset($_SESSION['date']) ? $_SESSION['date'] : '0000'); ?>
@@ -109,7 +111,7 @@
                                 </tr>
                             </form>
                             <tr>
-                                <form method="GET" action="../day/day-handler.php">
+                                <form method="GET" action="../day/day-handler.php" class="align-left">
                                     <td class="fixed-side">&nbsp;</td>
                                     <?php $e->xAxis($_SESSION['date']); ?>
                                 </form>

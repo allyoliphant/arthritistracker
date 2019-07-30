@@ -11,6 +11,17 @@
   --body-font: 'Josefin Slab', serif;
 }
 
+a {
+  text-decoration: none;
+  text-transform: lowercase;
+}
+
+body {
+  background-color: var(--background-color);
+  text-transform: lowercase;
+  font-size: 20px;
+}
+
 h1 {
   text-transform: lowercase;
   font-family: var(--header-font);
@@ -22,20 +33,9 @@ h2 {
   font-size: 45px;
 }
 
-body {
-  background-color: var(--background-color);
-  text-transform: lowercase;
-  font-size: 20px;
-}
-
 img {
   margin: 15px auto 35px auto;
   display: block;
-}
-
-a {
-  text-decoration: none;
-  text-transform: lowercase;
 }
 
 input {
@@ -43,54 +43,140 @@ input {
   padding: 3px;
 }
 
-@media screen and (max-device-width: 780px) {
-	.side {
-		display: none;
-  }
+.align-left {
+  text-align: left;
+}
 
-  .mobile {
-    display: block !important;
+.button {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+  color: var(--first-color);
+  background-color: var(--second-color);
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  margin: 5px;
+  font-family: var(--body-font);
+  margin-top: 20px;
+}
+
+.button:hover {   
+  color: var(--second-color);
+  background-color: var(--first-color);
+  cursor: pointer; 
+}
+
+.button:disabled {   
+  color: var(--first-disabled-color);
+  background-color: var(--second-disabled-color);
+  cursor: not-allowed; 
+}
+
+.error {  
+  color: red !important;
+}
+
+.good {  
+  color: rgb(15, 195, 15) !important;
+}
+
+.invalid {
+  border: 2px solid red;
+}
+
+.main {
+  padding: 10px 30px 50px 190px;
+  width: auto;
+  height: auto;
+  text-align: center;
+  font-family: var(--body-font);
+}
+
+.message {
+  margin: 10px !important;
+  font-weight: bold !important;
+  font-size: 70% !important;
+}
+
+.user-name {
+  text-transform: none;
+}
+
+
+
+/**  mobile view styles  **/
+
+@media screen and (max-device-width: 780px) {
+  .footer .footer-content {
+    left: 20px !important;
   }
 
   .main {
     padding: 10px 30px 85px 30px !important;
     position: relative;
     top: 50px;
-  }  
+  } 
+
+  .mobile {
+    display: block !important;
+  }
   
   .modal {
     left: 0 !important;
     top: 70px !important;
   }
 
+	.side {
+		display: none;
+  } 
+
+}
+@media screen and (max-width: 780px) {
   .footer .footer-content {
     left: 20px !important;
+  }
+
+  .main {
+    padding: 10px 30px 85px 30px !important;
+    position: relative;
+    top: 50px;
+  } 
+
+  .mobile {
+    display: block !important;
+  } 
+  
+  .modal {
+    left: 0 !important;
+    top: 70px !important;
+  }
+
+	.side {
+		display: none;
   }
 }
 
-@media screen and (max-width: 780px) {
-	.side {
-		display: none;
-  }
 
-  .mobile {
-    display: block !important;
-  }
 
-  .main {
-    padding: 10px 30px 85px 30px !important;
-    position: relative;
-    top: 50px;
-  }  
-  
-  .modal {
-    left: 0 !important;
-    top: 70px !important;
-  }
+/**  navigation styles  **/
 
-  .footer .footer-content {
-    left: 20px !important;
-  }
+#account-nav-button {
+  margin-top: 25px !important;
+}
+
+.current-page {
+  color: var(--first-color) !important;
+  background-color: var(--third-color) !important;
+}
+
+#history-section-title {
+  text-align: center;
+  font-size: 25px;
+  font-family: var(--header-font);
+  color: var(--second-color);
+  margin-top: 25px;
+  margin-bottom: 10px;
 }
 
 .nav {
@@ -108,23 +194,25 @@ input {
   width: 160px;
 }
 
-.mobile {
-  display: none;
-  right: 0;
-  height: 50px;
-  width: 100%;
-
+.side .button {
+  text-decoration: none;
+  text-align: center;
+  font-size: 20px;
+  font-family: var(--header-font);
+  display: block;
+  background-color: var(--second-color); 
+  color: var(--first-color);
+  padding: 12px;
+  margin: 3px 0px;
+  border-radius: 0px;
 }
 
-#mobile-logo {
-  position: absolute;
-  top: 15px;
-  left: 23px;
-  text-align: right !important;
-  margin: 0 !important;
+.sidenav .button:hover {   
+  color: var(--first-color) !important;
+  background-color: var(--third-color) !important;
 }
 
-
+/**  mobile  **/
 
 #menuToggle {
   display: block;
@@ -184,15 +272,12 @@ input {
   transform: rotate(45deg) translate(-2px, -1px);
 }
 
-.mobile-menu {
-  background-color: var(--first-color);
-  width: auto !important;
-  position: fixed;
-  top: 67;
-  left: 0;
-  right: 0;
-  z-index: 2;
+.mobile {
   display: none;
+  right: 0;
+  height: 50px;
+  width: 100%;
+
 }
 
 .mobile-btn {
@@ -207,70 +292,28 @@ input {
   margin-bottom: 3px;
 }
 
-
-
-
-
-.side .button {
-  text-decoration: none;
-  text-align: center;
-  font-size: 20px;
-  font-family: var(--header-font);
-  display: block;
-  background-color: var(--second-color); 
-  color: var(--first-color);
-  padding: 12px;
-  margin: 3px 0px;
-  border-radius: 0px;
-}
-
-.main {
-  padding: 10px 30px 50px 190px;
-  width: auto;
-  height: auto;
-  text-align: center;
-  font-family: var(--body-font);
-}
-
-.button {
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 15px;
-  color: var(--first-color);
-  background-color: var(--second-color);
-  padding: 10px 15px;
-  border-radius: 5px;
-  border: none;
-  margin: 5px;
-  font-family: var(--body-font);
-  margin-top: 20px;
-}
-
-.button:hover {   
-  color: var(--second-color);
+.mobile-menu {
   background-color: var(--first-color);
-  cursor: pointer; 
+  width: auto !important;
+  position: fixed;
+  top: 67;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: none;
 }
 
-.sidenav .button:hover {   
-  color: var(--first-color) !important;
-  background-color: var(--third-color) !important;
+#mobile-logo {
+  position: absolute;
+  top: 15px;
+  left: 23px;
+  text-align: right !important;
+  margin: 0 !important;
 }
 
-.button:disabled {   
-  color: var(--first-disabled-color);
-  background-color: var(--second-disabled-color);
-  cursor: not-allowed; 
-}
 
-.current-page {
-  color: var(--first-color) !important;
-  background-color: var(--third-color) !important;
-}
 
-.name {
-  text-transform: none;
-}
+/**  footer  **/
 
 .footer .footer-content { 
   position: absolute;
@@ -281,35 +324,4 @@ input {
   padding: 5px;
   font-family: var(--header-font);
   font-size: 11px;
-}
-
-.message {
-  margin: 10px !important;
-  font-weight: bold !important;
-  font-size: 70% !important;
-}
-
-.error {  
-  color: red !important;
-}
-
-.good {  
-  color: rgb(15, 195, 15) !important;
-}
-
-.invalid {
-  border: 2px solid red;
-}
-
-#history-section-title {
-  text-align: center;
-  font-size: 25px;
-  font-family: var(--header-font);
-  color: var(--second-color);
-  margin-top: 25px;
-  margin-bottom: 10px;
-}
-
-#account-nav-button {
-  margin-top: 25px !important;
 }

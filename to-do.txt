@@ -18,5 +18,6 @@ Other:
 Notes:
 * Echoing arrays
     - echo '<pre>' . print_r(array, 1) . '</pre>';
-* JavaScript Minifier
-    - https://javascript-minifier.com/
+* Minifiers
+    - JavaScript: https://javascript-minifier.com/
+     CSS: https://cssminifier.com/

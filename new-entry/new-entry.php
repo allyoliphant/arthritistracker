@@ -16,7 +16,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 		<link rel="icon" href="favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="new-entry.css">
+        <link rel="stylesheet" href="/index.min.css">
+        <link rel="stylesheet" href="/new-entry/new-entry.css">
         <script src="/js/min/jquery-3.4.0.min.js" type="text/javascript"></script>
         <script src="/js/min/jquery.validate.min.js"></script>
         <script src="/js/min/footer.min.js"></script>
@@ -58,9 +59,9 @@
 		</div>	
 
 		<div class="main">
-            <h1>new entry</h1>            
+            <h1 class="align-left">new entry</h1>            
 
-            <form id="entry-form" method="POST" action="new-entry-handler.php">
+            <form id="entry-form" method="POST" action="new-entry-handler.php" class="align-left">
                 <div>
                     <div class="label">side:</div>
                     <label><input type="radio" name="side" value="left" required

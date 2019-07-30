@@ -6,7 +6,7 @@
 	<header>
 		<title>arthritis tracker</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="login.css">
+		<link rel="stylesheet" href="/index.min.css">
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 		<link rel="icon" href="favicon.ico" type="image/x-icon">
         <script src="/js/min/jquery-3.4.0.min.js" type="text/javascript"></script>

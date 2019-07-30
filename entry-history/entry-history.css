@@ -1,33 +1,9 @@
 :root {
-    --one-color: #a6ff9a;
-    /* 0 to 1.49 */
-    --two-color: #fdff89;
-    /* 1.5 to 2.49 */
-    --three-color: #ffc685;
-    /* 2.5 to 3.49 */
-    --four-color: #ffa4a4;
-    /* 3.5 to 4.49 */
-    --five-color: #f098ff;
-    /* 4.5 to 5 */
-}
-
-h1, form, div {
-    text-align: left;
-}
-
-table {
-    border-collapse: collapse !important;
-    padding-right: 10px;
-    font-size: 14px;
-}
-
-td {
-    text-align: center;
-    padding: 5px;
-}
-
-span {
-    margin-right: 10px;
+    --one-color: #a6ff9a;  /* 0 to 1.49 */
+    --two-color: #fdff89;  /* 1.5 to 2.49 */
+    --three-color: #ffc685;  /* 2.5 to 3.49 */
+    --four-color: #ffa4a4;  /* 3.5 to 4.49 */
+    --five-color: #f098ff;  /* 4.5 to 5 */    
 }
 
 button {
@@ -41,20 +17,58 @@ button {
     text-transform: lowercase;
 }
 
+div {
+    text-align: left;
+}
+
+span {
+    margin-right: 10px;
+}
+
+table {
+    border-collapse: collapse !important;
+    padding-right: 10px;
+    font-size: 14px;
+}
+
+td {
+    text-align: center;
+    padding: 5px;
+}
+
+.date {
+    margin-bottom: 10px;
+}
+
+.no-result {
+    text-align: left !important;
+    display: block !important;
+}
+
+.result {
+    display: none;
+}
+
+.show {
+    display: inline !important;
+}
+
+
+
+/**  general table styles  **/
+
 #top-y-value {
     padding-bottom: 0px;
 }
 
-.question-button {
-    text-align: left;
-    margin: 0px 0px -3px 0px !important;
-    display: inline;
-    line-height: 100%;
-    content: url(../img/question.png);
+.y-axis {
+    padding-bottom: 0px;
+    padding-top: 10px;
+    line-height: 20px;
 }
 
-.question-button:hover {
-    cursor: pointer;
+.x-axis {
+    border-top: 1px solid black !important;
 }
 
 .key {
@@ -72,54 +86,25 @@ button {
     margin-top: 5px;
 }
 
-.inner-table {
-    border-top-color: lightgrey;
-    border-top-style: solid;
-    border-top-width: 1px;
+.question-button {
+    text-align: left;
+    margin: 0px 0px -3px 0px !important;
+    display: inline;
+    line-height: 100%;
+    content: url(../img/question.png);
 }
 
-.y-axis {
-    padding-bottom: 0px;
-    padding-top: 10px;
-    line-height: 20px;
+.question-button:hover {
+    cursor: pointer;
 }
 
-.x-axis {
-    border-top: 1px solid black !important;
-}
 
-.x-axis-summary {
-    line-height: 22px;
-}
 
-.empty-space {
-    min-width: 10px !important;
-}
+/**  entry history table styles  **/
 
-.date {
-    margin-bottom: 10px;
-}
-
-.result {
-    display: none;
-}
-
-.no-result {
-    text-align: left !important;
-    display: block !important;
-}
-
-.show {
-    display: inline !important;
-}
-
-.summary {
-    margin-top: 20px;
-    padding-bottom: 10px;
-}
-
-.summary-section {
-    margin: 25px 0;
+.entry-table {
+    max-width: 100%;
+    overflow: auto;
 }
 
 .painOne {
@@ -151,10 +136,9 @@ button {
     line-height: 100%;
 }
 
-.entry-table {
-    max-width: 100%;
-    overflow: auto;
-}
+
+
+/** stuff for scrolling tables / cloning axis styles  **/
 
 .table-scroll {
     position: relative;
@@ -174,11 +158,8 @@ button {
 }
 
 .clone th, .clone td {
-    visibility: hidden
-}
-
-.clone td, .clone th {
-    border-color: transparent
+    visibility: hidden;
+    border-color: transparent;
 }
 
 .clone tbody th {
@@ -194,8 +175,37 @@ button {
     border-right: 1px solid black;
 }
 
-.clone thead, .clone tfoot {
-    background: transparent;
+
+
+/**  summary section  **/
+
+.summary {
+    margin-top: 20px;
+    padding-bottom: 10px;
+}
+
+.summary-section {
+    margin: 25px 0;
+}
+
+/**  summary table styles  **/
+
+.summary-table {
+    max-width: 575px;
+}
+
+#summary-table-scroll {
+    margin: 3px 0 8px 0;
+    height: auto;
+}
+
+#summary-table-scroll .y-axis {
+    max-width: 20px !important;
+}
+
+.summary-key-color {
+    line-height: 20px;
+    width: 40px;
 }
 
 .left-bar {
@@ -210,21 +220,15 @@ button {
     min-width: 1px;
 }
 
-#summary-table-scroll {
-    margin: 3px 0 8px 0;
-    height: auto;
-}
+/** entries by joint summary table styles  **/
 
 .summary-joint {
     padding: 0;
 }
 
-#summary-table-scroll .y-axis {
-    max-width: 20px !important;
-}
-
-.summary-table {
-    max-width: 575px;
+.joint-percent-bar {
+    width: 565px;
+    height: 30px;
 }
 
 .rotate {
@@ -235,40 +239,29 @@ button {
 
 .rotate span {
     display: inline-block;
-    -moz-transform: rotate(-90.0deg);
-    /* FF3.5+ */
-    -o-transform: rotate(-90.0deg);
-    /* Opera 10.5 */
-    -webkit-transform: rotate(-90.0deg);
-    /* Saf3.1+, Chrome */
-    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083);
-    /* IE6,IE7 */
-    -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)";
-    /* IE8 */
+    -moz-transform: rotate(-90.0deg);  /* FF3.5+ */    
+    -o-transform: rotate(-90.0deg);  /* Opera 10.5 */    
+    -webkit-transform: rotate(-90.0deg);  /* Saf3.1+, Chrome */    
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083);  /* IE6,IE7 */    
+    -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)";  /* IE8 */    
     margin-left: -10px;
     margin-right: -10px;
     text-align: center !important;
 }
 
-.summary-key-color {
-    line-height: 20px;
-    min-width: 40px;
-}
 
-.joint-percent-bar {
-    width: 565px;
-    height: 30px;
-}
 
-.no-style-link {
-    color: inherit;
-}
+/** modal styles  **/
 
 .entry-modal {
     padding: 15px !important;
     width: auto !important;
     margin: 15px 0 !important;
     font-size: 14px !important;
+}
+
+.no-style-link {
+    color: inherit;
 }
 
 .label {

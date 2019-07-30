@@ -14,7 +14,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 		<link rel="icon" href="favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="account.css">
+        <link rel="stylesheet" href="/index.min.css">
         <script src="/js/min/jquery-3.4.0.min.js" type="text/javascript"></script>
         <script src="/js/min/account.min.js"></script>
         <script src="/js/min/footer.min.js"></script>
@@ -55,9 +55,9 @@
 		</div>	
 
 		<div class="main">
-            <h1>My Account</h1>
+            <h1 class="align-left">My Account</h1>
 
-			<form method="POST" action="account-handler.php">
+			<form method="POST" action="account-handler.php" class="align-left">
 				<div>
 				    <label>Name</label>
 					<input id="name" type="text" name="name" placeholder="name..."

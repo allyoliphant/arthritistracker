@@ -17,13 +17,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 		<link rel="icon" href="favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="day.css">
+        <link rel="stylesheet" href="/index.min.css">
+        <link rel="stylesheet" href="/entry-history/entry-history.min.css">
+        <link rel="stylesheet" href="/entry-history/day/day.css">
         <script src="/js/min/jquery-3.4.0.min.js" type="text/javascript"></script>
         <script src="/js/min/jquery.validate.min.js"></script>
         <script src="/js/min/footer.min.js"></script>
         <script src="/js/min/entry-history.min.js"></script>
         <script src="/js/min/mobile.min.js"></script>
-        <script src="./js/min/logout.min.js"></script>
+        <script src="/js/min/logout.min.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- jQuery Modal -->
@@ -61,9 +63,9 @@
 		</div>
 
 		<div class="main">
-            <h1>entry history by day</h1>
+            <h1 class="align-left">entry history by day</h1>
 
-            <form id="history-from" method="GET" action="day-handler.php">                
+            <form id="history-from" method="GET" action="day-handler.php" class="align-left">                
                 <label>day:</label>
                 <input type="date" name="date" min="1990-01-01" required
                 <?php
@@ -91,7 +93,7 @@
                             <tr>
                                 <td class="fixed-side" id="top-y-value">12am</td>
                             </tr>
-                            <form id="entries">
+                            <form id="entries" class="align-left">
                                 <tr>
                                     <td class="y-axis fixed-side">6pm</td>
                                     <td <?php $e->getClassAndCount_Day('time4', 'left', 'ankle') ?></td>

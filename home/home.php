@@ -14,7 +14,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 		<link rel="icon" href="favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="home.css">
+        <link rel="stylesheet" href="/index.min.css">
         <script src="/js/min/jquery-3.4.0.min.js" type="text/javascript"></script>
         <script src="/js/min/footer.min.js"></script>
         <script src="/js/min/mobile.min.js"></script>
@@ -55,7 +55,7 @@
 
 		<div class="main">
 			<h1>welcome</h1>
-			<?php echo "<h2 class='name'>" . $_SESSION['user-name'] . "</h2>"; ?>
+			<?php echo "<h2 class='user-name'>" . $_SESSION['user-name'] . "</h2>"; ?>
             
             <a class="button" href="../new-entry/new-entry.php">new entry</a>
 		</div>
