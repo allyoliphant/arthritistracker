@@ -27,7 +27,7 @@
                 showSpinner: true
             };
 
-            $('a[rel="ajax:modal"]').off('click').click(function (e) {
+            $('a.no-style-link[rel="ajax:modal"]').off('click').click(function (e) {
                 e.preventDefault();
                 $.ajax({
                     url: $(this).attr('href'),

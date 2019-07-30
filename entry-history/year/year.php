@@ -57,7 +57,7 @@
 			<a class="mobile-btn" href="../../entry-history/month/month.php">month</a>
 			<a class="mobile-btn" href="../../entry-history/day/day.php">day</a>
 			<a class="mobile-btn" id="account-nav-button" href="../../account/account.php">account</a>
-            <a class="button" href="/logout/logout.php" rel="ajax:modal">logout</a>
+            <a class="mobile-btn" href="/logout/logout.php" rel="ajax:modal">logout</a>
 		</div>
 
 		<div class="main">
