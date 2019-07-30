@@ -1,5 +1,7 @@
 $(function() {
 
+    // javascript to force footer to the bottom of the page
+
     var pageHeight = $(window).height()*0.95;
 
     $(".footer").css("top", pageHeight);

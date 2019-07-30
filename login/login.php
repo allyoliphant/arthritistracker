@@ -9,9 +9,9 @@
 		<link rel="stylesheet" href="login.css">
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 		<link rel="icon" href="favicon.ico" type="image/x-icon">
-        <script src="../js/jquery-3.4.0.min.js" type="text/javascript"></script>
-        <script src="../js/login.js"></script>
-        <script src="../js/footer.js"></script>
+        <script src="/js/min/jquery-3.4.0.min.js" type="text/javascript"></script>
+        <script src="/js/min/login.min.js"></script>
+        <script src="/js/min/footer.min.js"></script>
 	</header>		
 	<body>
 		<div class="side nav">

@@ -4,7 +4,7 @@ $(function() {
     var path = './' + url[url.length-2] + '/' + url[url.length-2] + '-handler.php';
     $("#url-input").val(path);
 
-    $('#entry-form').validate({  // initialize the plugin
+    $('#entry-form').validate({  // initialize the validation plugin
         rules: {
             side: {
                 required: true
@@ -25,4 +25,3 @@ $(function() {
     });
 
   });
-

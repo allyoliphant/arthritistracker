@@ -18,12 +18,12 @@
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 		<link rel="icon" href="favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="day.css">
-        <script src="../../js/jquery-3.4.0.min.js" type="text/javascript"></script>
-        <script src="../../js/jquery.validate.min.js"></script>
-        <script src="../../js/footer.js"></script>
-        <script src="../../js/entry-history.js"></script>
-        <script src="../../js/mobile.js"></script>
-        <script src="../../js/logout.js"></script>
+        <script src="/js/min/jquery-3.4.0.min.js" type="text/javascript"></script>
+        <script src="/js/min/jquery.validate.min.js"></script>
+        <script src="/js/min/footer.min.js"></script>
+        <script src="/js/min/entry-history.min.js"></script>
+        <script src="/js/min/mobile.min.js"></script>
+        <script src="./js/min/logout.min.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- jQuery Modal -->

@@ -6,7 +6,7 @@
 
 <div class="modal entry-modal">
     <header>
-        <script src="../../js/edit-entry.js"></script>
+        <script src="/js/min/edit-entry.min.js"></script>
 	</header>
 
     <form id="entry-form" method="POST" action="../edit-entry-handler.php">

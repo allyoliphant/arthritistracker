@@ -9,9 +9,9 @@
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 		<link rel="icon" href="favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="register.css">
-        <script src="../js/jquery-3.4.0.min.js" type="text/javascript"></script>
-        <script src="../js/register.js"></script>
-        <script src="../js/footer.js"></script>
+        <script src="/js/min/jquery-3.4.0.min.js" type="text/javascript"></script>
+        <script src="/js/min/account.min.js"></script>
+        <script src="/js/min/footer.min.js"></script>
     </header>		
     <body>
         <div class="side nav">
@@ -71,7 +71,7 @@
                     unset($_SESSION['messages']);
                 ?>
                 <div>
-                    <input id="register" class="button" type="submit" value="register" disabled/>
+                    <input id="save" class="button" type="submit" value="register" disabled/>
                 </div>
             </form>
 
