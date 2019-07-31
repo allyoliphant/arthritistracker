@@ -1,6 +1,5 @@
 List of current and future work I want to complete
 
-
 Bugs:
 * In mobile, footer is too far down on account page
 
@@ -20,4 +19,4 @@ Notes:
     - echo '<pre>' . print_r(array, 1) . '</pre>';
 * Minifiers
     - JavaScript: https://javascript-minifier.com/
-     CSS: https://cssminifier.com/
+    - CSS: https://cssminifier.com/
