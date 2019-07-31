@@ -22,7 +22,7 @@
                 }
             } 
             echo ">";
-            echo "<a href='../entryModal.php' rel='ajax:modal' class='no-style-link' value='{$time} {$side} {$joint}'>";
+            echo "<a href='/entry-history/entryModal.php' rel='ajax:modal' class='no-style-link' value='{$time} {$side} {$joint}'>";
             echo "<input type='hidden' name='entry-value' value='{$time} {$side} {$joint}'/>";
             echo $count>0 ? $count : '';
             echo "</a>";
@@ -59,7 +59,7 @@
                     }
                 } 
                 echo ">";
-                echo "<a href='../entryModal.php' rel='ajax:modal' class='no-style-link' value='{$time} {$pattern}'>";
+                echo "<a href='/entry-history/entryModal.php' rel='ajax:modal' class='no-style-link' value='{$time} {$pattern}'>";
                 echo "<input type='hidden' name='entry-value' value='{$time} {$pattern}'/>";
                 echo $count>0 ? $count : '';
                 echo "</a></td>";
@@ -96,7 +96,7 @@
                     }
                 } 
                 echo ">";
-                echo "<a href='../entryModal.php' rel='ajax:modal' class='no-style-link' value='{$time} {$pattern}'>";
+                echo "<a href='/entry-history/entryModal.php' rel='ajax:modal' class='no-style-link' value='{$time} {$pattern}'>";
                 echo "<input type='hidden' name='entry-value' value='{$time} {$pattern}'/>";
                 echo $count>0 ? $count : '';
                 echo "</a></td>";

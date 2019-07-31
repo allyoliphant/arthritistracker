@@ -1,7 +1,7 @@
 $(function() { 
 
     var url = document.URL.split('/');
-    var path = './' + url[url.length-2] + '/' + url[url.length-2] + '-handler.php';
+    var path = '/entry-history/' + url[url.length-2] + '/' + url[url.length-2] + '-handler.php';
     $("#url-input").val(path);
 
     $('#entry-form').validate({  // initialize the validation plugin

@@ -26,12 +26,12 @@ $(function () {
         if ($("#display-key").css('display') == "none") {
             // display key
             $("#display-key").css('display', 'inline-block');
-            question.css('content', 'url(../../img/question-hover.png)');
+            question.css('content', 'url(/img/question-hover.png)');
         }
         else {
             // hide key
             $("#display-key").css('display', 'none');
-            question.css('content', 'url(../../img/question.png)');
+            question.css('content', 'url(/img/question.png)');
         }
 
         // adjust footer
@@ -47,12 +47,12 @@ $(function () {
         if ($("#summary-display-key").css('display') == "none") {
             // display key
             $("#summary-display-key").css('display', 'inline-block');
-            question.css('content', 'url(../../img/question-hover.png)');
+            question.css('content', 'url(/img/question-hover.png)');
         }
         else {
             // hide key
             $("#summary-display-key").css('display', 'none');
-            question.css('content', 'url(../../img/question.png)');
+            question.css('content', 'url(/img/question.png)');
         }
 
         // adjust footer

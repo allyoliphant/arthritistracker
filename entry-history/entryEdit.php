@@ -9,7 +9,7 @@
         <script src="/js/min/edit-entry.min.js"></script>
 	</header>
 
-    <form id="entry-form" method="POST" action="../edit-entry-handler.php" class="align-left">
+    <form id="entry-form" method="POST" action="/entry-history/edit-entry-handler.php" class="align-left">
         <input type="hidden" name="entry-id" value="<?php echo $entry['ID']; ?>" />
         <input id="url-input" type="hidden" name="path" />
         <div>

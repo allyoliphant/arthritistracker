@@ -91,7 +91,7 @@ td {
     margin: 0px 0px -3px 0px !important;
     display: inline;
     line-height: 100%;
-    content: url(../img/question.png);
+    content: url(/img/question.png);
 }
 
 .question-button:hover {

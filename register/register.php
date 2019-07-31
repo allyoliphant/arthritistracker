@@ -15,10 +15,10 @@
     </header>		
     <body>
         <div class="side nav">
-            <a href="../index.html"><img src="../img/logo.png" width="70px" height="70px"/></a>
+            <a href="/index.html"><img src="/img/logo.png" width="70px" height="70px"/></a>
         </div>
         <div class="mobile nav">	
-            <a href="../index.html"><img id="mobile-logo" src="../img/logo.png" width="40px" height="40px"/></a>
+            <a href="/index.html"><img id="mobile-logo" src="/img/logo.png" width="40px" height="40px"/></a>
         </div>	
         
 		<div class="main">
