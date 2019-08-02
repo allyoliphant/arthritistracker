@@ -96,12 +96,6 @@
             return $conn->query("SELECT * FROM Entry WHERE UserID = $userID AND Date = '$date'", PDO::FETCH_ASSOC);
         }
 
-        public function getEntryByDay_TimeRange($date, $userID, $start, $end) {
-            $conn = $this->getConnection();
-            return $conn->query("SELECT * FROM Entry WHERE UserID = $userID AND Date = '$date' 
-                AND Time >= '$start' AND Time <= '$end'", PDO::FETCH_ASSOC);
-        }
-
         public function getPainStatsByDay($date, $userID) {
             $conn = $this->getConnection();
             return $conn->query("SELECT avg(PainLevel) as Avg, min(PainLevel) as Min, max(PainLevel) as Max 
@@ -130,12 +124,6 @@
             return $conn->query("SELECT * FROM Entry WHERE UserID = $userID AND Date LIKE '$date-%'", PDO::FETCH_ASSOC);
         }
 
-        public function getEntryByMonthOrYear_TimeRange($date, $userID, $start, $end) {
-            $conn = $this->getConnection();
-            return $conn->query("SELECT * FROM Entry WHERE UserID = $userID AND Date LIKE '$date-%' 
-                AND Time >= '$start' AND Time <= '$end'", PDO::FETCH_ASSOC);
-        }
-
         public function getPainStatsByMonthOrYear($date, $userID) {
             $conn = $this->getConnection();
             return $conn->query("SELECT avg(PainLevel) as Avg, min(PainLevel) as Min, max(PainLevel) as Max 
@@ -154,21 +142,6 @@
                 SUM(case when Joint = 'shoulder' then 1 else 0 end) as Shoulder
                 FROM Entry WHERE UserID = $userID AND Date LIKE '$date-%'
                 GROUP BY Side;", PDO::FETCH_ASSOC);
-        }
-
-        public function getMaxJointCountByMonthOrYear($date, $userID) {
-            $conn = $this->getConnection();
-            return $conn->query("SELECT MAX(GREATEST(Ankle, Knee, Hip, Hand, Wrist, Elbow, Shoulder)) as MaxEntries
-                FROM (SELECT Side, 
-                    SUM(case when Joint = 'ankle' then 1 else 0 end) as Ankle, 
-                    SUM(case when Joint = 'knee' then 1 else 0 end) as Knee, 
-                    SUM(case when Joint = 'hip' then 1 else 0 end) as Hip, 
-                    SUM(case when Joint = 'hand' then 1 else 0 end) as Hand, 
-                    SUM(case when Joint = 'wrist' then 1 else 0 end) as Wrist, 
-                    SUM(case when Joint = 'elbow' then 1 else 0 end) as Elbow, 
-                    SUM(case when Joint = 'shoulder' then 1 else 0 end) as Shoulder
-                    FROM Entry WHERE UserID = $userID AND Date LIKE '$date-%'
-                    GROUP BY Side) as EntryCounts;", PDO::FETCH_ASSOC);
         }
 
     }
