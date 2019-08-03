@@ -1,5 +1,4 @@
 <?php
-
     session_start();
 
     require_once '../Dao.php';
@@ -8,6 +7,7 @@
     $inputsValid = true;
     $path = $_POST['path'];
 
+    // check that all inputs have a value
     if ($_POST['side'] == "") {
         $inputsValid = false;
     }
@@ -47,5 +47,4 @@
     unset($_SESSION['time4']);
     header("Location: ". $path); 
     exit(); 
-
 ?>

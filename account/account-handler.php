@@ -1,6 +1,4 @@
 <?php
-
-
     session_start();
 
     require_once '../Dao.php';
@@ -79,11 +77,9 @@
         header("Location: ./account.php"); 
         exit(); 
     }      
-
         
     $_SESSION['input'] = $_POST; 
     $_SESSION['messages'] = $messages;  
     header("Location: ./account.php");  
     exit();
-
 ?>
