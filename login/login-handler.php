@@ -1,5 +1,4 @@
 <?php
-
     session_start();
 
     include_once '../Dao.php';
@@ -22,24 +21,26 @@
                 $_SESSION['username'] = $userinfo['Username'];
                 $_SESSION['user-email'] = $userinfo['Email'];  
                 $_SESSION['user-id'] = $userinfo['ID'];
-                header("Location: ../home/home.php");  
+                header("Location: ../home/home.php");  // login
                 exit(); 
             }
             else {
+                // no users or multiple users returned
                 $_SESSION['message'] = "Username and password don't match";
             }
         }
         else {
+            // username or password are not valid
             $_SESSION['message'] = "Username and password don't match";
         }        
     }
     else {
+        // missing inputs
         $_SESSION['message'] = "Please enter username and password";
     }    
 
     $_SESSION['username'] = $_POST['username'];
     header("Location: ./login.php");  
     exit();
-
 ?>
 

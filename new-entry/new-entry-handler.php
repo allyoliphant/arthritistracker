@@ -1,5 +1,4 @@
 <?php
-
     session_start();
 
     require_once '../Dao.php';
@@ -9,6 +8,7 @@
     $inputsValid = true;
 
 
+    // check that all inputs have a value
     if ($_POST['side'] == "") {
         $messages[] = "Choose a side"; 
         $inputsValid = false;
@@ -30,7 +30,7 @@
         $inputsValid = false;
     }
 
-    // input is valid
+    // inputs are valid
     if ($inputsValid) {
         // create user
         $dao->createEntry($_POST['side'], $_POST['joint'], $_POST['pain'], $_POST['date'], $_POST['time'], $_SESSION['user-id']);
@@ -41,11 +41,9 @@
         header("Location: ./new-entry.php"); 
         exit(); 
     }
-
         
     $_SESSION['input'] = $_POST; 
     $_SESSION['messages'] = $messages;     
     header("Location: ./new-entry.php"); 
     exit();
-
 ?>

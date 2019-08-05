@@ -58,7 +58,7 @@
     }
 
 
-    // input is valid
+    // inputs are valid
     if ($inputsValid) {
         // update user
         $dao->updateUser($_POST['name'], $_POST['username'], $_POST['password'], $_POST['email'], $_SESSION['user-id']);

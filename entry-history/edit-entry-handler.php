@@ -24,7 +24,7 @@
         $inputsValid = false;
     }
 
-    // input is valid
+    // inputs are valid
     if ($inputsValid) {
         // edit entry
         $dao->editEntry($_POST['side'], $_POST['joint'], $_POST['pain'], $_POST['date'], $_POST['time'], $_POST['entry-id']);      

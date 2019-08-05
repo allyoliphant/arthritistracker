@@ -1,5 +1,4 @@
 <?php
-
     session_start();
 
     require_once '../Dao.php';
@@ -10,6 +9,7 @@
     $messages = array();
     $inputsValid = true;
 
+    // check that all inputs are valid    
     // check that all inputs are filled
     if ($_POST['name']=="" || $_POST['username']=="" || $_POST['password']=="" || $_POST['confirm-password']=="" || $_POST['email']=="") { 
         $messages[] = "Please fill out all fields"; 
@@ -52,12 +52,12 @@
         $inputsValid = false; 
     }
 
-
-    // input is valid
+    // inputs are valid
     if ($inputsValid) {
         // create user
         $dao->createUser($_POST['name'], $_POST['username'], $_POST['password'], $_POST['email']);
                     
+        // get the created user
         $user = $dao->getUser($_POST['username'], $_POST['password']);
         $userinfo = $user->fetch(PDO::FETCH_ASSOC);
 
@@ -69,12 +69,10 @@
         $_SESSION['user-id'] = $userinfo['ID'];    
         header("Location: ../home/home.php"); 
         exit(); 
-    }      
-
+    }   
         
     $_SESSION['input'] = $_POST; 
     $_SESSION['messages'] = $messages;     
     header("Location: ./register.php"); 
     exit();
-
 ?>
