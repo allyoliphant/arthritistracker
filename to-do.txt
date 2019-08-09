@@ -19,3 +19,5 @@ Notes:
 * Minifiers
     - JavaScript: https://javascript-minifier.com/
     - CSS: https://cssminifier.com/
+* To preview README in editor
+    - Ctrl+K V
