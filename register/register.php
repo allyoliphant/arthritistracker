@@ -1,17 +1,14 @@
 <?php
     session_start();
+    
+    include_once '../Page.php';
+    $page = new Page();
 ?>
 
 <html>
     <header>
-        <title>arthritis tracker</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-		<link rel="icon" href="favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="/index.min.css">
-        <script src="/js/min/jquery-3.4.0.min.js" type="text/javascript"></script>
+		<?php $page->header(false); ?>
         <script src="/js/min/account.min.js"></script>
-        <script src="/js/min/footer.min.js"></script>
     </header>		
     <body>
         <div class="side nav">
@@ -76,11 +73,6 @@
             </form>
 
         </div>
-        <div class="footer">
-            <div class="footer-content">
-                <hr/>
-                arthritis tracker | ally oliphant | 2019
-            </div>				
-		</div>
+		<?php $page->footer(); ?>
 	</body>
 </html>
