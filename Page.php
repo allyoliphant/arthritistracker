@@ -1,5 +1,7 @@
 <?php   
 
+    // Class to put repeated content in one place and echo where needed
+    // to help maintaince consistency throughout the code
     class Page {
         
         // echo repeated header content
@@ -87,5 +89,4 @@
             ";
         }
     }
-
 ?>

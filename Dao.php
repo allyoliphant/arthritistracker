@@ -1,6 +1,9 @@
 <?php    
+
+    // Class with all the methods that directly get, add or update content in the database
     class Dao {
         
+        // connent to the database
         private function getConnection () {
             $host = getenv('DB_HOST');
             $name = getenv('DB_NAME');
@@ -15,6 +18,7 @@
 
         /**  Methods for user  **/
 
+        // return user with the provided username and password
         public function getUser($username, $password) {
             $conn = $this->getConnection();
             $pass = md5($password . getenv('SALT'));
@@ -35,27 +39,35 @@
             return $result == null || $result->rowCount() <= 0;
         }
 
+        // add a new user
         public function createUser($name, $username, $password, $email) {
             $conn = $this->getConnection();
             $pass = md5($password . getenv('SALT'));
             $saveQuery = "INSERT INTO User (Name, Username, Password, Email) VALUES (:name, :username, :password, :email)";
+
+            // sanitize inputs
             $q = $conn->prepare($saveQuery);
             $q->bindParam(":name", $name);
             $q->bindParam(":username", $username);
             $q->bindParam(":password", $pass);
             $q->bindParam(":email", $email);
+
             $q->execute();
         }
 
+        // update a user
         public function updateUser($name, $username, $password, $email, $id) {
             $conn = $this->getConnection();
             $pass = md5($password . getenv('SALT'));
             $saveQuery = "UPDATE User SET Name = :name, Username = :username, Password = :password, Email = :email WHERE ID = $id";
+            
+            // sanitize inputs
             $q = $conn->prepare($saveQuery);
             $q->bindParam(":name", $name);
             $q->bindParam(":username", $username);
             $q->bindParam(":password", $pass);
             $q->bindParam(":email", $email);
+
             $q->execute();
         }
 
@@ -63,21 +75,28 @@
 
         /** Methods for entries **/
 
+        // add a new entry
         public function createEntry($side, $joint, $pain, $date, $time, $id) {
             $conn = $this->getConnection();
             $saveQuery = "INSERT INTO Entry (UserID, Side, Joint, PainLevel, Time, Date) 
                 VALUES ($id, :side, :joint, $pain, TIME(STR_TO_DATE(:time, '%H:%i %p')), :date)";
+                
+            // sanitize inputs
             $q = $conn->prepare($saveQuery);
             $q->bindParam(":side", $side);
             $q->bindParam(":joint", $joint);
             $q->bindParam(":time", $time);
             $q->bindParam(":date", $date);
+
             $q->execute();
         }
 
+        // edit a entry
         public function editEntry($side, $joint, $pain, $date, $time, $entryid) {
             $conn = $this->getConnection();
             $saveQuery = "UPDATE Entry SET Side = :side, Joint = :joint, PainLevel = :pain, Date = :date, Time = :time WHERE ID = :entryid";
+            
+            // sanitize inputs
             $q = $conn->prepare($saveQuery);
             $q->bindParam(":side", $side);
             $q->bindParam(":joint", $joint);
@@ -85,23 +104,27 @@
             $q->bindParam(":date", $date);
             $q->bindParam(":time", $time);
             $q->bindParam(":entryid", $entryid);
+            
             $q->execute();
         }
 
 
         /** By day **/
 
+        // get all entries for a user on a provided day
         public function getEntryByDay($date, $userID) {
             $conn = $this->getConnection();
             return $conn->query("SELECT * FROM Entry WHERE UserID = $userID AND Date = '$date'", PDO::FETCH_ASSOC);
         }
 
+        // get pain stats for a user on a provided day
         public function getPainStatsByDay($date, $userID) {
             $conn = $this->getConnection();
             return $conn->query("SELECT avg(PainLevel) as Avg, min(PainLevel) as Min, max(PainLevel) as Max 
                 FROM Entry WHERE UserID = $userID AND Date = '$date'", PDO::FETCH_ASSOC);
         }
 
+        // get the number of entries per joint for a user on a provided day
         public function getJointCountByDay($date, $userID) {
             $conn = $this->getConnection();
             return $conn->query("SELECT Side, 
@@ -119,17 +142,20 @@
 
         /** By month or year **/
 
+        // get all entries for a user on a provided month or year
         public function getEntryByMonthOrYear($date, $userID) {
             $conn = $this->getConnection();
             return $conn->query("SELECT * FROM Entry WHERE UserID = $userID AND Date LIKE '$date-%'", PDO::FETCH_ASSOC);
         }
 
+        // get pain stats for a user on a provided month or year
         public function getPainStatsByMonthOrYear($date, $userID) {
             $conn = $this->getConnection();
             return $conn->query("SELECT avg(PainLevel) as Avg, min(PainLevel) as Min, max(PainLevel) as Max 
                 FROM Entry WHERE UserID = $userID AND Date LIKE '$date-%'", PDO::FETCH_ASSOC);
         }
 
+        // get the number of entries per joint for a user on a provided month or year
         public function getJointCountByMonthOrYear($date, $userID) {
             $conn = $this->getConnection();
             return $conn->query("SELECT Side, 
@@ -143,6 +169,5 @@
                 FROM Entry WHERE UserID = $userID AND Date LIKE '$date-%'
                 GROUP BY Side;", PDO::FETCH_ASSOC);
         }
-
     }
 ?>

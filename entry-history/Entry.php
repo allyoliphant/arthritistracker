@@ -1,91 +1,143 @@
 <?php
 
+    // Class to help build repeated portions of entry history
     class Entry {
 
-        public function getClassAndCount_Day($time, $side, $joint) {
+        // echo the pain level class and count for each joint for history by day
+        public function getClassAndCount_Day($time) {
             if (isset($_SESSION[$time])) {
-                $count = 0;
-                $painSum = 0;
-                foreach($_SESSION[$time] as $entry) {
-                    if ($entry['Side'] == $side && $entry['Joint'] == $joint) {
-                        $count = $count + 1;
-                        $painSum = $painSum + $entry['PainLevel'];
+                $joints = array('ankle', 'knee', 'hip', 'hand', 'wrist', 'elbow', 'shoulder');
+                $sides = array('left', 'right');
+
+                // repeat for each joint and side
+                foreach($joints as $joint) {
+                    foreach($sides as $side) {
+                        echo "<td ";
+                        $count = 0;
+                        $painSum = 0;
+
+                        // get the number of entries for the joint and time
+                        foreach($_SESSION[$time] as $entry) {
+                            if ($entry['Side'] == $side && $entry['Joint'] == $joint) {
+                                $count = $count + 1;
+                                $painSum = $painSum + $entry['PainLevel'];
+                            }
+                        }
+
+                        // echo the pain level class based on the average pain level
+                        // the pain level class determines the background color of the point
+                        if ($count > 0) {
+                            $painAvg = $painSum / $count;
+                            if ($painAvg < 1.5) { echo "class='painOne'"; }
+                            else if ($painAvg < 2.5) { echo "class='painTwo'"; }
+                            else if ($painAvg < 3.5) { echo "class='painThree'"; }
+                            else if ($painAvg < 4.5) { echo "class='painFour'"; }
+                            else { echo "class='painFive'"; }
+                        }
+
+                        echo ">";
+                        
+                        // if there are entries for the point
+                        if ($count > 0) {
+                            // stuff to view and edit the entries that make up the point on the graph 
+                            echo "<a href='/entry-history/entryModal.php' rel='ajax:modal' class='no-style-link' value='{$time} {$side} {$joint}'>";
+                            echo "<input type='hidden' name='entry-value' value='{$time} {$side} {$joint}'/>";
+                            
+                            // displaying the count or nothing if there is no entries for the point
+                            echo $count;  
+    
+                            echo "</a>";
+                        }
+
+                        echo "</td>";
                     }
                 }
+            }            
+        }
+
+        // echo the pain level class and count for each joint for history by month
+        public function getClassAndCount_Month($time) {
+            $month = isset($_SESSION['date']) ? $_SESSION['date'] : '0000';
+            
+            //get the number of days in the month
+            $days = range(1, date("t", strtotime($month . "-23")));
+            
+            // for each day in the month, echo the pain level class and count if there are entries
+            foreach($days as $day) {
+                if ($day < 10) {
+                    $pattern = "/.0" . $day . "$/";
+                } else {
+                    $pattern = "/." . $day . "$/";
+                } 
+                echo "<td ";                
+                if (isset($_SESSION[$time])) {
+                    $count = 0;
+                    $painSum = 0;
+
+                    // get the number of entries for the day and time
+                    foreach($_SESSION[$time] as $entry) {                            
+                        if (preg_match($pattern, $entry['Date'])) {
+                            $count = $count + 1;
+                            $painSum = $painSum + $entry['PainLevel'];
+                        }
+                    }
+
+                    // echo the pain level class based on the average pain level
+                    // the pain level class determines the background color of the point
+                    if ($count > 0) {
+                        $painAvg = $painSum / $count;
+                        if ($painAvg < 1.5) { echo "class='painOne'"; }
+                        else if ($painAvg < 2.5) { echo "class='painTwo'"; }
+                        else if ($painAvg < 3.5) { echo "class='painThree'"; }
+                        else if ($painAvg < 4.5) { echo "class='painFour'"; }
+                        else { echo "class='painFive'"; }
+                    }
+                } 
+                echo ">";
+
+                // if there are entries for the point
                 if ($count > 0) {
-                    $painAvg = $painSum / $count;
-                    if ($painAvg < 1.5) { echo "class='painOne'"; }
-                    else if ($painAvg < 2.5) { echo "class='painTwo'"; }
-                    else if ($painAvg < 3.5) { echo "class='painThree'"; }
-                    else if ($painAvg < 4.5) { echo "class='painFour'"; }
-                    else { echo "class='painFive'"; }
-                }
-            } 
-            echo ">";
-            echo "<a href='/entry-history/entryModal.php' rel='ajax:modal' class='no-style-link' value='{$time} {$side} {$joint}'>";
-            echo "<input type='hidden' name='entry-value' value='{$time} {$side} {$joint}'/>";
-            echo $count>0 ? $count : '';
-            echo "</a>";
-        }
+                    // stuff to view and edit the entries that make up the point on the graph 
+                    echo "<a href='/entry-history/entryModal.php' rel='ajax:modal' class='no-style-link' value='{$time} {$pattern}'>";
+                    echo "<input type='hidden' name='entry-value' value='{$time} {$pattern}'/>";
+                    
+                    // displaying the count or nothing if there is no entries for the point
+                    echo $count;  
 
-        public function getClassAndCount_Month($time, $date) {
-            $days = date("t", strtotime($date . "-23"));
-            $arrayOfDays = array_fill(0, $days, 1);
-            $i = 1;
-            foreach($arrayOfDays as $day) {
-                if ($i < 10) {
-                    $pattern = "/.0" . $i . "$/";
-                } else {
-                    $pattern = "/." . $i . "$/";
-                } 
-                echo "<td ";                
-                if (isset($_SESSION[$time])) {
-                    $count = 0;
-                    $painSum = 0;
-                    foreach($_SESSION[$time] as $entry) { 
-                           
-                        if (preg_match($pattern, $entry['Date'])) {
-                            $count = $count + 1;
-                            $painSum = $painSum + $entry['PainLevel'];
-                        }
-                    }
-                    if ($count > 0) {
-                        $painAvg = $painSum / $count;
-                        if ($painAvg < 1.5) { echo "class='painOne'"; }
-                        else if ($painAvg < 2.5) { echo "class='painTwo'"; }
-                        else if ($painAvg < 3.5) { echo "class='painThree'"; }
-                        else if ($painAvg < 4.5) { echo "class='painFour'"; }
-                        else { echo "class='painFive'"; }
-                    }
-                } 
-                echo ">";
-                echo "<a href='/entry-history/entryModal.php' rel='ajax:modal' class='no-style-link' value='{$time} {$pattern}'>";
-                echo "<input type='hidden' name='entry-value' value='{$time} {$pattern}'/>";
-                echo $count>0 ? $count : '';
-                echo "</a></td>";
-                $i = $i + 1;
+                    echo "</a>";
+                }
+
+                echo "</td>";
             }
         }
 
-        public function getClassAndCount_Year($time, $date) {
-            $months = array_fill(0, 12, 1);
-            $i = 1;
+        // echo the pain level class and count for each joint for history by year
+        public function getClassAndCount_Year($time) {
+            $months = range(1, 12);
+            $year = isset($_SESSION['date']) ? $_SESSION['date'] : '0000';
+
+            // for each month, echo the pain level class and count if there are entries
             foreach($months as $month) {
-                if ($i < 10) {
-                    $pattern = "/" . $date . "-0" . $i . "-[0-3][0-9]$/";
+                if ($month < 10) {
+                    $pattern = "/" . $year . "-0" . $month . "-[0-3][0-9]$/";
                 } else {
-                    $pattern = "/" . $date . "-" . $i . "-[0-3][0-9]$/";
+                    $pattern = "/" . $year . "-" . $month . "-[0-3][0-9]$/";
                 }
                 echo "<td ";                
                 if (isset($_SESSION[$time])) {
                     $count = 0;
                     $painSum = 0;
+
+                    // get the number of entries for the month and time
                     foreach($_SESSION[$time] as $entry) { 
                         if (preg_match($pattern, $entry['Date'])) {
                             $count = $count + 1;
                             $painSum = $painSum + $entry['PainLevel'];
                         }
                     }
+
+                    // echo the pain level class based on the average pain level
+                    // the pain level class determines the background color of the point
                     if ($count > 0) {
                         $painAvg = $painSum / $count;
                         if ($painAvg < 1.5) { echo "class='painOne'"; }
@@ -96,26 +148,42 @@
                     }
                 } 
                 echo ">";
-                echo "<a href='/entry-history/entryModal.php' rel='ajax:modal' class='no-style-link' value='{$time} {$pattern}'>";
-                echo "<input type='hidden' name='entry-value' value='{$time} {$pattern}'/>";
-                echo $count>0 ? $count : '';
-                echo "</a></td>";
-                $i = $i + 1;
+
+                // if there are entries for the point
+                if ($count > 0) {
+                    // stuff to view and edit the entries that make up the point on the graph 
+                    echo "<a href='/entry-history/entryModal.php' rel='ajax:modal' class='no-style-link' value='{$time} {$pattern}'>";
+                    echo "<input type='hidden' name='entry-value' value='{$time} {$pattern}'/>";
+                    
+                    // displaying the count or nothing if there is no entries for the point
+                    echo $count;  
+
+                    echo "</a>";
+                }
+
+                echo "</td>";
             }
         }
 
-        public function xAxis($d) {
-            $days = date("t", strtotime($d . "-23"));
-            $arrayOfDays = array_fill(0, $days, 1);
-            $i = 1;
-            foreach($arrayOfDays as $day) {
+        // create the x-axis for the graph in entry history by month
+        public function xAxis_Month() {
+            //get the number of days in the month
+            $days = range(1, date("t", strtotime($_SESSION['date'] . "-23")));
+
+            // for each day in the month
+            foreach($days as $day) {
                 echo "<td class='x-axis'>";
-                echo "<button value='" . $_SESSION['date'] . "-" . ($i < 10 ? "0".$i : $i) . "'";
-                echo "type='submit' name='date'>{$i}</button></td>";
-                $i = $i + 1;
+
+                // link to entry history by day
+                echo "<button value='" . $_SESSION['date'] . "-" . ($day < 10 ? "0".$day : $day) . "'";
+                echo "type='submit' name='date'>{$day}</button>";
+                
+                echo "</td>";
             }
         }
 
+        // count the number of entries for a side
+        // for the number of entries by side graph
         public function countBySide($side) {
             $count = 0;
             if (isset($_SESSION[$side])) {
@@ -126,7 +194,9 @@
             return $count;
         }
 
-        public function percentBySide() {
+        // get the percentage of entries for the left side
+        // for the number of entries by side graph
+        public function leftPercent() {
             $leftCount = $this->countBySide('left');
             $rightCount = $this->countBySide('right');
             
@@ -136,12 +206,33 @@
             return $percent;
         }
 
-        public function summaryJointTable($max, $entries, $side) {
-            $w = round(550 / $max);
-            for ($i = 0; $i < $entries; $i++) {
-                echo "<td class='{$side}-bar' style='width: {$w}px !important'></td>";
+        // echo number of entries and build bar for each side of provided joint
+        public function summaryJointTable($joint) {
+            // width of each count in the bars (so the bar part of the graph is always 550px or less)
+            $w = round(550 / (isset($_SESSION['maxJointCount']) ? $_SESSION['maxJointCount'] : 1));            
+
+            //left side
+            $leftCount = isset($_SESSION['left']) ? $_SESSION['left'][$joint] : 0;
+            echo "<td class='y-axis fixed-side'>";
+            echo $leftCount;
+            echo "</td>";
+            // build the bar graph for the left side
+            for ($i = 0; $i < $leftCount; $i++) {
+                echo "<td class='left-bar' style='width: {$w}px !important'></td>";
+            }
+
+            echo "</tr>";
+            echo "<tr>";
+
+            //right side
+            $rightCount = isset($_SESSION['right']) ? $_SESSION['right'][$joint] : 0;
+            echo "<td class='y-axis fixed-side'>";
+            echo $rightCount;
+            echo "</td>";
+            // build the bar graph for the right side
+            for ($i = 0; $i < $rightCount; $i++) {
+                echo "<td class='right-bar' style='width: {$w}px !important'></td>";
             }
         }
-
     }
 ?>

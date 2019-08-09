@@ -1,4 +1,6 @@
 <?php
+
+    // Class to help with verfiying that inputs match certain requirements
     class Regx {
 
         // return true if name fits the pattern, false otherwise
