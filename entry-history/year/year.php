@@ -44,11 +44,9 @@
                 if (isset($_SESSION['message'])) {
                     echo "<div class='error message'>" . $_SESSION['message'] . "</div>";
                 }
-                unset($_SESSION['message']);
             ?>
 
-            <div class="result <?php echo isset($_SESSION['show']) ? $_SESSION['show'] : ''; 
-                unset($_SESSION['show']);?>">
+            <div class="result <?php echo isset($_SESSION['show']) ? $_SESSION['show'] : ''; ?>">
                 <div class="date"><b>History for the year <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date'; ?></b></div>
                 
                 <div id="main-table-scroll" class="table-scroll">
@@ -152,8 +150,7 @@
                         <div><b>pain level</b></div>
                         <span>average: <?php echo isset($_SESSION['painStats']['Avg']) ? $_SESSION['painStats']['Avg'] : 0; ?></span>
                         <span>min: <?php echo isset($_SESSION['painStats']['Min']) ? $_SESSION['painStats']['Min'] : 0; ?></span>
-                        <span>max: <?php echo isset($_SESSION['painStats']['Max']) ? $_SESSION['painStats']['Max'] : 0; 
-                            unset($_SESSION['painStats']);?></span>
+                        <span>max: <?php echo isset($_SESSION['painStats']['Max']) ? $_SESSION['painStats']['Max'] : 0; ?></span>
                     </div>  
                     <div class="summary-section">
                         <div><b>number of entries per side</b></div>
@@ -239,8 +236,7 @@
 
             </div>   
             
-            <div class="result <?php echo isset($_SESSION['error']) ? $_SESSION['error'] : '';
-                unset($_SESSION['error']); ?>">
+            <div class="result <?php echo isset($_SESSION['error']) ? $_SESSION['error'] : ''; ?>">
                 No entries found for the year: <?php echo isset($_SESSION['date']) ? $_SESSION['date'] : 'no date';?>
             </div>  
 
@@ -251,7 +247,8 @@
 </html>
 
 <?php
-    unset($_SESSION['show']); 
+    unset($_SESSION['message']);
+    unset($_SESSION['show']);
     unset($_SESSION['painStats']);
     unset($_SESSION['error']);
     unset($_SESSION['left']);

@@ -44,7 +44,6 @@
                 if (isset($_SESSION['message'])) {
                     echo "<div class='error message'>" . $_SESSION['message'] . "</div>";
                 }
-                unset($_SESSION['message']);
             ?>
 
             <div class="result <?php echo isset($_SESSION['show']) ? $_SESSION['show'] : ''; ?>">
@@ -149,6 +148,7 @@
 </html>
 
 <?php
+    unset($_SESSION['message']);
     unset($_SESSION['show']); 
     unset($_SESSION['painStats']);
     unset($_SESSION['error']);

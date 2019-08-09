@@ -10,7 +10,6 @@ Features:
     - allow for use without the need for internet
 
 Other:
-* Clean up code
 * Create a README
 
 

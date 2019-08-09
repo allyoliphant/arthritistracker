@@ -44,7 +44,6 @@
                 if (isset($_SESSION['message'])) {
                     echo "<div class='error message'>" . $_SESSION['message'] . "</div>";
                 }
-                unset($_SESSION['message']);
             ?>
 
             <div class="result <?php echo isset($_SESSION['show']) ? $_SESSION['show'] : ''; ?>">
@@ -104,8 +103,7 @@
                         <div><b>pain level</b></div>
                         <span>average: <?php echo isset($_SESSION['painStats']['Avg']) ? $_SESSION['painStats']['Avg'] : 0; ?></span>
                         <span>min: <?php echo isset($_SESSION['painStats']['Min']) ? $_SESSION['painStats']['Min'] : 0; ?></span>
-                        <span>max: <?php echo isset($_SESSION['painStats']['Max']) ? $_SESSION['painStats']['Max'] : 0; 
-                            unset($_SESSION['painStats']);?></span>
+                        <span>max: <?php echo isset($_SESSION['painStats']['Max']) ? $_SESSION['painStats']['Max'] : 0; ?></span>
                     </div> 
                     <div class="summary-section">
                         <div><b>number of entries per side</b></div>
@@ -201,6 +199,7 @@
 </html>
 
 <?php
+    unset($_SESSION['message']);
     unset($_SESSION['show']); 
     unset($_SESSION['painStats']);
     unset($_SESSION['error']);
