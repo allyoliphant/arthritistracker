@@ -35,27 +35,29 @@ If you are not going to be pushing your code to a public repo, you can replace t
         return $conn;
     }
 
-If your repo will be public, I suggest setting your database's values outside of the code like I have.
+If your repo will be public, I suggest setting your database's values outside of the code like I have to keep the values secret.
 
-If you are using wamp, you can update the *httpd-vhosts.conf* file to set enviroment variables. (I would do this after you have setup your local server in *Setting up wamp*.)
+If you are using wamp (or I believe any Apache server), you can update the *httpd-vhosts.conf* file to set enviroment variables. I would do this after you have setup your local server in [Setting up wamp](#setting-up-wamp). You will need to restart wamp (left click wamp icon, click *Restart All Services*) for the changes to be available.
 
     <VirtualHost *:<port for your local server>>
         ServerName <name of your local server, normally localhost>
-    SetEnv DB_HOST "<database host/connection name>"
-    SetEnv DB_NAME "<name of the schema for the database>"
-    SetEnv DB_USERNAME "<username to get into the database>"
-    SetEnv DB_PASSWORD "<password to get into the database>"
+        SetEnv DB_HOST "<database host/connection name>"
+        SetEnv DB_NAME "<name of the schema for the database>"
+        SetEnv DB_USERNAME "<username to get into the database>"
+        SetEnv DB_PASSWORD "<password to get into the database>"
         DocumentRoot "<direct path to your code>"
         <Directory  "<direct path to your code>">
             Options +Indexes +Includes +FollowSymLinks +MultiViews
             AllowOverride All
             Require local
         </Directory>
-    </VirtualHost>
+    </VirtualHost> 
 
-To get to the *httpd-vhosts.conf* file, left click on the wamp icon, click/hover over *Apache*, and click on *httpd-vhosts.conf*.
+You can then use the php method `getenv()` (<https://www.php.net/manual/en/function.getenv.php>) to get the variables you have setup and use them in your code to connect to your database.
 
-    ![click on Apache](/img/readme/click-on-apache.png)
-    ![click on file](/img/readme/click-on-file.png)
+To get to the *httpd-vhosts.conf* file, left click on the wamp icon, click/hover over *Apache*, and click on *httpd-vhosts.conf* to open the file.
 
-You can also get to the *httpd-vhosts.conf* file by going into your wamp directory and searching for the file.
+![click on Apache](/img/readme/click-on-apache.png)
+![click on file](/img/readme/click-on-file.png)
+
+You can also get to the *httpd-vhosts.conf* file by going into your wamp directory and searching for the file. There may be multiple *httpd-vhosts.conf* files, so be careful about which one you change.
