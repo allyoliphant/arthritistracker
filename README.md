@@ -12,9 +12,28 @@ Class files have the first letter capitalized (*Dao.php*, *Page.php*, etc.). All
 
 ## Setting up locally
 
-### Setting up wamp
+Clone or download the repository.
 
-I use wamp (<http://www.wampserver.com/en/>) for my local server. It can be a little tricky to setup so if you already have something that can run php locally, I would keep using that.
+![clone or download](/img/readme/clone-or-download.PNG)
+
+### Setting up a local server
+
+I use wamp for my local server. Download at <http://www.wampserver.com/en/>. I would save it outside of your repo.
+
+Once downloaded, launch the application and you will notice the wamp icon appear in the taskbar.
+
+![wamp icon](/img/readme/wamp-icon.PNG)
+
+Left click the wamp icon, click/hover over **Your VirtualHost**, and click on **VirtualHost Managment**.
+
+![virtualhost](/img/readme/virtualhost.PNG)
+![virtualhost management link](/img/readme/virtualhost-management-link.png)
+
+This will open up a virtualhost management tool in your browser. Fill in the two required fields and click the **Start the creation of the VirtualHost** button to create the virtualhost.
+
+![virtualhost management](/img/readme/virtualhost-management.PNG)
+
+Now when wamp is running, you can go to `yourvirtualhostname:portnumber` to see your code locally. For example, if I go to `tracker:8080`, the home page of the website loads.
 
 ### Setting up the database
 
@@ -35,9 +54,9 @@ If you are not going to be pushing your code to a public repo, you can replace t
         return $conn;
     }
 
-If your repo will be public, I suggest setting your database's values outside of the code like I have to keep the values secret.
+If your repo will be public, I suggest setting your database's values outside of the code to keep the values secret.
 
-If you are using wamp (or I believe any Apache server), you can update the *httpd-vhosts.conf* file to set enviroment variables. I would do this after you have setup your local server in [Setting up wamp](#setting-up-wamp). You will need to restart wamp (left click wamp icon, click *Restart All Services*) for the changes to be available.
+If you are using wamp (or I believe any Apache server), you can update the *httpd-vhosts.conf* file to set enviroment variables. I would do this after you setup your local server in [Setting up a local server](#setting-up-a-local-server). You will need to restart wamp (left click wamp icon, click **Restart All Services**) for the changes to be available.
 
     <VirtualHost *:<port for your local server>>
         ServerName <name of your local server, normally localhost>
@@ -55,7 +74,7 @@ If you are using wamp (or I believe any Apache server), you can update the *http
 
 You can then use the php method `getenv()` (<https://www.php.net/manual/en/function.getenv.php>) to get the variables you have setup and use them in your code to connect to your database.
 
-To get to the *httpd-vhosts.conf* file, left click on the wamp icon, click/hover over *Apache*, and click on *httpd-vhosts.conf* to open the file.
+To get to the *httpd-vhosts.conf* file, left click on the wamp icon, click/hover over **Apache**, and click on **httpd-vhosts.conf** to open the file.
 
 ![click on Apache](/img/readme/click-on-apache.png)
 ![click on file](/img/readme/click-on-file.png)
