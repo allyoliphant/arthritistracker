@@ -40,7 +40,7 @@
                         // if there are entries for the point
                         if ($count > 0) {
                             // stuff to view and edit the entries that make up the point on the graph 
-                            echo "<a href='/entry-history/entryModal.php' rel='ajax:modal' class='no-style-link' value='{$time} {$side} {$joint}'>";
+                            echo "<a href='/entry-history/entry-modal.php' rel='ajax:modal' class='no-style-link' value='{$time} {$side} {$joint}'>";
                             echo "<input type='hidden' name='entry-value' value='{$time} {$side} {$joint}'/>";
                             
                             // displaying the count or nothing if there is no entries for the point
@@ -98,7 +98,7 @@
                 // if there are entries for the point
                 if ($count > 0) {
                     // stuff to view and edit the entries that make up the point on the graph 
-                    echo "<a href='/entry-history/entryModal.php' rel='ajax:modal' class='no-style-link' value='{$time} {$pattern}'>";
+                    echo "<a href='/entry-history/entry-modal.php' rel='ajax:modal' class='no-style-link' value='{$time} {$pattern}'>";
                     echo "<input type='hidden' name='entry-value' value='{$time} {$pattern}'/>";
                     
                     // displaying the count or nothing if there is no entries for the point
@@ -152,7 +152,7 @@
                 // if there are entries for the point
                 if ($count > 0) {
                     // stuff to view and edit the entries that make up the point on the graph 
-                    echo "<a href='/entry-history/entryModal.php' rel='ajax:modal' class='no-style-link' value='{$time} {$pattern}'>";
+                    echo "<a href='/entry-history/entry-modal.php' rel='ajax:modal' class='no-style-link' value='{$time} {$pattern}'>";
                     echo "<input type='hidden' name='entry-value' value='{$time} {$pattern}'/>";
                     
                     // displaying the count or nothing if there is no entries for the point
