@@ -39,7 +39,7 @@ Now when wamp is running, you can go to `yourvirtualhostname:portnumber` in a br
 
 You can also run your website locally by left clicking the wamp icon, click/hover over **Your VirtualHost**, and click on the server you want to run. For example, I would click **tracker:8080** to run my website.
 
-![virtualhost](/img/readme/virtualhost.PNG)
+![virtualhost](/img/readme/virtualhost.png)
 ![servername](/img/readme/servername.png)
 
 ### Setting up the database
