@@ -5,12 +5,12 @@ Bugs:
 
 Features:
 * Persistent login
+* Progress spinner when pages are loading
+* In entry history, make the get entry history call use ajax
 * Add possible causes tracking (weather, diet, exercise, etc)
 * Make the website into an app
     - allow for use without the need for internet
 
-Other:
-* Create a README
 
 
 Notes:
