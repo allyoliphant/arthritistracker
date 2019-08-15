@@ -1,5 +1,4 @@
 <?php
-    session_cache_limiter('public');
     session_start();
 
     $get = isset($_GET['entry']) ? $_GET['entry'] : '';

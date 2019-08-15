@@ -1,5 +1,4 @@
 <?php
-    session_cache_limiter('public');
     session_start();
 
     $entry = json_decode($_GET['entry'], true);

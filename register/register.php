@@ -1,5 +1,4 @@
-<?
-    session_cache_limiter('public');
+<?php
     session_start();
     
     include_once '../Page.php';

@@ -1,5 +1,4 @@
 <?php
-    session_cache_limiter('public');
     session_start();
 
     if ($_GET["answer"] == "yes")
