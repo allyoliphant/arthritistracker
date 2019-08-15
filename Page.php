@@ -6,26 +6,37 @@
         
         // echo repeated header content
         public function header($loggedIn) {
+            $cacheMonth = ((60 * 60) * 24 * 30);  // 30 days
+            $cacheWeek = ((60 * 60) * 24 * 7);  // 1 week
+
             echo "
             <title>arthritis tracker</title>
-            <meta name='viewport' content='width=device-width, initial-scale=1'>
+            <meta name='viewport' content='width=device-width, initial-scale=1'>";
+
+            header("Cache-Control: max-age={$cacheMonth}");
+            header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + $cacheMonth));
+
+            echo "
+            <script src='https://code.jquery.com/jquery-3.4.1.min.js' type='text/javascript'></script>
             <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'>
             <link rel='icon' href='favicon.ico' type='image/x-icon'>
             <link rel='stylesheet' href='/index.min.css'>
-            <script src='/js/min/jquery-3.4.0.min.js' type='text/javascript'></script>
-            <script src='/js/min/footer.min.js'></script>      
-            ";
+            <script src='/js/min/footer.min.js'></script>
+            ";         
 
             // stuff to echo if the user is logged in
             if ($loggedIn) {
-                echo "            
+                echo "
                 <script src='/js/min/mobile.min.js'></script>
                 <script src='/js/min/logout.min.js'></script>
                 <!-- jQuery Modal -->
                 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js'></script>
-                <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css'/> 
+                <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css'/>
                 ";
-            }            
+            }         
+
+            header("Cache-Control: max-age={$cacheWeek}"); 
+            header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + $cacheWeek));   
         }
         
         // echo repeated navigation content

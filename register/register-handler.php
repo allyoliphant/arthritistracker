@@ -1,4 +1,5 @@
 <?php
+    session_cache_limiter('public');
     session_start();
 
     require_once '../Dao.php';
