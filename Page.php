@@ -12,7 +12,7 @@
             <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'>
             <link rel='icon' href='favicon.ico' type='image/x-icon'>
             <link rel='stylesheet' href='/index.min.css'>
-            <script src='/js/min/jquery-3.4.0.min.js' type='text/javascript'></script>
+            <script src='https://code.jquery.com/jquery-3.4.1.min.js' type='text/javascript'></script>
             <script src='/js/min/footer.min.js'></script>      
             ";
 
